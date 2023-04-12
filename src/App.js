@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { GanttTable } from './components/GanttTable';
+import { ProjectsTable } from './components/ProjectsTable';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         </a>
       </header>
       <body>
-        <GanttTable />
+        <ProjectsTable />
       </body>
     </div>
   );
