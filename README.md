@@ -1,7 +1,7 @@
 # LetSem2023_JS
 
 ## Harmonogram
-1. 30.3-16.4.2023 Tvorba tabulky projektu a ganttova diagramu, tabulka etap projektu, tabulka financí
+1. 30.3-16.4.2023 Tvorba tabulky projektu, tabulka etap projektu, tabulka financí
 2. 17.4.2023 **Projektový den** (demonstrace jakékoliv vlastní komponenty a její funkčnosti)
 3. 18.4-16.5.2023 Input definice názvu projektu, Select definice typu projektu, Button přidání etapy projektu, Button smazání etapy projektu, ...
 4.	17.5.2023 **Projektový den** (verze alfa, demonstrace jakékoliv stavové komponenty ze zadání, demonstrace / katalog bezestavových komponent),
