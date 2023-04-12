@@ -10,9 +10,7 @@
 7. 20.6.-21.6.2023 Finální ladění
 8.	22.6.2023 **Dokončení projektu**
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run npm install
 
 ## Available Scripts
 
