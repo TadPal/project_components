@@ -10,9 +10,11 @@
 7. 20.6.-21.6.2023 Finální ladění
 8.	22.6.2023 **Dokončení projektu**
 
-## Run npm install
+
 
 ## Available Scripts
+
+### `Run npm install`
 
 In the project directory, you can run:
 
