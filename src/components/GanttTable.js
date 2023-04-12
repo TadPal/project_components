@@ -1,3 +1,4 @@
+//Temporary template
 export const GanttTable = (props) => {
     return (
         <table className="table table-hover table-striped">
