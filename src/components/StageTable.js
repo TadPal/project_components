@@ -1,7 +1,6 @@
 export const StageTable = (props) => {
     return (
         <table className="table table-hover table-light">
-       
             <thead>
                 <tr>
                     <th>Název etapy</th>
@@ -11,7 +10,7 @@ export const StageTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.stages.map((stage) => <StageRow index={stage.id} 
+                {props.stages.map((stage) => <StageRow key={stage.id} 
                                                         name={stage.name} 
                                                         start={stage.start} 
                                                         end={stage.end} 
@@ -21,7 +20,7 @@ export const StageTable = (props) => {
     )
 } 
 
-export const StageRow = ({index, name, start, end, finance}) =>{
+export const StageRow = ({name, start, end, finance}) =>{
     return (
     <tr>
         <td>{name}</td>
@@ -31,9 +30,3 @@ export const StageRow = ({index, name, start, end, finance}) =>{
     </tr>
     )
 }
-
-export const stages = [
-    {id:1, name:"Brainstorming", start:"1.3.2023", end:"6.6.2023",finance:"500"},
-    {id:2, name:"Tvorba projektu", start:"1.3.2023", end:"6.6.2023",finance:"50"},
-    {id:3, name:"Prezentace", start:"1.3.2023", end:"6.6.2023",finance:"0"}
-]

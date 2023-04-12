@@ -1,31 +1,29 @@
 //Temporary template
-export const ProjectsTable = (props) => {
+export const ProjectsTable = ({projectsList}) => {
     return (
-        <table className="table table-hover table-striped">
-            <thead>
+        <table className="table table-hover table-light">
+            <thead className="table-success">
                 <tr>
                     <th>Project Name</th>
                     <th>Description</th>
-                    <th>Owner</th>
+                    <th>Project manager</th>
                     <th>Budget</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        XYZ
-                    </td>
-                    <td>
-                        abcdefghijklmnopqrstuvwxy
-                    </td>
-                    <td>
-                        No one
-                    </td>
-                    <td>
-                        0 CZK
-                    </td>
-                </tr>
+                {projectsList.map((project) => <ProjectRow key={project.id} project={project}/>)}
             </tbody>
         </table>
     )
 } 
+
+const ProjectRow = ({project}) => {
+    return (
+    <tr>
+        <td>{project.name}</td>
+        <td>{project.description}</td>
+        <td>{project.manager}</td>
+        <td>{project.budget}</td>
+    </tr>
+    )
+}
