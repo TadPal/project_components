@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { ProjectsTable } from './components/ProjectsTable';
+import { StageTable, stages }  from './components/StageTable'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       </header>
       <body>
         <ProjectsTable />
+        <StageTable stages={stages}/>
       </body>
     </div>
   );
