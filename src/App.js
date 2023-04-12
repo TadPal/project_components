@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { GanttTable } from './components/GanttTable';
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <body>
+        <GanttTable />
+      </body>
     </div>
   );
 }
