@@ -1,4 +1,5 @@
-//Temporary template
+import { GetDate } from "../utilities/GetDate";
+
 export const ProjectsTable = ({projectsList}) => {
     return (
         <table className="table table-hover table-light">
@@ -8,6 +9,7 @@ export const ProjectsTable = ({projectsList}) => {
                     <th>Description</th>
                     <th>Project manager</th>
                     <th>Budget</th>
+                    <th>Submission date</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,12 +20,29 @@ export const ProjectsTable = ({projectsList}) => {
 } 
 
 const ProjectRow = ({project}) => {
-    return (
-    <tr>
-        <td>{project.name}</td>
-        <td>{project.description}</td>
-        <td>{project.manager}</td>
-        <td>{project.budget}</td>
-    </tr>
-    )
+    const subDate = new Date(project.submissionDate)
+
+    if (GetDate() > subDate) {
+        console.log(subDate)
+        return (
+            <tr style={{color: "#D3D3D3"}}>
+                <td>{project.name}</td>
+                <td>{project.description}</td>
+                <td>{project.manager}</td>
+                <td>{project.budget}</td>
+                <td>{project.submissionDate}</td>
+            </tr>
+            )
+    }
+    else {
+        return (
+            <tr>
+                <td>{project.name}</td>
+                <td>{project.description}</td>
+                <td>{project.manager}</td>
+                <td>{project.budget}</td>
+                <td>{project.submissionDate}</td>
+            </tr>
+        )
+    }
 }
