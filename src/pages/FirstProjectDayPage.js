@@ -18,7 +18,7 @@ export const FirstProjectDayPage = (props) => {
 const projects = [
     {id:1, name:"SUAS", description:"Building a drone for a multinational competition", manager: "No one knows", budget:"?", submissionDate: "3/20/2023"},
     {id:2, name:"Project 2", description:"Something about the project", manager: "John Snow", budget:"A lot", submissionDate: "4/20/2023"},
-    {id:3, name:"Project 3", description:"Something more about the project", manager: "TBA", budget:"Not that much", submissionDate: "4/13/2023"}
+    {id:3, name:"Project 3", description:"Something more about the project", manager: "TBA", budget:"Not that much", submissionDate: "4/13/2023"},
 ]
 
 const stages = [
