@@ -1,7 +1,7 @@
 export const StageTable = (props) => {
     return (
         <table className="table table-hover table-light">
-            <thead className="table-success">
+            <thead className="table-info">
                 <tr>
                     <th>Název etapy</th>
                     <th>Počátek etapy</th>
