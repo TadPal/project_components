@@ -23,7 +23,7 @@ const ProjectRow = ({project}) => {
     const subDate = new Date(project.submissionDate)
     const rowColor = GetDate() > subDate ? {color: "#D3D3D3"} : {color: "#000000"};
 
-        console.log(subDate)
+    console.log(subDate)
     return (
         <tr style={rowColor}>
             <td>{project.name}</td>
