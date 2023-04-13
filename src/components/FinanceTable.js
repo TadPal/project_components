@@ -24,8 +24,11 @@ export const FinanceTable = (props) => {
 }
 
 const FinanceRow = ({desc, name, stage, due, value}) =>{
+
+    const rowColor = value < 0 ? 'table-danger' : 'table-success';
+
     return (
-    <tr>
+    <tr className={rowColor}>
         <td>{desc}</td>
         <td>{name}</td>
         <td>{stage}</td>

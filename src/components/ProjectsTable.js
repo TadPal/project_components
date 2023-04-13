@@ -21,28 +21,14 @@ export const ProjectsTable = ({projectsList}) => {
 
 const ProjectRow = ({project}) => {
     const subDate = new Date(project.submissionDate)
+    const rowColor = GetDate() > subDate ? {color: "#D3D3D3"} : {color: "#000000"};
 
-    if (GetDate() > subDate) {
-        console.log(subDate)
-        return (
-            <tr style={{color: "#D3D3D3"}}>
-                <td>{project.name}</td>
-                <td>{project.description}</td>
-                <td>{project.manager}</td>
-                <td>{project.budget}</td>
-                <td>{project.submissionDate}</td>
-            </tr>
-            )
-    }
-    else {
-        return (
-            <tr>
-                <td>{project.name}</td>
-                <td>{project.description}</td>
-                <td>{project.manager}</td>
-                <td>{project.budget}</td>
-                <td>{project.submissionDate}</td>
-            </tr>
-        )
-    }
+    return (
+        <tr style={rowColor}>
+            <td>{project.name}</td>
+            <td>{project.description}</td>
+            <td>{project.manager}</td>
+            <td>{project.budget}</td>
+            <td>{project.submissionDate}</td>
+        </tr>)
 }

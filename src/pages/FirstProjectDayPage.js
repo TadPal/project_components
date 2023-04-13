@@ -28,7 +28,7 @@ const stages = [
 ]
 
 const finances = [
-    {id:1, finDesc:"Investice", name:"SUAS", stage:"Brainstorming",dueDate:"6.6.2023",value:"2300000"},
+    {id:1, finDesc:"Investice", name:"SUAS", stage:"Brainstorming",dueDate:"6.6.2023",value:"-2300000"},
     {id:2, finDesc:"Dotace", name:"SUAS", stage:"Tvorba projektu",dueDate:"6.6.2023",value:"500000"},
-    {id:3, finDesc:"Odměny", name:"SUAS", stage:"Prezentace",dueDate:"6.6.2023",value:"100000"}
+    {id:3, finDesc:"Odměny", name:"SUAS", stage:"Prezentace",dueDate:"6.6.2023",value:"-100000"}
 ]
