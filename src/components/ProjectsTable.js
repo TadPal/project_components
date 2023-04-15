@@ -1,5 +1,6 @@
 import { CheckDate } from "../utilities/CheckDate";
 
+// Custom table component to visualize projects
 export const ProjectsTable = ({projectsList}) => {
     return (
         <table className="table table-hover table-light">
@@ -19,6 +20,7 @@ export const ProjectsTable = ({projectsList}) => {
     )
 } 
 
+// Custom rows used in the ProjectsTable
 const ProjectRow = ({project}) => {
     const subDate = new Date(project.submissionDate)
     const rowColor = CheckDate() > subDate ? {color: "#D3D3D3"} : {color: "#000000"};
