@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 
-export const GetDate = () => {
+/**
+* Summary: Check every minute for a date change.
+*
+* @returns {Date} Current date
+*/
+export const CheckDate = () => {
 
     const [dateTime, setDateTime] = useState(new Date());
 
@@ -9,7 +14,7 @@ export const GetDate = () => {
             const now = new Date().getDate();
             if (now !== dateTime.getDate()) { setDateTime(new Date()) };
             console.log(now);
-        }, 1000);
+        }, 60000);
 
         return () => {
             clearInterval(interval);

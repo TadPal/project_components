@@ -1,4 +1,4 @@
-import { GetDate } from "../utilities/GetDate";
+import { CheckDate } from "../utilities/CheckDate";
 
 export const ProjectsTable = ({projectsList}) => {
     return (
@@ -21,7 +21,7 @@ export const ProjectsTable = ({projectsList}) => {
 
 const ProjectRow = ({project}) => {
     const subDate = new Date(project.submissionDate)
-    const rowColor = GetDate() > subDate ? {color: "#D3D3D3"} : {color: "#000000"};
+    const rowColor = CheckDate() > subDate ? {color: "#D3D3D3"} : {color: "#000000"};
 
     console.log(subDate)
     return (
