@@ -33,7 +33,7 @@ export const StageRow = ({index, name, start, end, finance}) =>{
 }
 
 export const stages = [
-    {id:1, name:"Brainstorming", start:"1.3.2023", end:"6.6.2023",finance:"500"},
-    {id:2, name:"Project creation", start:"1.3.2023", end:"6.6.2023",finance:"50"},
-    {id:3, name:"Presentation", start:"1.3.2023", end:"6.6.2023",finance:"0"}
+    {id:1, name:"Brainstorming", start:"3/1/2023", end:"6/6/2023",finance:"500"},
+    {id:2, name:"Project creation", start:"3/1/2023", end:"6/6/2023",finance:"50"},
+    {id:3, name:"Presentation", start:"3/1/2023", end:"6/6/2023",finance:"0"}
 ]
