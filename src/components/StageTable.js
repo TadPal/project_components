@@ -1,16 +1,17 @@
 export const StageTable = (props) => {
     return (
         <table className="table table-hover table-light">
-            <thead className="table-info">
+       
+            <thead>
                 <tr>
-                    <th>Název etapy</th>
-                    <th>Počátek etapy</th>
-                    <th>Konec etapy</th>
-                    <th>Náklady</th>
+                    <th>Name of stage</th>
+                    <th>Beginnnig of stage</th>
+                    <th>End of stage</th>
+                    <th>Resources</th>
                 </tr>
             </thead>
             <tbody>
-                {props.stages.map((stage) => <StageRow key={stage.id} 
+                {props.stages.map((stage) => <StageRow index={stage.id} 
                                                         name={stage.name} 
                                                         start={stage.start} 
                                                         end={stage.end} 
@@ -20,7 +21,7 @@ export const StageTable = (props) => {
     )
 } 
 
-export const StageRow = ({name, start, end, finance}) =>{
+export const StageRow = ({index, name, start, end, finance}) =>{
     return (
     <tr>
         <td>{name}</td>
@@ -30,3 +31,5 @@ export const StageRow = ({name, start, end, finance}) =>{
     </tr>
     )
 }
+
+
