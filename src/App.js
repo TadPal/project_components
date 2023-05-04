@@ -1,15 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { FirstProjectDayPage } from './pages/FirstProjectDayPage';
-import { ReducersPage } from './pages/ReducersPage';
+import { ProjectsPage } from "./pages/ProjectsPage"
 
 //Main app component takes care of all of our components and pages
 function App() {
   return (
     <div className="App">
-        <FirstProjectDayPage />
-        <ReducersPage />
+        <ProjectsPage />
     </div>
   );
 }

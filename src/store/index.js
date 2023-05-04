@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from "../features/user";
-import themeReducer from "../features/theme";
+import projectsReducer from "../features/projectsSlice"
 
 export const store = configureStore({
     reducer: {
-        user: userReducer,
-        theme: themeReducer,
+        projects: projectsReducer,
     }
 })
