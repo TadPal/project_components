@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { add } from "../features/projectsSlice"
+import { addProject } from "../features/projectsSlice"
 import {v1 as uuid} from "uuid";
 
 export const AddProjectButton = () => {
@@ -27,7 +27,7 @@ export const AddProjectButton = () => {
     const OnAddClick = () => {
         newProject["id"] = uuid();
         console.log(newProject)
-        dispatch(add(newProject))
+        dispatch(addProject(newProject))
         setStateFalse()
     }
 
@@ -36,10 +36,12 @@ export const AddProjectButton = () => {
         setDescription("Description")
         setManager("Manager")
         setBudget(0)
-        setSubmissionDate("2023-01-01")}
+        setSubmissionDate("2023-01-01")
+    }
 
     if (state === false) {
         return (
+            // Button to show the form
             <div className="container mt-4">
                 <button className="btn btn-sm btn-success" onClick={() => {resetProject(); setStateTrue()}}>Add Project</button>
             </div>
@@ -47,6 +49,7 @@ export const AddProjectButton = () => {
     }
     else {
         return (
+            // Form to add a new project
             <div className="container">
                     <h2 className="m-4" style={{textAlign: "left"}}>Add Project</h2>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
