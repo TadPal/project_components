@@ -10,7 +10,6 @@ export const ShowAddProjectFormButton = () => {
 
     if (formVisibilityState === false) {
         return (
-            // Button to show the form
             <div className="container mt-4">
                 <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeFormState())}}>Add Project</button>
             </div>
