@@ -1,5 +1,5 @@
 import { ProjectsTable } from '../components/ProjectsTable';
-import { AddProjectButton } from '../components/AddProjectButton';
+import { ShowAddProjectFormButton } from '../components/ShowAddProjectFormButton';
 import Card from "react-bootstrap/Card";
 import { useSelector } from 'react-redux';
 
@@ -14,7 +14,7 @@ export const ProjectsPage = () => {
                     <ProjectsTable projects={projects}/>
                 </Card.Body>
             </Card>
-            <AddProjectButton />
+            <ShowAddProjectFormButton />
         </div>
     )
 }
