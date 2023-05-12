@@ -4,10 +4,16 @@ import { AddProjectButton } from "./AddProjectButton";
 import { changeFormState } from "../features/projectsAddFormSlice";
 import { useDispatch } from "react-redux";
 
+/**
+ * A button that toggles the visibility of the "Add Project" form.
+ * 
+ * @returns {JSX.Element} - Button component
+ */
 export const ShowAddProjectFormButton = () => {
-    const formVisibilityState = useSelector((state) => state.projectsAddForm)
+    const formVisibilityState = useSelector((state) => state.projectsAddForm) // Selects the current visibility state of the "Add Project" form.
     const dispatch = useDispatch()
 
+    // If the form is not visible, return a button that, when clicked, changes the form's visibility state.
     if (formVisibilityState === false) {
         return (
             <div className="container mt-4">
@@ -15,6 +21,7 @@ export const ShowAddProjectFormButton = () => {
             </div>
         )
     }
+    // If the form is visible, return the "Add Project" form.
     else {
         return (
             <AddProjectForm />
@@ -22,15 +29,21 @@ export const ShowAddProjectFormButton = () => {
     }
 }
 
+/**
+ * A form for adding a new project.
+ * 
+ * @returns {JSX.Element} - Form component
+ */
 const AddProjectForm = () => {
-    const [name, setName] = useState("Name")
-    const [description, setDescription] = useState("Description")
-    const [manager, setManager] = useState("Manager")
-    const [budget, setBudget] = useState(0)
-    const [submissionDate, setSubmissionDate] = useState("2023-01-01")
+    const [name, setName] = useState("Name") // The name of the new project.
+    const [description, setDescription] = useState("Description") // The description of the new project.
+    const [manager, setManager] = useState("Manager") // The manager of the new project.
+    const [budget, setBudget] = useState(0) // The budget of the new project.
+    const [submissionDate, setSubmissionDate] = useState("2023-01-01") // The submission date of the new project.
 
     const dispatch = useDispatch()
 
+    // Creates a new project object with the current state values.
     const newProject = {
         id: "", 
         name: name, 
@@ -40,6 +53,7 @@ const AddProjectForm = () => {
         submissionDate: submissionDate
     }
 
+    // Resets the state values to their default values.
     const resetProject = () => {
         setName("Name")
         setDescription("Description")

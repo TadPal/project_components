@@ -3,7 +3,13 @@ import { ShowAddProjectFormButton } from '../components/ShowAddProjectFormButton
 import Card from "react-bootstrap/Card";
 import { useSelector } from 'react-redux';
 
+/**
+ * A page component that renders the ProjectsTable and ShowAddProjectFormButton components.
+ * 
+ * @returns {JSX.Element} The JSX element that represents the ProjectsPage component.
+ */
 export const ProjectsPage = () => {
+    // Extract the projects state from Redux store using the useSelector hook
     const projects = useSelector((state) => state.projects)
 
     return(
@@ -11,9 +17,11 @@ export const ProjectsPage = () => {
             <Card>
                 <Card.Title className='p-3 text-start'>Projects</Card.Title>
                 <Card.Body>
+                    {/* Pass the projects state as props to the ProjectsTable component */}
                     <ProjectsTable projects={projects}/>
                 </Card.Body>
             </Card>
+            {/* Render the ShowAddProjectFormButton component */}
             <ShowAddProjectFormButton />
         </div>
     )
