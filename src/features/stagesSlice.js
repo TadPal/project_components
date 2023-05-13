@@ -19,15 +19,18 @@ export const stagesSlice = createSlice({
             state.push(newStage)
             return state
         },
-        deleteStage: (state) => {
-            const stages = state
-
+        
+        deleteStage: (state, action) => {
+            const stageId = action.payload;
+            
+            state = state.filter(st => st.id !== stageId)
+            return state
         },
     },
 })
 
 // Export the addStage action creator from the stagesSlice
-export const { addStage } = stagesSlice.actions
+export const { addStage, deleteStage } = stagesSlice.actions
 
 // Export the stagesSlice reducer
 export default stagesSlice.reducer
