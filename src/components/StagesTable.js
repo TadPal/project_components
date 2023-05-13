@@ -1,4 +1,6 @@
-export const StageTable = (props) => {
+import { DeleteStageButton } from "./DeleteStageButton";
+
+export const StagesTable = (props) => {
     return (
         <table className="table table-hover table-light">
        
@@ -8,6 +10,7 @@ export const StageTable = (props) => {
                     <th>Beginnnig of stage</th>
                     <th>End of stage</th>
                     <th>Resources</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +31,7 @@ export const StageRow = ({index, name, start, end, finance}) =>{
         <td>{start}</td>
         <td>{end}</td>
         <td>{finance} CZK</td>
+        <td><DeleteStageButton/></td>
     </tr>
     )
 }

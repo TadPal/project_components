@@ -19,6 +19,10 @@ export const stagesSlice = createSlice({
             state.push(newStage)
             return state
         },
+        deleteStage: (state) => {
+            const stages = state
+
+        },
     },
 })
 
