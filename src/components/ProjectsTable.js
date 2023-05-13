@@ -1,5 +1,6 @@
 import { CheckDate } from "../utilities/CheckDate";
 import { PencilSquare } from "react-bootstrap-icons";
+import { useState } from "react"
 
 /**
  * A table component used to visualize a list of projects.
@@ -38,16 +39,34 @@ const ProjectRow = ({project}) => {
     const subDate = new Date(project.submissionDate)
     // Determine the text color of the row based on whether the submission date is past or not
     const rowColor = CheckDate() > subDate ? {color: "#D3D3D3"} : {color: "#000000"};
-    
-    return (
-        // A table row element that displays the project data and sets the text color based on the submission date.
-        <tr style={rowColor}>
-            <td>{project.name}</td>
-            <td>{project.description}</td>
-            <td>{project.manager}</td>
-            <td>{project.budget}</td>
-            <td>{project.submissionDate}</td>
-            <td><button className="btn btn-sm btn-success"><PencilSquare /> Update</button></td>
-        </tr>
-    )
+
+    const [ editState, setEditState ] = useState(false)
+
+    if(editState) {
+        return (
+            // A table row element that displays the project data and sets the text color based on the submission date.
+            <tr style={rowColor}>
+                <td><input className="form-control" type="text" placeholder={project.name} /></td>
+                <td><input className="form-control" type="text" placeholder={project.description} /></td>
+                <td><input className="form-control" type="text" placeholder={project.manager} /></td>
+                <td><input className="form-control" type="text" placeholder={project.budget} /></td>
+                <td><input className="form-control" type="text" placeholder={project.budget} /></td>
+                <td><button className="btn btn-sm btn-success" onClick={() => {setEditState(!editState)}}>Save</button></td>
+            </tr>
+        )
+    }
+    else {
+        return (
+            // A table row element that displays the project data and sets the text color based on the submission date.
+            <tr style={rowColor}>
+                <td>{project.name}</td>
+                <td>{project.description}</td>
+                <td>{project.manager}</td>
+                <td>{project.budget}</td>
+                <td>{project.submissionDate}</td>
+                <td><button className="btn btn-sm btn-success"><PencilSquare /> Update</button></td>
+            </tr>
+        )
+    }
 }
+
