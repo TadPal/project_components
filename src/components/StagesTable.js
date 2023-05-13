@@ -14,7 +14,7 @@ export const StagesTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.stages.map((stage) => <StageRow index={stage.id} 
+                {props.stages.map((stage) => <StageRow key={stage.id} index={stage.id} 
                                                         name={stage.name} 
                                                         start={stage.start} 
                                                         end={stage.end} 
@@ -24,14 +24,14 @@ export const StagesTable = (props) => {
     )
 } 
 
-export const StageRow = ({index, name, start, end, finance}) =>{
+export const StageRow = ({index, name, start, end, finance}) => {
     return (
     <tr>
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
         <td>{finance} CZK</td>
-        <td><DeleteStageButton/></td>
+        <td><DeleteStageButton stageId={index} /></td>
     </tr>
     )
 }
