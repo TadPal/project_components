@@ -1,4 +1,5 @@
 import { CheckDate } from "../utilities/CheckDate";
+import { PencilSquare } from "react-bootstrap-icons";
 
 /**
  * A table component used to visualize a list of projects.
@@ -16,6 +17,7 @@ export const ProjectsTable = ({projects}) => {
                     <th>Project manager</th>
                     <th>Budget</th>
                     <th>Submission date</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +47,7 @@ const ProjectRow = ({project}) => {
             <td>{project.manager}</td>
             <td>{project.budget}</td>
             <td>{project.submissionDate}</td>
+            <td><button className="btn btn-sm btn-success"><PencilSquare /> Update</button></td>
         </tr>
     )
 }
