@@ -66,24 +66,24 @@ const AddProjectForm = () => {
         <div className="container">
                     <h2 className="m-4" style={{textAlign: "left"}}>Add Project</h2>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Project name</label>
-                        <input className="form-control" type="text" placeholder="Enter project name" onChange={(e) => {setName(e.target.value)}}/>
+                        <label for="93094cda-f22d-11ed-a05b-0242ac120003">Project name</label>
+                        <input id="93094cda-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter project name" onChange={(e) => {setName(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Description</label>
-                        <input className="form-control" type="text" placeholder="Enter description" onChange={(e) => {setDescription(e.target.value)}}/>
+                        <label for="93094f32-f22d-11ed-a05b-0242ac120003">Description</label>
+                        <input id="93094f32-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter description" onChange={(e) => {setDescription(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Project manager</label>
-                        <input className="form-control" type="text" placeholder="Enter manager" onChange={(e) => {setManager(e.target.value)}}/>
+                        <label for="93095072-f22d-11ed-a05b-0242ac120003">Project manager</label>
+                        <input id="93095072-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter manager" onChange={(e) => {setManager(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Budget</label>
-                        <input className="form-control" type="number" placeholder="Enter budget" onChange={(e) => {setBudget(e.target.value)}}/>
+                        <label for="9309553ba-f22d-11ed-a05b-0242ac120003">Budget</label>
+                        <input id="9309553ba-f22d-11ed-a05b-0242ac120003" className="form-control" type="number" placeholder="Enter budget" onChange={(e) => {setBudget(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Budget</label>
-                        <input className="form-control" type="date" placeholder="Enter manager" onChange={(e) => {setSubmissionDate(e.target.value)}}/>
+                        <label for="9309552c-f22d-11ed-a05b-0242ac120003">Budget</label>
+                        <input id="9309552c-f22d-11ed-a05b-0242ac120003" className="form-control" type="date" placeholder="Enter manager" onChange={(e) => {setSubmissionDate(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "right"}}>
                         <button className="btn btn-warning mx-1" onClick={() => {resetProject(); dispatch(changeFormState())}}>Cancel</button>

@@ -1,28 +1,28 @@
 {
     "projects": [
         {
-            "id":1, 
+            "id":"17b5c800-f22e-11ed-a0dc-9fc11e1d5e58", 
             "name":"SUAS", 
             "description":"Building a drone for a multinational competition", 
             "manager": "No one knows",
             "budget":"?",
-            "submissionDate": "3/20/2023"
+            "submissionDate": "2023-06-23"
         },
         {
-            "id":2,
+            "id":"2c3a7780-f22e-11ed-a0dc-9fc11e1d5e58",
             "name":"Project 2",
             "description":"Something about the project", 
             "manager": "John Snow", 
             "budget":"A lot", 
-            "submissionDate": "4/20/2023"
+            "submissionDate": "2023-04-20"
         },
         {
-            "id":3, 
+            "id":"2d96fa40-f22e-11ed-a0dc-9fc11e1d5e58", 
             "name":"Project 3", 
             "description":"Something more about the project", 
             "manager": "TBA", 
             "budget":"Not that much", 
-            "submissionDate": "4/13/2023"
+            "submissionDate": "2023-10-01"
         }
     ],
 
