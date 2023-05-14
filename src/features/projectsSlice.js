@@ -19,11 +19,18 @@ export const projectsSlice = createSlice({
             state.push(newProject)
             return state
         },
+
+        updateProject: (state, action) => {
+            const updatedProject = action.payload
+
+            state = state.map(project => project.id === updatedProject.id ? {...project, ...updatedProject} : project)
+            return state
+        }
     },
 })
 
 // Export the addProject action creator from the projectsSlice
-export const { addProject } = projectsSlice.actions
+export const { addProject, updateProject } = projectsSlice.actions
 
 // Export the projectsSlice reducer
 export default projectsSlice.reducer
