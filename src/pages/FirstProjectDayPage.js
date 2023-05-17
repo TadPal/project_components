@@ -1,6 +1,6 @@
 import { ProjectsTable } from '../components/ProjectsTable';
 import { StageTable }  from '../components/StageTable';
-import { FinanceTable } from '../components/FinanceTable';
+import { FinancesTable } from '../components/FinanceTable';
 import Card from "react-bootstrap/Card";
 
 export const FirstProjectDayPage = (props) => {
@@ -10,7 +10,7 @@ export const FirstProjectDayPage = (props) => {
         <Card.Body>
             <ProjectsTable projectsList={projects}/>
             <StageTable stages={stages}/>
-            <FinanceTable finances={finances}/>
+            <FinancesTable finances={finances}/>
         </Card.Body>
     </Card>)
 }

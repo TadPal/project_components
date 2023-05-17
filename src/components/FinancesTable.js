@@ -1,4 +1,4 @@
-export const FinanceTable = (props) => {
+export const FinancesTable = (props) => {
     return (
         <table className="table table-hover table-light">
             <thead className="table-primary">

@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import projectsReducer from "../features/projectsSlice"
 import projectsAddFormReducer from "../features/projectsAddFormSlice"
 import stagesSlice from "../features/stagesSlice"
+import financesSlice from '../features/financesSlice';
 
 // Configures the Redux store with reducers
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
         projects: projectsReducer,
         projectsAddForm: projectsAddFormReducer,
         stages: stagesSlice,
+        finances: financesSlice,
     }
 })
 
