@@ -1,4 +1,4 @@
-import { authorizedFetch } from 'queries/authorizedFetch'
+import { authorizedFetch } from './authorizedFetch'
 
 /**
  * Funkce, ktera id namapuje na json predstavujici "velky" (podrobny) dotaz na server
@@ -7,23 +7,7 @@ import { authorizedFetch } from 'queries/authorizedFetch'
  */
 export const ProjectQueryLargeJSON = (id) => ({
     "query":
-        `query ($id: ID!) {
-            groupById(id: $id) {
-                id, name, valid, lastchange
-                grouptype { id, name }
-                roles {
-                    id, user { id, name,surname, email }
-                }
-                memberships {
-                    id, valid, user {
-                        id, name, surname, email
-                    }
-                }
-                subgroups {
-                    id, name, valid, lastchange, grouptype { id, name }
-                }
-            }
-        }`,
+        ` `,
     "variables": {"id": id}
 })
 
@@ -32,7 +16,7 @@ export const ProjectQueryLargeJSON = (id) => ({
  * @param {*} id 
  * @returns 
  */
-export const GroupQueryLarge = (id) =>
+export const ProjectQueryLarge = (id) =>
     authorizedFetch('/gql', {
         body: JSON.stringify(ProjectQueryLargeJSON(id)),
     })
