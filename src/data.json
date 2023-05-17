@@ -48,6 +48,32 @@
             "end":"6/6/2023",
             "finance":"0"
         }
+    ],
+
+    "finances": [
+        {
+            "id":1, 
+            "finDesc":"Investments",
+            "name":"SUAS",
+            "stage":"Project creation",
+            "dueDate":"6/6/2023",
+            "value":"-2300000"
+        },
+        {
+            "id":2,
+            "finDesc":"Grants",
+            "name":"SUAS",
+            "stage":"Project creation",
+            "dueDate":"6/6/2023",
+            "value":"500000"},
+        {
+            "id":3,
+            "finDesc":"Rewards",
+            "name":"SUAS",
+            "stage":"Presentation",
+            "dueDate":"6/6/2023",
+            "value":"-100000"
+        }
     ]
 }
 
