@@ -7,20 +7,20 @@ import { authorizedFetch } from './authorizedFetch'
 export const ProjectsQueryJSON = () => ({
     "query":
         `query {
-            projectPage{
+          projectPage{
+            id
+            name
+            lastchange
+            startdate
+            enddate
+            projectType {
               id
-              name
-              projectType {
-                id
-                name
-              }
-              milestones {
-                id
-                startdate
-                enddate
-              }
             }
-          }`,
+            milestones {
+              id
+            }
+          }
+        }`,
 })
 
 /**
@@ -28,6 +28,6 @@ export const ProjectsQueryJSON = () => ({
  * @returns 
  */
 export const ProjectsQuery = () =>
-    authorizedFetch('api/gql', {
+    authorizedFetch('/gql', {
         body: JSON.stringify(ProjectsQueryJSON()),
     })

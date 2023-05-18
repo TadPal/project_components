@@ -31,7 +31,7 @@ export const ProjectFetchHelper = (id="", query, resultselector) => {
         //     )
         .then(
             json => log('converted')(resultselector(json)),
-            error => error
+            error => error,
         )
         .then(
             json => log('dispatching')(dispatch(/*update state*/)),
