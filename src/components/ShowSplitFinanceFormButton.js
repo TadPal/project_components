@@ -16,7 +16,7 @@ export const ShowSplitFinanceFormButton = () => {
     // If the form is not visible, return a button that, when clicked, changes the form's visibility state.
     if (formVisibilityState === false) {
         return (
-            <div className="container mt-4">
+            <div className="container my-4">
                 <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeFormState())}}>Split Finance</button>
             </div>
         )
