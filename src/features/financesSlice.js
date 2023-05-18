@@ -14,7 +14,7 @@ export const financesSlice = createSlice({
     reducers: {
         // A reducer that 
         selectFinance: (state, action) => {
-            const newStage = action.payload
+            //const newStage = action.payload
     
             return state
         },

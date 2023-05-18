@@ -5,19 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './store/index'
-import { client } from './queries/ApolloClient';
-import { ApolloProvider } from '@apollo/client';
 
 
 //React root with redux that renders and manages everything
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
       <Provider store={store}>
         <App />
       </Provider>
-    </ApolloProvider>
   </React.StrictMode>
 );
 
