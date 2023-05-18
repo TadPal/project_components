@@ -15,6 +15,7 @@ export const ProjectsQueryJSON = () => ({
             enddate
             projectType {
               id
+              name
             }
             milestones {
               id
