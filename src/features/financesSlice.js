@@ -13,19 +13,20 @@ export const financesSlice = createSlice({
     initialState: initialStateValue,
     reducers: {
         // A reducer that 
-        selectFinance: (state, action) => {
-            //const newStage = action.payload
+        splitFinance: (state, action) => {
+            const newFinance = action.payload
     
+            state.push(newFinance)
             return state
         },
       
     },
 })
 
-// Export the changeFormState action creator from the 
-export const { selectFinance } = financesSlice.actions
+// Export the changeFormState action creator from the financesSlice
+export const { selectFinance, splitFinance } = financesSlice.actions
 
-// Export the  reducer
+// Export the financesSlice reducer
 export default financesSlice.reducer
 
 

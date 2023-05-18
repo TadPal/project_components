@@ -3,37 +3,34 @@ export const FinancesTable = (props) => {
         <table className="table table-hover table-light">
             <thead className="table-primary">
                 <tr>
-                    <th>Finance Description</th>
-                    <th>Project Name</th>
-                    <th>Project Stage</th>
-                    <th>Due Date</th>
-                    <th>Value</th>
+                    <th>Finance Name</th>
+                    <th>Last change</th>
+                    <th>Amount</th>
+                    <th>Type of finance</th>
                 </tr>
             </thead>
             <tbody>
-                {props.finances.map((finance) => <FinanceRow key={finance.id} 
-                                                        desc={finance.finDesc}
-                                                        name={finance.name} 
-                                                        stage={finance.stage} 
-                                                        due={finance.dueDate} 
-                                                        value={finance.value}/>)} 
+                {props.finances.map((finance) => <FinanceRow key={finance.id}
+                                                        name={finance.name}
+                                                        change={finance.change}
+                                                        amount={finance.amount}                                                      
+                                                        type={finance.type}  />)} 
             </tbody>
         </table>
     )
 
 }
 
-const FinanceRow = ({desc, name, stage, due, value}) =>{
+const FinanceRow = ({ name, change, amount, type}) =>{
 
-    const rowColor = value < 0 ? 'table-danger' : 'table-success';
+    const rowColor = amount < 0 ? 'table-danger' : 'table-success';
 
     return (
     <tr className={rowColor}>
-        <td>{desc}</td>
         <td>{name}</td>
-        <td>{stage}</td>
-        <td>{due}</td>
-        <td>{value} CZK</td>
+        <td>{change}</td>
+        <td>{amount} CZK</td>
+        <td>{type} </td>
     </tr>
     )
 }

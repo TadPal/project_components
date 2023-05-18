@@ -1,16 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import projectsReducer from "../features/projectsSlice"
 import projectsAddFormReducer from "../features/projectsAddFormSlice"
-import stagesSlice from "../features/stagesSlice"
-import financesSlice from '../features/financesSlice';
+import stagesReducer from "../features/stagesSlice"
+import financesReducer from '../features/financesSlice';
+import financesSplitFormReducer from "../features/financesSplitFormSlice"
 
 // Configures the Redux store with reducers
 export const store = configureStore({
     reducer: {
         projects: projectsReducer,
         projectsAddForm: projectsAddFormReducer,
-        stages: stagesSlice,
-        finances: financesSlice,
+        stages: stagesReducer,
+        finances: financesReducer,
+        financesSplitForm: financesSplitFormReducer,
     }
 })
 
