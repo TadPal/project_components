@@ -52,27 +52,25 @@
 
     "finances": [
         {
-            "id":1, 
-            "finDesc":"Investments",
-            "name":"SUAS",
-            "stage":"Project creation",
-            "dueDate":"6/6/2023",
-            "value":"-2300000"
+            "id":1,           
+            "name":"výdaj",            
+            "change":"6/6/2023",
+            "amount":"-2300000",
+            "type":"Investments"
         },
         {
             "id":2,
-            "finDesc":"Grants",
-            "name":"SUAS",
-            "stage":"Project creation",
-            "dueDate":"6/6/2023",
-            "value":"500000"},
+            "name":"vklad leden",
+            "change":"6/6/2023",
+            "amount":"500000",
+            "type":"Rewards"
+        },
         {
             "id":3,
-            "finDesc":"Rewards",
             "name":"SUAS",
-            "stage":"Presentation",
-            "dueDate":"6/6/2023",
-            "value":"-100000"
+            "change":"6/6/2023",
+            "amount":"-100000",
+            "type":"Grants"
         }
     ]
 }

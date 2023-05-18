@@ -1,4 +1,5 @@
 import { FinancesTable } from '../components/FinancesTable';
+import { ShowSplitFinanceFormButton } from '../components/ShowSplitFinanceFormButton';
 import Card from "react-bootstrap/Card";
 import { useSelector } from 'react-redux';
 
@@ -15,6 +16,8 @@ export const FinancesPage = () => {
                     <FinancesTable finances={finances}/>
                 </Card.Body>
             </Card>
+
+            <ShowSplitFinanceFormButton />
         </div>
     )
 }
