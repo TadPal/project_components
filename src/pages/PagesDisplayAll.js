@@ -1,13 +1,13 @@
 import { ProjectsPage } from "./ProjectsPage"
 import { StagesPage } from "./StagesPage"
-import { ProjectPage } from "../queries/ApolloClient"
+import { FinancesPage } from "./FinancesPage"
 
 export const PagesDisplayAll = () => {
     return (
         <>
             <ProjectsPage />
             <StagesPage />
-            <ProjectPage />
+            <FinancesPage />
         </>
     )
 }
