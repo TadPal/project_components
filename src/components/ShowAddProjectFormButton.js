@@ -36,10 +36,9 @@ export const ShowAddProjectFormButton = () => {
  */
 const AddProjectForm = () => {
     const [name, setName] = useState("Name") // The name of the new project.
-    const [description, setDescription] = useState("Description") // The description of the new project.
-    const [manager, setManager] = useState("Manager") // The manager of the new project.
-    const [budget, setBudget] = useState(0) // The budget of the new project.
-    const [submissionDate, setSubmissionDate] = useState("2023-01-01") // The submission date of the new project.
+    const [projectType, setProjectType] = useState("ProjectType") // The description of the new project.
+    const [startDate, setStartDate] = useState("2023-01-01T00:00:00") // The manager of the new project.
+    const [endDate, setEndDate] = useState("2025-12-31T23:59:59") // The budget of the new project.
 
     const dispatch = useDispatch()
 
@@ -47,19 +46,17 @@ const AddProjectForm = () => {
     const newProject = {
         id: "", 
         name: name, 
-        description:description, 
-        manager: manager,
-        budget: budget,
-        submissionDate: submissionDate
+        projectType: { name: projectType }, 
+        startdate: startDate,
+        enddate: endDate,
     }
 
     // Resets the state values to their default values.
     const resetProject = () => {
         setName("Name")
-        setDescription("Description")
-        setManager("Manager")
-        setBudget(0)
-        setSubmissionDate("2023-01-01")
+        setProjectType("ProjectType")
+        setStartDate("2023-01-01T00:00:00")
+        setEndDate("2025-12-31T23:59:59")
     }
 
     return(
@@ -70,20 +67,16 @@ const AddProjectForm = () => {
                         <input id="93094cda-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter project name" onChange={(e) => {setName(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Description</label>
-                        <input id="93094f32-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter description" onChange={(e) => {setDescription(e.target.value)}}/>
+                        <label>Projet type</label>
+                        <input id="93094f32-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter description" onChange={(e) => {setProjectType(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Project manager</label>
-                        <input id="93095072-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter manager" onChange={(e) => {setManager(e.target.value)}}/>
+                        <label>Start date</label>
+                        <input id="93095072-f22d-11ed-a05b-0242ac120003" className="form-control" type="date" placeholder="Enter manager" onChange={(e) => {setStartDate(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Budget</label>
-                        <input id="9309553ba-f22d-11ed-a05b-0242ac120003" className="form-control" type="number" placeholder="Enter budget" onChange={(e) => {setBudget(e.target.value)}}/>
-                    </div>
-                    <div className="form-group mb-4" style={{textAlign: "left"}}>
-                        <label>Budget</label>
-                        <input id="9309552c-f22d-11ed-a05b-0242ac120003" className="form-control" type="date" placeholder="Enter manager" onChange={(e) => {setSubmissionDate(e.target.value)}}/>
+                        <label>End date</label>
+                        <input id="9309553ba-f22d-11ed-a05b-0242ac120003" className="form-control" type="date" placeholder="Enter budget" onChange={(e) => {setEndDate(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "right"}}>
                         <button className="btn btn-warning mx-1" onClick={() => {resetProject(); dispatch(changeFormState())}}>Cancel</button>

@@ -16,10 +16,10 @@ export const ProjectsTable = ({projects}) => {
             <thead className="table-success">
                 <tr>
                     <th>Project Name</th>
-                    <th>Description</th>
-                    <th>Project manager</th>
-                    <th>Budget</th>
-                    <th>Submission date</th>
+                    <th>Project Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Last Change</th>
                     <th></th>
                 </tr>
             </thead>
@@ -39,8 +39,8 @@ export const ProjectsTable = ({projects}) => {
  */
 const ProjectRow = ({project}) => {
     // Determine the text color of the row based on whether the submission date is past or not
-    const subDate = new Date(project.submissionDate)
-    const rowColor = CheckDate() > subDate ? {color: "#D3D3D3"} : {color: "#000000"};
+    const endDate = new Date(project.enddate)
+    const rowColor = CheckDate() > endDate ? {color: "#D3D3D3"} : {color: "#000000"};
 
     const [ editState, setEditState ] = useState(false)
     const dispatch = useDispatch()
@@ -49,10 +49,10 @@ const ProjectRow = ({project}) => {
         const updatedProject = {
             id: project.id,
             name: ("" === document.getElementById(project.id + 'nameInput').value ? project.name : document.getElementById(project.id + 'nameInput').value),
-            description: ("" === document.getElementById(project.id + 'descriptionInput').value ? project.description : document.getElementById(project.id + 'descriptionInput').value),
-            manager: ("" === document.getElementById(project.id + 'managerInput').value ? project.manager : document.getElementById(project.id + 'managerInput').value),
-            budget: ("" === document.getElementById(project.id + 'budgetInput').value ? project.budget : document.getElementById(project.id + 'budgetInput').value),
-            submissionDate: ("" === document.getElementById(project.id + 'dateInput').value ? project.submissionDate : document.getElementById(project.id + 'dateInput').value)
+            startdate: ("" === document.getElementById(project.id + 'startdateInput').value ? project.startdate : document.getElementById(project.id + 'startdateInput').value),
+            enddate: ("" === document.getElementById(project.id + 'enddateInput').value ? project.enddate : document.getElementById(project.id + 'enddateInput').value),
+            projectType:{ name: ("" === document.getElementById(project.id + 'projectTypeInput').value ? project.projectType.name : document.getElementById(project.id + 'projectTypeInput').value) },
+            lastchange: ("" === document.getElementById(project.id + 'lastchangeInput').value ? project.lastchange : document.getElementById(project.id + 'lastchangeInput').value)
         }
 
         dispatch(updateProject(updatedProject))
@@ -63,10 +63,10 @@ const ProjectRow = ({project}) => {
             // A table row element that allows changes to the project data.
             <tr>
                 <td><input id={project.id + "nameInput"} className="form-control my-2" type="text" placeholder={project.name} /></td>
-                <td><input id={project.id + "descriptionInput"} className="form-control my-2" type="text" placeholder={project.description} /></td>
-                <td><input id={project.id + "managerInput"} className="form-control my-2" type="text" placeholder={project.manager} /></td>
-                <td><input id={project.id + "budgetInput"} className="form-control my-2" type="number" placeholder={project.budget} /></td>
-                <td><input id={project.id + "dateInput"} className="form-control my-2" type="date" placeholder={project.submissionDate} /></td>
+                <td><input id={project.id + "projectTypeInput"} className="form-control my-2" type="text" placeholder={project.projectType.name} /></td>
+                <td><input id={project.id + "startdateInput"} className="form-control my-2" type="date" placeholder={project.startdate} /></td>
+                <td><input id={project.id + "enddateInput"} className="form-control my-2" type="date" placeholder={project.enddate} /></td>
+                <td>{project.lastchange}</td>
                 <td>
                     <button className="btn btn-sm btn-success m-1" onClick={() => {onUpdateProjectClick(); setEditState(!editState)}}><Check2Square /> Save</button>
                     <button className="btn btn-sm btn-warning m-1" onClick={() => {setEditState(!editState)}}><XLg /> Cancel</button>
@@ -79,10 +79,10 @@ const ProjectRow = ({project}) => {
             // A table row element that displays the project data and sets the text color based on the submission date.
             <tr style={rowColor}>
                 <td>{project.name}</td>
-                <td>{project.description}</td>
-                <td>{project.manager}</td>
-                <td>{project.budget}</td>
-                <td>{project.submissionDate}</td>
+                <td>{project.projectType.name}</td>
+                <td>{project.startdate}</td>
+                <td>{project.enddate}</td>
+                <td>{project.lastchange}</td>
                 <td><button className="btn btn-sm btn-success mx-1" onClick={() => {setEditState(!editState)}}><PencilSquare /> Update</button></td>
             </tr>
         )

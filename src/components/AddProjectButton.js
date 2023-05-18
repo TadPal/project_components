@@ -19,12 +19,15 @@ export const AddProjectButton = ({ project }) => {
      */
     const OnAddClick = () => {
         newProject["id"] = uuid(); // Add a unique id to the newProject object
+        newProject["lastchange"] = new Date().toISOString();
         console.log(newProject)
         dispatch(addProject(newProject)) // Dispatch an action to add the new project to the store
     }
 
     return (
         // A button element that triggers the OnAddClick event handler and dispatches an action to change the form state.
-        <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeFormState())}}>Add</button>
+        <>
+            <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeFormState())}}>Add</button>
+        </>
     )
 }

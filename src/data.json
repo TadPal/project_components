@@ -3,26 +3,26 @@
         {
             "id":"17b5c800-f22e-11ed-a0dc-9fc11e1d5e58", 
             "name":"SUAS", 
-            "description":"Building a drone for a multinational competition", 
-            "manager": "No one knows",
-            "budget":"?",
-            "submissionDate": "2023-06-23"
+            "startdate": "2023-01-01T17:27:12",
+            "enddate": "2025-12-31T17:27:12",
+            "projectType":{ "name": "GAČR", "id":" dc449338-f59c-11ed-b67e-0242ac120002" },
+            "lastchange": "2023-05-12T21:22:03.620573"
         },
         {
             "id":"2c3a7780-f22e-11ed-a0dc-9fc11e1d5e58",
             "name":"Project 2",
-            "description":"Something about the project", 
-            "manager": "John Snow", 
-            "budget":"A lot", 
-            "submissionDate": "2023-04-20"
+            "startdate": "2023-01-01T17:27:12",
+            "enddate": "2025-12-31T17:27:12",
+            "projectType":{ "name": "GAČR", "id":" dc449338-f59c-11ed-b67e-0242ac120002" },
+            "lastchange": "2023-05-12T21:22:03.620573"
         },
         {
             "id":"2d96fa40-f22e-11ed-a0dc-9fc11e1d5e58", 
             "name":"Project 3", 
-            "description":"Something more about the project", 
-            "manager": "TBA", 
-            "budget":"Not that much", 
-            "submissionDate": "2023-10-01"
+            "startdate": "2023-01-01T17:27:12",
+            "enddate": "2025-12-31T17:27:12",
+            "projectType": { "name": "GAČR", "id":" dc449338-f59c-11ed-b67e-0242ac120002" },
+            "lastchange": "2023-05-12T21:22:03.620573"
         }
     ],
 
