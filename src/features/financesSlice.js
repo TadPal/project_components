@@ -19,12 +19,19 @@ export const financesSlice = createSlice({
             state.push(newFinance)
             return state
         },
-      
+        
+        deleteFinance: (state, action) => {
+            const financeId = action.payload;
+            
+            state = state.filter(st => st.id !== financeId)
+            return state
+        },
+
     },
 })
 
 // Export the changeFormState action creator from the financesSlice
-export const { selectFinance, splitFinance } = financesSlice.actions
+export const { selectFinance, splitFinance, deleteFinance  } = financesSlice.actions
 
 // Export the financesSlice reducer
 export default financesSlice.reducer
