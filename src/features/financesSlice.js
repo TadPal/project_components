@@ -27,6 +27,14 @@ export const financesSlice = createSlice({
             return state
         },
 
+        selectFinance: (state, action) => {
+
+           // const financeTypes = action.payload;
+            
+
+            return state
+        },
+
     },
 })
 
