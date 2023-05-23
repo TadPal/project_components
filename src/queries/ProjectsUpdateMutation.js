@@ -1,14 +1,14 @@
 import { authorizedFetch } from './authorizedFetch'
 
 
-const ProjectsMutationJSON = (project) => ({
+const ProjectsMutationJSON = (id, name, lastchange) => ({
     "query":
         `mutation {
           projectUpdate(
             project: {
-              lastchange: ${project.lastchange}, 
-              id: ${project.id}, 
-              name: ${project.name}
+              lastchange: "${lastchange}", 
+              id: "${id}", 
+              name: "${name}"
             })
             {
               id
@@ -28,7 +28,7 @@ const ProjectsMutationJSON = (project) => ({
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
  * @returns 
  */
-export const ProjectsUpdateMutation = ({UpdatedProject}) =>
+export const ProjectsUpdateMutation = (props) =>
     authorizedFetch('/gql', {
-        body: JSON.stringify(ProjectsMutationJSON(project={UpdatedProject})),
+        body: JSON.stringify(ProjectsMutationJSON(props.project.id, props.project.name, props.project.lastchange)),
     })

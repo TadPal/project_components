@@ -12,6 +12,7 @@ export const ProjectsLoader = () => {
         const response = await ProjectsQuery();
         const data = await response.json();
         dispatch(loadProjects(data.data.projectPage));
+        console.log("Loaded");
         setIsDataLoaded(true);
       } catch (error) { 
         console.error('Error fetching group names:', error);
