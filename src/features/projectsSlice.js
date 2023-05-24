@@ -15,8 +15,8 @@ export const projectsSlice = createSlice({
         // A reducer that adds a new project to the projects state array
         addProject: (state, action) => {
             const newProject = action.payload
-    
-            state.push(newProject)
+            
+            state = [...state, newProject]
             return state
         },
 
@@ -29,6 +29,7 @@ export const projectsSlice = createSlice({
 
         loadProjects: (state, action) => {
             const projects = action.payload
+            
             state = [...state, ...projects]
             return state
         }
