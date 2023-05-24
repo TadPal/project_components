@@ -25,6 +25,6 @@ export const SplitFinanceButton = ({ finance }) => {
 
     return (
         // A button element that triggers the OnAddClick event handler and dispatches an action to change the form state.
-        <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeFormState())}}>Split</button>
+        <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeFormState())}}>Add</button>
     )
 }
