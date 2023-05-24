@@ -12,7 +12,7 @@ export const StagesPage = () => {
             <Card>
                 <Card.Title className='p-3 text-start'>Stages</Card.Title>
                 <Card.Body>
-                    <StagesTable stages={stages}/>
+                    <StagesTable milestones={stages}/>
                 </Card.Body>
             </Card>
         </div>

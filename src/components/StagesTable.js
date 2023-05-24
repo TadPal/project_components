@@ -1,6 +1,6 @@
 import { DeleteStageButton } from "./DeleteStageButton";
 
-export const StagesTable = (props) => {
+export const StagesTable = ({milestones}) => {
     return (
         <table className="table table-hover table-light">
        
@@ -9,28 +9,25 @@ export const StagesTable = (props) => {
                     <th>Name of stage</th>
                     <th>Beginnnig of stage</th>
                     <th>End of stage</th>
-                    <th>Resources</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                {props.stages.map((stage) => <StageRow key={stage.id} index={stage.id} 
+                {milestones.map((stage) => <StageRow key={stage.id} index={stage.id} 
                                                         name={stage.name} 
-                                                        start={stage.start} 
-                                                        end={stage.end} 
-                                                        finance={stage.finance}/>)} 
+                                                        start={stage.startdate} 
+                                                        end={stage.enddate} />)} 
             </tbody>
         </table>
     )
 } 
 
-export const StageRow = ({index, name, start, end, finance}) => {
+export const StageRow = ({index, name, start, end}) => {
     return (
     <tr>
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
-        <td>{finance} CZK</td>
         <td><DeleteStageButton stageId={index} /></td>
     </tr>
     )

@@ -6,7 +6,25 @@
             "startdate": "2023-01-01T17:27:12",
             "enddate": "2025-12-31T17:27:12",
             "projectType":{ "name": "GAČR", "id":" dc449338-f59c-11ed-b67e-0242ac120002" },
-            "lastchange": "2023-05-12T21:22:03.620573"
+            "lastchange": "2023-05-12T21:22:03.620573",
+            "milestones": [{
+                "id":1,
+                "name":"Brainstorming",
+                "startdate":"3/1/2023",
+                "enddate":"6/6/2023"
+            },
+            {
+                "id":2, 
+                "name":"Project creation",
+                "startdate":"3/1/2023",
+                "enddate":"6/6/2023"
+            },
+            {
+                "id":3,
+                "name":"Presentation",
+                "startdate":"3/1/2023", 
+                "enddate":"6/6/2023"
+            }]
         },
         {
             "id":"2c3a7780-f22e-11ed-a0dc-9fc11e1d5e58",
@@ -14,7 +32,25 @@
             "startdate": "2023-01-01T17:27:12",
             "enddate": "2025-12-31T17:27:12",
             "projectType":{ "name": "GAČR", "id":" dc449338-f59c-11ed-b67e-0242ac120002" },
-            "lastchange": "2023-05-12T21:22:03.620573"
+            "lastchange": "2023-05-12T21:22:03.620573",
+            "milestones": [{
+                "id":1,
+                "name":"Brainstorming",
+                "startdate":"3/1/2023",
+                "enddate":"6/6/2023"
+            },
+            {
+                "id":2, 
+                "name":"Project creation",
+                "startdate":"3/1/2023",
+                "enddate":"6/6/2023"
+            },
+            {
+                "id":3,
+                "name":"Presentation",
+                "startdate":"3/1/2023", 
+                "enddate":"6/6/2023"
+            }]
         },
         {
             "id":"2d96fa40-f22e-11ed-a0dc-9fc11e1d5e58", 
@@ -22,7 +58,25 @@
             "startdate": "2023-01-01T17:27:12",
             "enddate": "2025-12-31T17:27:12",
             "projectType": { "name": "GAČR", "id":" dc449338-f59c-11ed-b67e-0242ac120002" },
-            "lastchange": "2023-05-12T21:22:03.620573"
+            "lastchange": "2023-05-12T21:22:03.620573",
+            "milestones": [{
+                "id":1,
+                "name":"Brainstorming",
+                "startdate":"3/1/2023",
+                "enddate":"6/6/2023"
+            },
+            {
+                "id":2, 
+                "name":"Project creation",
+                "startdate":"3/1/2023",
+                "enddate":"6/6/2023"
+            },
+            {
+                "id":3,
+                "name":"Presentation",
+                "startdate":"3/1/2023", 
+                "enddate":"6/6/2023"
+            }]
         }
     ],
 
@@ -30,23 +84,20 @@
         {
             "id":1,
             "name":"Brainstorming",
-            "start":"3/1/2023",
-            "end":"6/6/2023",
-            "finance":"500"
+            "startdate":"3/1/2023",
+            "enddate":"6/6/2023"
         },
         {
             "id":2, 
             "name":"Project creation",
-            "start":"3/1/2023",
-            "end":"6/6/2023",
-            "finance":"50"
+            "startdate":"3/1/2023",
+            "enddate":"6/6/2023"
         },
         {
             "id":3,
             "name":"Presentation",
-            "start":"3/1/2023", 
-            "end":"6/6/2023",
-            "finance":"0"
+            "startdate":"3/1/2023", 
+            "enddate":"6/6/2023"
         }
     ],
 

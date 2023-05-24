@@ -10,9 +10,7 @@ export const FinancesTable = (props) => {
   };
 
   // Filter the finances based on the selected type
-  const filteredFinances = selectedType
-    ? props.finances.filter((finance) => finance.type === selectedType)
-    : props.finances;
+  const filteredFinances = selectedType ? props.finances.filter((finance) => finance.type === selectedType) : props.finances;
     
     return (
         <table className="table table-hover table-light">

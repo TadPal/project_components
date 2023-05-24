@@ -19,6 +19,9 @@ const ProjectsQueryJSON = () => ({
             }
             milestones {
               id
+              name
+              startdate
+              enddate
             }
           }
         }`,

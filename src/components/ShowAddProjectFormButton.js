@@ -49,6 +49,7 @@ const AddProjectForm = () => {
         projectType: { name: projectType }, 
         startdate: startDate,
         enddate: endDate,
+        milestones: []
     }
 
     // Resets the state values to their default values.
