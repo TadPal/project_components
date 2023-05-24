@@ -17,7 +17,7 @@ export const ShowSplitFinanceFormButton = () => {
     if (formVisibilityState === false) {
         return (
             <div className="container my-4">
-                <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeFormState())}}>Split Finance</button>
+                <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeFormState())}}>Add finance</button>
             </div>
         )
     }
