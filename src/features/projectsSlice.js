@@ -29,8 +29,26 @@ export const projectsSlice = createSlice({
 
         loadProjects: (state, action) => {
             const projects = action.payload
-            
-            state = [...state, ...projects]
+            let newProjects = []
+            let isSame = false
+
+            // Iterate through the projects to be loaded
+            for (let project of projects) {
+                // Check if the project is already present in the state
+                for (let proj of state) {
+                    if (project.id === proj.id) {
+                        isSame = true
+                        console.log(`Project "${project.name}" is already loaded`)
+                    }
+                }
+                // If the project is not already present, add it to the newProjects array
+                if (!isSame) {
+                    newProjects.push(project)
+                }
+            }
+
+            // Append the newProjects array to the existing state array using the spread operator
+            state = [...state, ...newProjects]
             return state
         }
     },

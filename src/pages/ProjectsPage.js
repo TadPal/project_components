@@ -14,13 +14,13 @@ import { ProjectsFetchAsync } from '../actions/ProjectAsyncLoader';
 export const ProjectsPage = () => {
     // Extract the projects state from Redux store using the useSelector hook
     const projects = useSelector((state) => state.projects)
-
     const dispatch = useDispatch();
     
     useEffect(
         () => {
         dispatch(ProjectsFetchAsync())
-        }, [dispatch]
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []
     )
 
     return(
