@@ -52,7 +52,7 @@ const ProjectRow = ({project}) => {
             startdate: ("" === document.getElementById(project.id + 'startdateInput').value ? project.startdate : document.getElementById(project.id + 'startdateInput').value),
             enddate: ("" === document.getElementById(project.id + 'enddateInput').value ? project.enddate : document.getElementById(project.id + 'enddateInput').value),
             projectType:{ name: ("" === document.getElementById(project.id + 'projectTypeInput').value ? project.projectType.name : document.getElementById(project.id + 'projectTypeInput').value) },
-            lastchange: ("" === document.getElementById(project.id + 'lastchangeInput').value ? project.lastchange : document.getElementById(project.id + 'lastchangeInput').value)
+            lastchange: new Date().toISOString(),
         }
 
         dispatch(updateProject(updatedProject))
