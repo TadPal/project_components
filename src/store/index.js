@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import projectsReducer from "../features/projectsSlice"
 import projectsAddFormReducer from "../features/projectsAddFormSlice"
-import stagesReducer from "../features/stagesSlice"
 import financesReducer from '../features/financesSlice';
 import financesSplitFormReducer from "../features/financesSplitFormSlice"
 
@@ -10,7 +9,6 @@ export const store = configureStore({
     reducer: {
         projects: projectsReducer,
         projectsAddForm: projectsAddFormReducer,
-        stages: stagesReducer,
         finances: financesReducer,
         financesSplitForm: financesSplitFormReducer,
     }
