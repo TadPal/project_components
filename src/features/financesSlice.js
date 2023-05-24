@@ -23,7 +23,7 @@ export const financesSlice = createSlice({
         deleteFinance: (state, action) => {
             const financeId = action.payload;
             
-            state = state.filter(st => st.id !== financeId)
+            state = state.filter(finance => finance.id !== financeId)
             return state
         },
 
@@ -31,10 +31,8 @@ export const financesSlice = createSlice({
 
            // const financeTypes = action.payload;
             
-
             return state
         },
-
     },
 })
 
