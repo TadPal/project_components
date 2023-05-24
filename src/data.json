@@ -79,28 +79,7 @@
             }]
         }
     ],
-
-    "stages": [
-        {
-            "id":1,
-            "name":"Brainstorming",
-            "startdate":"3/1/2023",
-            "enddate":"6/6/2023"
-        },
-        {
-            "id":2, 
-            "name":"Project creation",
-            "startdate":"3/1/2023",
-            "enddate":"6/6/2023"
-        },
-        {
-            "id":3,
-            "name":"Presentation",
-            "startdate":"3/1/2023", 
-            "enddate":"6/6/2023"
-        }
-    ],
-
+    
     "finances": [
         {
             "id":1,           
