@@ -6,11 +6,11 @@ export const ProjectCard = ({project}) => {
     return(
         <div className='container my-2'>
             <Card>
-                <Card.Title className='p-3 text-start'>{project.name}</Card.Title>
+                <Card.Header className='p-3 text-start'>{project.name}</Card.Header>
                 <Card.Body>
-                    <p>Start date: {project.startdate}</p>
-                    <p>End date: {project.enddate}</p>
-                    <StagesTable stages={project.milestones}/>
+                    <Card.Text>Start date: {project.startdate}</Card.Text>
+                    <Card.Text>End date: {project.enddate}</Card.Text>
+                    <StagesTable milestones={project.milestones}/>
                 </Card.Body>
             </Card>
         </div>
