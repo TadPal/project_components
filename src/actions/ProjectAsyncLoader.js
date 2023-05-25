@@ -1,7 +1,6 @@
 import { ProjectsQuery }  from '../queries/ProjectsQuery';
 import { loadProjects } from '../features/projectsSlice';
 
-
 /**
  * An asynchronous action creator that fetches projects and dispatches the 'loadProjects' action.
  *
