@@ -1,20 +1,15 @@
-import { ProjectsUpdateMutation }  from '../queries/ProjectsUpdateMutation';
+import { ProjectUpdate }  from '../queries/ProjectUpdate';
+import { updateProject } from '../features/projectsSlice';
 
-export const ProjectsUpdater = (props) => {
-
-    const fetchData = async () => {
-      try {
-        const response = await ProjectsUpdateMutation(props);
-        const data = await response.json();
-        console.log(data.data.projectUpdate.msg);
-      } catch (error) { 
-        console.error('Error fetching group names:', error);
-      }
-    };
-
-  return (
-    <div>
-      <button className="btn btn-sm btn-success my-1" onClick={fetchData}>Project Update</button>
-    </div>
-  );
-}
+export const ProjectsFetchAsync = () => (dispatch, getState) => {
+    ProjectUpdate()
+      .then(response => response.json())
+      .then(json => {
+        const message = json.data?.msg
+        const project = json.date?.project
+        if (message === 'ok') {
+          dispatch(updateProject(project))
+        }
+        return json
+      })
+  }
