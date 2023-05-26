@@ -44,9 +44,9 @@ const AddProjectForm = () => {
 
     // Creates a new project object with the current state values.
     const newProject = {
-        id: "", 
         name: name, 
-        projectType: { name: projectType }, 
+        projectType: { name: projectType },
+        team: { name: "Uni", id: "2d9dcd22-a4a2-11ed-b9df-0242ac120003"},
         startdate: startDate,
         enddate: endDate,
         milestones: []

@@ -13,6 +13,10 @@ const ProjectsQueryJSON = () => ({
             lastchange
             startdate
             enddate
+            team {
+              id
+              name
+            }
             projectType {
               id
               name
