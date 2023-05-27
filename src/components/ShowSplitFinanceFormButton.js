@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux"
 import { SplitFinanceButton } from "./SplitFinanceButton";
-import { changeFormState } from "../features/financesSplitFormSlice";
+import { changeFinanceDisplay } from "../features/displaySlice";
 import { useDispatch } from "react-redux";
 
 /**
@@ -10,14 +10,14 @@ import { useDispatch } from "react-redux";
  * @returns {JSX.Element} - Button component
  */
 export const ShowSplitFinanceFormButton = () => {
-    const formVisibilityState = useSelector((state) => state.financesSplitForm) // Selects the current visibility state of the "Add Project" form.
+    const formVisibilityState = useSelector((state) => state.display.addFinance) // Selects the current visibility state of the "Add Project" form.
     const dispatch = useDispatch()
 
     // If the form is not visible, return a button that, when clicked, changes the form's visibility state.
     if (formVisibilityState === false) {
         return (
             <div className="container my-4">
-                <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeFormState())}}>Add finance</button>
+                <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeFinanceDisplay())}}>Add finance</button>
             </div>
         )
     }
@@ -81,7 +81,7 @@ const SplitFinanceForm = () => {
                         <input id="9309553bc-f22d-11ed-a05b-0242ac120003" className="form-control" type="text" placeholder="Enter type of finance" onChange={(e) => {setType(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "right"}}>
-                        <button className="btn btn-warning mx-1" onClick={() => {resetFinance(); dispatch(changeFormState())}}>Cancel</button>
+                        <button className="btn btn-warning mx-1" onClick={() => {resetFinance(); dispatch(changeFinanceDisplay())}}>Cancel</button>
                         <SplitFinanceButton finance={ newFinance } />
                     </div>
             </div>

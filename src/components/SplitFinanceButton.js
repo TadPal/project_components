@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { splitFinance } from "../features/financesSlice"
 import {v1 as uuid} from "uuid";
-import { changeFormState } from "../features/financesSplitFormSlice";
+import { changeFinanceDisplay } from "../features/displaySlice";
 
 /**
  * A button component used to add a new finance to the store.
@@ -25,6 +25,6 @@ export const SplitFinanceButton = ({ finance }) => {
 
     return (
         // A button element that triggers the OnAddClick event handler and dispatches an action to change the form state.
-        <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeFormState())}}>Add</button>
+        <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeFinanceDisplay())}}>Add</button>
     )
 }
