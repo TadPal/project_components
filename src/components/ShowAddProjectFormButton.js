@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux"
 import { AddProjectButton } from "./AddProjectButton";
-import { changeFormState } from "../features/projectsAddFormSlice";
+import { changeProjectDisplay } from "../features/displaySlice";
 import { useDispatch } from "react-redux";
 
 /**
@@ -10,14 +10,14 @@ import { useDispatch } from "react-redux";
  * @returns {JSX.Element} - Button component
  */
 export const ShowAddProjectFormButton = () => {
-    const formVisibilityState = useSelector((state) => state.projectsAddForm) // Selects the current visibility state of the "Add Project" form.
+    const formVisibilityState = useSelector((state) => state.display.addProject) // Selects the current visibility state of the "Add Project" form.
     const dispatch = useDispatch()
 
     // If the form is not visible, return a button that, when clicked, changes the form's visibility state.
     if (formVisibilityState === false) {
         return (
             <div className="container mt-4">
-                <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeFormState())}}>Add Project</button>
+                <button className="btn btn-sm btn-success" onClick={() => {dispatch(changeProjectDisplay())}}>Add Project</button>
             </div>
         )
     }
@@ -80,7 +80,7 @@ const AddProjectForm = () => {
                         <input id="9309553ba-f22d-11ed-a05b-0242ac120003" className="form-control" type="date" placeholder="Enter budget" onChange={(e) => {setEndDate(e.target.value)}}/>
                     </div>
                     <div className="form-group mb-4" style={{textAlign: "right"}}>
-                        <button className="btn btn-warning mx-1" onClick={() => {resetProject(); dispatch(changeFormState())}}>Cancel</button>
+                        <button className="btn btn-warning mx-1" onClick={() => {resetProject(); dispatch(changeProjectDisplay())}}>Cancel</button>
                         <AddProjectButton project={ newProject } />
                     </div>
             </div>

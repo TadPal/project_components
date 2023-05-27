@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addProject } from "../features/projectsSlice"
 import {v1 as uuid} from "uuid";
-import { changeFormState } from "../features/projectsAddFormSlice";
+import { changeProjectDisplay } from "../features/displaySlice";
 
 /**
  * A button component used to add a new project to the store.
@@ -27,7 +27,7 @@ export const AddProjectButton = ({ project }) => {
     return (
         // A button element that triggers the OnAddClick event handler and dispatches an action to change the form state.
         <>
-            <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeFormState())}}>Add</button>
+            <button type="submit" className="btn btn-success mx-1" onClick={() => {OnAddClick(); dispatch(changeProjectDisplay())}}>Add</button>
         </>
     )
 }

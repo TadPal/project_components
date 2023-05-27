@@ -1,15 +1,12 @@
-import { DeleteStageButton } from "./DeleteStageButton";
-
 export const StagesTable = ({milestones}) => {
     return (
         <table className="table table-hover table-light">
        
             <thead>
                 <tr>
-                    <th>Name of stage</th>
-                    <th>Beginnnig of stage</th>
-                    <th>End of stage</th>
-                    <th></th>
+                    <th>Stage</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +25,6 @@ export const StageRow = ({index, name, start, end}) => {
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
-        <td><DeleteStageButton stageId={index} /></td>
     </tr>
     )
 }
