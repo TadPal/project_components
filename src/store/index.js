@@ -11,37 +11,3 @@ export const store = configureStore({
         finances: financesReducer,
     }
 })
-
-
-/*
-zobrazení dat docker -> http://localhost:31180/ui/api
-
-query {
-  projectPage{
-    id
-    name
-    projectType {
-      id
-      name
-    }
-    milestones {
-      id
-      startdate
-      enddate
-    }
-    
-    finances {
-      id
-      name
-      lastchange
-      amount
-      financeType {
-        id
-        name
-        
-      }
-    }
-  }
-}
-
-*/

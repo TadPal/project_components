@@ -1,11 +1,11 @@
 import { ProjectsTable } from '../components/ProjectsTable';
-import { ShowAddProjectFormButton } from '../components/ShowAddProjectFormButton';
 import Card from "react-bootstrap/Card";
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { ProjectsFetchAsync } from '../actions/ProjectAsyncLoader';
 import { ProjectCard } from '../components/ProjectCard';
+import { ProjectInsertButton } from '../components/ProjectAddModal';
 
 /**
  * A page component that renders the ProjectsTable and ShowAddProjectFormButton components.
@@ -41,7 +41,7 @@ export const ProjectsPage = () => {
                     </Card.Body>
                 </Card>
                 {/* Render the ShowAddProjectFormButton component */}
-                <ShowAddProjectFormButton />
+                <ProjectInsertButton />
             </div>
         )
     }
