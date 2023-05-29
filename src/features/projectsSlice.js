@@ -38,7 +38,6 @@ export const projectsSlice = createSlice({
                 for (let proj of state) {
                     if (project.id === proj.id) {
                         isSame = true
-                        console.log(`Project "${project.name}" is already loaded`)
                     }
                 }
                 // If the project is not already present, add it to the newProjects array
