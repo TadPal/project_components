@@ -35,10 +35,16 @@ const ProjectMutationJSON = (projecttypeId, name, startdate, enddate, groupId) =
 })
 
 /**
- * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns 
+ * Performs a project insert request to the server using authorizedFetch.
+ *
+ * @param {string} projecttypeId - The ID of the project type.
+ * @param {string} name - The name of the project.
+ * @param {string} startdate - The start date of the project.
+ * @param {string} enddate - The end date of the project.
+ * @param {string} teamid - The ID of the team associated with the project.
+ * @returns {Promise<Response>} A promise representing the project insert request.
  */
 export const ProjectInsert = (projecttypeId, name, startdate, enddate, teamid) =>
-    authorizedFetch('/gql', {
-        body: JSON.stringify(ProjectMutationJSON(projecttypeId, name, startdate, enddate, teamid)),
-    })
+  authorizedFetch('/gql', {
+    body: JSON.stringify(ProjectMutationJSON(projecttypeId, name, startdate, enddate, teamid)),
+  });

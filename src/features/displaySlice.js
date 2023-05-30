@@ -28,7 +28,7 @@ export const displaySlice = createSlice({
 })
 
 // Export the changeFormState action creator from the projectsAddFormSlice
-export const { changeProjectDisplay, changeFinanceDisplay, changeProjectDetailDisplay } = displaySlice.actions
+export const { changeProjectDisplay, changeFinanceDisplay, changeProjectDetailDisplay, changeProject } = displaySlice.actions
 
 // Export the projectsAddFormSlice reducer
 export default displaySlice.reducer
