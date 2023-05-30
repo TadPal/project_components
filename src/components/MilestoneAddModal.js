@@ -27,7 +27,7 @@ export const MilestoneInsertButton = ({projectId}) => {
     }
 
    // Resets the state values to their default values.
-   const resetProject = () => {
+   const resetMilestone = () => {
     setName("Name")
     setStartDate("2023-01-01T00:00:00")
     setEndDate("2025-12-31T23:59:59")
@@ -57,7 +57,7 @@ export const MilestoneInsertButton = ({projectId}) => {
       </button>
 
       {/* modal bottstrap setting */}
-      <Modal show={showModal} onHide={() => {setShowModal(false)}}>
+      <Modal show={showModal} onHide={() => {setShowModal(false); resetMilestone()}}>
         <Modal.Header closeButton>
           <Modal.Title>New milestone</Modal.Title>
         </Modal.Header>
@@ -82,7 +82,7 @@ export const MilestoneInsertButton = ({projectId}) => {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <button className='btn btn-warning' onClick={() => {setShowModal(false); resetProject()}}>
+          <button className='btn btn-warning' onClick={() => {setShowModal(false)}}>
             Close
           </button>
           <button className="btn btn-success" onClick={fetchImport}>

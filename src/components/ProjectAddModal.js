@@ -106,7 +106,7 @@ export const ProjectInsertButton = () => {
       </button>
 
       {/* modal bottstrap setting */}
-      <Modal show={showModal} onHide={() => {setShowModal(false)}}>
+      <Modal show={showModal} onHide={() => {setShowModal(false); resetProject()}}>
         <Modal.Header closeButton>
           <Modal.Title>New project</Modal.Title>
         </Modal.Header>
@@ -143,7 +143,7 @@ export const ProjectInsertButton = () => {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <button className='btn btn-warning' onClick={() => {setShowModal(false); resetProject()}}>
+          <button className='btn btn-warning' onClick={() => {setShowModal(false)}}>
             Close
           </button>
           <button className="btn btn-success" onClick={fetchImport}>
