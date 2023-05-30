@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // The initial state value for the projectsAddFormSlice
-const initialStateValue = {addProject: false, addFinance: false, projectDetail: {project: {}, display: false}};
+const initialStateValue = {addProject: false, addFinance: false, projectDetail: {projectId: "", display: false}};
 
 // A Redux slice for managing the state of the project add form
 export const displaySlice = createSlice({
@@ -20,7 +20,7 @@ export const displaySlice = createSlice({
         },
 
         changeProjectDetailDisplay: (state, action) => {
-            state.projectDetail.project = action.payload.project;
+            state.projectDetail.projectId = action.payload;
             state.projectDetail.display = !state.projectDetail.display;
             return state
         },

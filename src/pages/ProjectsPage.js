@@ -27,8 +27,8 @@ export const ProjectsPage = () => {
 
     if (projectDetail.display) {
         return(
-            <ProjectCard project={projectDetail.project}/>
-        )  
+            <ProjectCard projectId={projectDetail.projectId} projects={projects}/>
+        )
     }
     else {
         return(

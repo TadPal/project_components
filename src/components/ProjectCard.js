@@ -3,8 +3,10 @@ import { StagesTable } from "./StagesTable";
 import { useDispatch } from "react-redux";
 import { changeProjectDetailDisplay } from "../features/displaySlice";
 
-export const ProjectCard = ({project}) => {
+export const ProjectCard = ({projectId, projects}) => {
+    
     const dispatch = useDispatch()
+    const project = projects.find(p => p.id === projectId)
 
     return(
         <div className='container my-2'>
@@ -19,7 +21,7 @@ export const ProjectCard = ({project}) => {
                         <StagesTable milestones={project.milestones} project={project.id}/>
                     </Card.Body>
                     <Card.Footer>
-                        <button className="btn btn-success" onClick={() => dispatch(changeProjectDetailDisplay({}))}>Back</button>
+                        <button className="btn btn-success" onClick={() => dispatch(changeProjectDetailDisplay(""))}>Back</button>
                     </Card.Footer>
                 </Card>
             </div>

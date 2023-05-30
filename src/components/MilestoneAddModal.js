@@ -42,7 +42,6 @@ export const MilestoneInsertButton = ({projectId}) => {
         console.log(milestone)
         const response = await MilestoneInsert(milestone.project, milestone.name, milestone.startdate, milestone.enddate)
         const data = await response.json();
-        console.log(data)
         dispatch(updateProject(data.data.milestoneInsert.milestone.project));
         setShowModal(false);
       } catch (error) { 
