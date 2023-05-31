@@ -1,4 +1,7 @@
-export const StagesTable = ({milestones, project}) => {
+import { MilestoneInsertButton } from "./MilestoneAddModal";
+import { PencilSquare } from "react-bootstrap-icons";
+
+export const StagesEditTable = ({milestones, project}) => {
     return (
         <table className="table table-hover table-light">
        
@@ -7,6 +10,7 @@ export const StagesTable = ({milestones, project}) => {
                     <th>Stage</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+                    <th><MilestoneInsertButton projectId={project}/></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +29,7 @@ export const StageRow = ({name, start, end}) => {
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
+        <td><button className="btn btn-warning btn-sm"><PencilSquare /></button></td>
     </tr>
     )
 }

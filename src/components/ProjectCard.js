@@ -2,6 +2,7 @@ import Card from "react-bootstrap/Card";
 import { StagesTable } from "./StagesTable";
 import { useDispatch } from "react-redux";
 import { changeProjectDetailDisplay } from "../features/displaySlice";
+import { ProjectUpdateButton } from "./ProjectUpdateModal";
 
 export const ProjectCard = ({projectId, projects}) => {
     
@@ -12,7 +13,7 @@ export const ProjectCard = ({projectId, projects}) => {
         <div className='container my-2'>
             <div className="row h-100 justify-content-center align-items-center">
                 <Card style={{ width: '40rem' }}>
-                    <Card.Header className='h3 text-start'>{project.name}</Card.Header>
+                    <Card.Header className='h3 text-start'>{project.name}<span style={{float: "right"}}><ProjectUpdateButton project={project}/></span></Card.Header>
                     <Card.Body style={{textAlign: "left"}}>
                         <Card.Text><b>Start date: </b>{project.startdate}</Card.Text>
                         <Card.Text><b>End date: </b>{project.enddate}</Card.Text>

@@ -1,16 +1,20 @@
 import { authorizedFetch } from './authorizedFetch'
 
 
-const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projecttypeId) => ({
+const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projecttypeId, groupId) => ({
     "query":
         `mutation {
           projectUpdate(
-            project: {lastchange: "${lastchange}", id: "${id}", name: "${name}", startdate: "${startdate}", enddate: "${enddate}", projecttypeId: "${projecttypeId}"}
+            project: {lastchange: "${lastchange}", id: "${id}", name: "${name}", startdate: "${startdate}", enddate: "${enddate}", projecttypeId: "${projecttypeId}", groupId: "${groupId}"}
           ) {
             msg
             project {
               id
               name
+              team {
+                id
+                name
+              }
               projectType {
                 id
                 name
@@ -18,18 +22,6 @@ const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projectty
               startdate
               enddate
               lastchange
-              finances {
-                id
-                name
-                amount
-                lastchange
-              }
-              milestones {
-                id
-                name
-                startdate
-                enddate
-              }
             }
           }
         }`,
@@ -39,7 +31,7 @@ const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projectty
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
  * @returns 
  */
-export const ProjectUpdate = (props) =>
+export const ProjectUpdate = (projectId, name, lastchange, startdate, enddate, projecttypeId, groupId) =>
     authorizedFetch('/gql', {
-        body: JSON.stringify(ProjectMutationJSON(props.project.id, props.project.name, props.project.lastchange, props.project.startdate, props.project.enddate, props.project.projectType.id)),
+        body: JSON.stringify(ProjectMutationJSON(projectId, name, lastchange, startdate, enddate, projecttypeId, groupId)),
     })
