@@ -10,9 +10,9 @@ export const ProjectCard = ({projectId, projects}) => {
     const project = projects.find(p => p.id === projectId)
 
     return(
-        <div className='container my-2'>
+        <div className='container my-3'>
             <div className="row h-100 justify-content-center align-items-center">
-                <Card style={{ width: '40rem' }}>
+                <Card className="p-0" style={{ width: '40rem' }}>
                     <Card.Header className='h3 text-start'>{project.name}<span style={{float: "right"}}><ProjectUpdateButton project={project}/></span></Card.Header>
                     <Card.Body style={{textAlign: "left"}}>
                         <Card.Text><b>Start date: </b>{project.startdate}</Card.Text>

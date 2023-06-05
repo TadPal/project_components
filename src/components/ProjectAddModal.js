@@ -101,7 +101,7 @@ export const ProjectInsertButton = () => {
 
   return (
     <>
-      <button className="btn btn-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync()); dispatch(GroupsFetchAsync())}}>
+      <button className="btn btn-outline-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync()); dispatch(GroupsFetchAsync())}}>
         New project
       </button>
 
