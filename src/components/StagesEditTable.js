@@ -29,7 +29,7 @@ export const StageRow = ({name, start, end}) => {
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
-        <td><button className="btn btn-warning btn-sm"><PencilSquare /></button></td>
+        <td><button className="btn btn-outline-success btn-sm"><PencilSquare /></button></td>
     </tr>
     )
 }

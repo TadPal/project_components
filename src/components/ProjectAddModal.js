@@ -143,7 +143,7 @@ export const ProjectInsertButton = () => {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <button className='btn btn-warning' onClick={() => {setShowModal(false)}}>
+          <button className='btn btn-outline-success' onClick={() => {setShowModal(false)}}>
             Close
           </button>
           <button className="btn btn-success" onClick={fetchImport}>
