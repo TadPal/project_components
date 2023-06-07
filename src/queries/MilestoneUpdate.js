@@ -18,6 +18,8 @@ const MilestoneUpdateJSON = (lastchange, id, name, startdate, enddate) => ({
                     lastchange
                     enddate
                     startdate
+                    nexts {id}
+                    previous {id}
                   }
                 }
               }

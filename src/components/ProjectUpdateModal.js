@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { ProjectTypesQuery } from '../queries/ProjectTypesQuery';
-import { ProjectUpdate } from '../queries/ProjectUpdate';
 import { GroupsQuery } from '../queries/GroupsQuery';
-import { updateProject } from '../features/projectsSlice';
 import { StagesEditTable } from './StagesEditTable';
+import { ProjectUpdaterAsync } from '../actions/ProjectAsyncUpdater';
 
 /**
  * A React component that represents a button for inserting a new project.
@@ -36,21 +35,6 @@ export const ProjectUpdateButton = ({project}) => {
       enddate: endDate,
       lastchange: project.lastchange,
     }
-
-    /**
-     * Fetches the project insert and dispatches the 'addProject' action.
-     * @returns {Promise} A promise representing the asynchronous operation.
-     */
-    const fetchUpdate = async () => {
-        try {
-            const response = await ProjectUpdate(newProject.id, newProject.name, newProject.lastchange, newProject.startdate, newProject.enddate, newProject.projectType, newProject.team);
-            const data = await response.json();
-            dispatch(updateProject(data.data.projectUpdate.project));
-            setShowModal(false);
-        } catch (error) { 
-            console.error('Error adding project:', error);
-        }
-    };
 
     /**
     * Asynchronous action creator that fetches project types.
@@ -141,7 +125,7 @@ export const ProjectUpdateButton = ({project}) => {
           <button className='btn btn-outline-success' onClick={() => {setShowModal(false)}}>
             Close
           </button>
-          <button className="btn btn-success" onClick={fetchUpdate}>
+          <button className="btn btn-success" onClick={() => {dispatch(ProjectUpdaterAsync(newProject.id, newProject.name, newProject.lastchange, newProject.startdate, newProject.enddate, newProject.projectType, newProject.team)); setShowModal(false);}}>
             Save
           </button>
         </Modal.Footer>

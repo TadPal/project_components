@@ -4,7 +4,24 @@ import { authorizedFetch } from './authorizedFetch'
 const MilestoneDeleteJSON = (id) => ({
     "query":
         `mutation {
-            milestoneDelete(id: "${id}") {id, msg}
+            milestoneDelete(id: "${id}") 
+          { 
+            id
+            msg
+            milestone {
+              project {
+                id
+                milestones {
+                  id
+                  name
+                  lastchange
+                  enddate
+                  startdate
+                  nexts {id}
+                  previous {id}
+                }
+              }
+            }
           }`,
 })
 
