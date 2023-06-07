@@ -5,8 +5,8 @@ import { updateProject } from '../features/projectsSlice';
  * Asynchronous action creator that fetches projects.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const MilestoneDeleteAsync = () => (dispatch, getState) => {
-    MilestoneDelete()
+export const MilestoneDeleteAsync = (stageId) => (dispatch, getState) => {
+    MilestoneDelete(stageId)
       .then(response => response.json())
       .then(json => {
         const message = json.data?.milestoneDelete.msg

@@ -1,5 +1,6 @@
 import { MilestoneInsertButton } from "./MilestoneAddModal";
 import { PencilSquare } from "react-bootstrap-icons";
+import { DeleteStageButton } from "./DeleteStageButton";
 
 export const StagesEditTable = ({milestones, project}) => {
     return (
@@ -17,19 +18,23 @@ export const StagesEditTable = ({milestones, project}) => {
                 {milestones.map((stage) => <StageRow key={stage.id} 
                                                         name={stage.name} 
                                                         start={stage.startdate} 
-                                                        end={stage.enddate} />)} 
+                                                        end={stage.enddate}
+                                                        id={stage.id} />)} 
             </tbody>
         </table>
     )
 } 
 
-export const StageRow = ({name, start, end}) => {
+export const StageRow = ({name, start, end, id}) => {
     return (
     <tr>
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
-        <td><button className="btn btn-outline-success btn-sm"><PencilSquare /></button></td>
+        <td>
+            <button className="btn btn-outline-success btn-sm"><PencilSquare /></button>
+            <DeleteStageButton stageId={id}/>    
+        </td>
     </tr>
     )
 }
