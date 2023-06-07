@@ -14,9 +14,9 @@ export const DeleteStageButton = ({ stageId }) => {
     else
     {
         return(
-            <div>
-                <button className="btn btn-outline-danger btn-sm mx-1" onClick={() => {setDeleteVisibility(!deleteVisibility)}}>Cancel</button>
-                <button className="btn btn-danger btn-sm mx-1" onClick={() => {MilestoneDeleteAsync(stageId)}}>Delete</button>
+            <div className="container">
+                <button className="btn btn-outline-danger btn-sm m-1" onClick={() => {setDeleteVisibility(!deleteVisibility)}}>Cancel</button>
+                <button className="btn btn-danger btn-sm m-1" onClick={() => {MilestoneDeleteAsync(stageId)}}>Delete</button>
             </div>   
         )
     }

@@ -22,7 +22,8 @@ const MilestoneDeleteJSON = (id) => ({
                 }
               }
             }
-          }`,
+          }
+        }`,
 })
 
 /**

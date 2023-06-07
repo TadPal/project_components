@@ -11,7 +11,8 @@ export const StagesEditTable = ({milestones, project}) => {
                     <th>Stage</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th><MilestoneInsertButton projectId={project}/></th>
+                    <th></th>
+                    <th className="text-align-right"><MilestoneInsertButton projectId={project}/></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,10 +32,8 @@ export const StageRow = ({name, start, end, id}) => {
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
-        <td>
-            <button className="btn btn-outline-success btn-sm"><PencilSquare /></button>
-            <DeleteStageButton stageId={id}/>    
-        </td>
+        <td><DeleteStageButton stageId={id}/></td>
+        <td><button className="btn btn-outline-success btn-sm"><PencilSquare /></button></td>
     </tr>
     )
 }

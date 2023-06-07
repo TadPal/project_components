@@ -82,7 +82,7 @@ export const ProjectUpdateButton = ({project}) => {
       </button>
 
       {/* modal bottstrap setting */}
-      <Modal show={showModal} onHide={() => {setShowModal(false)}}>
+      <Modal className="modal-lg" show={showModal} onHide={() => {setShowModal(false)}}>
         <Modal.Header closeButton>
           <Modal.Title>New project</Modal.Title>
         </Modal.Header>
