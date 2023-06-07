@@ -1,8 +1,3 @@
-/*
-Button pro přidání etapy do projektu
-Button pro smazání etapy projektu
-Button pro vytvoření vazby (prev, next) mezi etapami
- */
 import { Trash } from "react-bootstrap-icons"
 import { useState } from "react"
 // import { useDispatch } from "react-redux";
@@ -10,7 +5,7 @@ import { useState } from "react"
 
 export const DeleteStageButton = ({ stageId }) => {
     // const dispatch = useDispatch()
-    [deleteVisibility, setDeleteVisibility] = useState(false)
+    const [deleteVisibility, setDeleteVisibility] = useState(false)
 
     if(deleteVisibility === false)
     {
