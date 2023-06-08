@@ -27,8 +27,8 @@ const ProjectsQueryJSON = () => ({
               startdate
               enddate
               lastchange
-              nexts { id }
-              previous { id }
+              nexts { id, name }
+              previous { id, name }
             }
           }
         }`,

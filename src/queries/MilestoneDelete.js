@@ -17,8 +17,8 @@ const MilestoneDeleteJSON = (id) => ({
                   lastchange
                   enddate
                   startdate
-                  nexts {id}
-                  previous {id}
+                  nexts {id, name}
+                  previous {id, name}
                 }
               }
             }

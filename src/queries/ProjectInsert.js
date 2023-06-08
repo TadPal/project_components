@@ -28,6 +28,8 @@ const ProjectMutationJSON = (projecttypeId, name, startdate, enddate, groupId) =
                   name
                   startdate
                   enddate
+                  nexts {id, name}
+                  previous {id, name}
                 }
               }
             }

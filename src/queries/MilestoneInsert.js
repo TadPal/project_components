@@ -18,8 +18,8 @@ const MilestoneInsertJSON = (projectId, name, startdate, enddate) => ({
                     lastchange
                     enddate
                     startdate
-                    nexts {id}
-                    previous {id}
+                    nexts {id, name}
+                    previous {id, name}
                   }
                 }
               }
