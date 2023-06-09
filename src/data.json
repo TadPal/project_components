@@ -3,23 +3,27 @@
         {
             "id":1,           
             "name":"výdaj",            
-            "change":"6/6/2023",
-            "amount":"-2300000",
-            "type":"Investments"
+            "lastchange":"6/6/2023",
+            "amount":"2300000",
+            "financeType":{"name":"Investments", "id":"9e37059c-de2c-4112-9009-559c8b0396f0"},
+            "project":{"name":"Project", "id":"9e37059c-de2c-4112"}
+
         },
         {
             "id":2,
             "name":"vklad leden",
-            "change":"6/6/2023",
+            "lastchange":"6/6/2023",
             "amount":"500000",
-            "type":"Rewards"
+            "financeType":{"name":"Rewards", "id":"9e37059c-de2c-4112-9009-559c8b0396f5"},
+            "project":{"name":"Project", "id":"9e37059c-de2c-4112"}
         },
         {
             "id":3,
             "name":"SUAS",
-            "change":"6/6/2023",
-            "amount":"-100000",
-            "type":"Grants"
+            "lastchange":"6/6/2023",
+            "amount":"100000",
+            "financeType":{"name":"Grants", "id":"9e37059c-de2c-4112-9009-559c8b0396f3"},
+            "project":{"name":"Project", "id":"9e37059c-de2c-4112"}
         }
     ]
 }

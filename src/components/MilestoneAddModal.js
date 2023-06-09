@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { MilestoneInsert } from '../queries/MilestoneInsert';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { updateProject } from '../features/projectsSlice';
+import { MilestoneAsyncInsert } from '../actions/MilestoneAsyncInsert';
 
 /**
  * A React component that represents a button for inserting a new project.
@@ -32,23 +31,6 @@ export const MilestoneInsertButton = ({projectId}) => {
     setStartDate("2023-01-01T00:00:00")
     setEndDate("2025-12-31T23:59:59")
    }
-
-  /**
-  * Fetches the project insert and dispatches the 'addProject' action.
-  * @returns {Promise} A promise representing the asynchronous operation.
-  */
-  const fetchImport = async () => {
-    try {
-        console.log(milestone)
-        const response = await MilestoneInsert(milestone.project, milestone.name, milestone.startdate, milestone.enddate)
-        const data = await response.json();
-        dispatch(updateProject(data.data.milestoneInsert.milestone.project));
-        setShowModal(false);
-      } catch (error) { 
-        console.error('Error adding milestone:', error);
-      }
-  };
-
 
   return (
     <>
@@ -85,7 +67,7 @@ export const MilestoneInsertButton = ({projectId}) => {
           <button className='btn btn-outline-success' onClick={() => {setShowModal(false)}}>
             Close
           </button>
-          <button className="btn btn-success" onClick={fetchImport}>
+          <button className="btn btn-success" onClick={() => {dispatch(MilestoneAsyncInsert(milestone)); setShowModal(false)}}>
             Save
           </button>
         </Modal.Footer>

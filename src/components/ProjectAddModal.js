@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { ProjectInsert } from '../queries/ProjectInsert';
 import { ProjectTypesQuery } from '../queries/ProjectTypesQuery';
 import { GroupsQuery } from '../queries/GroupsQuery';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { addProject } from '../features/projectsSlice';
+import { ProjectAsyncInsert } from '../actions/ProjectAsyncInserter';
 
 /**
  * A React component that represents a button for inserting a new project.
@@ -44,21 +43,6 @@ export const ProjectInsertButton = () => {
    }
 
   /**
-  * Fetches the project insert and dispatches the 'addProject' action.
-  * @returns {Promise} A promise representing the asynchronous operation.
-  */
-  const fetchImport = async () => {
-    try {
-        const response = await ProjectInsert(newProject.projectType, newProject.name, newProject.startdate, newProject.enddate, newProject.team);
-        const data = await response.json();
-        dispatch(addProject(data.data.projectInsert.project));
-        setShowModal(false);
-      } catch (error) { 
-        console.error('Error adding project:', error);
-      }
-  };
-
-  /**
   * Asynchronous action creator that fetches project types.
   * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
   */
@@ -71,6 +55,9 @@ export const ProjectInsertButton = () => {
         const projectTypes = json.data?.projectTypePage
         if (projectTypes) {
           setProjectTypes(projectTypes)
+        }
+        else {
+          console.log("No groups found")
         }
         return json
       })
@@ -96,8 +83,6 @@ export const ProjectInsertButton = () => {
         return json
       })
   }
-  
-
 
   return (
     <>
@@ -146,7 +131,7 @@ export const ProjectInsertButton = () => {
           <button className='btn btn-outline-success' onClick={() => {setShowModal(false)}}>
             Close
           </button>
-          <button className="btn btn-success" onClick={fetchImport}>
+          <button className="btn btn-success" onClick={() => {setShowModal(false); dispatch(ProjectAsyncInsert(newProject))}}>
             Save
           </button>
         </Modal.Footer>

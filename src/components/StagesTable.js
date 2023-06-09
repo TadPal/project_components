@@ -1,28 +1,40 @@
 import { v1 as uuid } from 'uuid';
 
 export const StagesTable = ({milestones, project}) => {
-    return (
-        <table className="table table-hover table-light">
-       
-            <thead>
-                <tr>
-                    <th>Stage</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Previous</th>
-                    <th>Next</th>
-                </tr>
-            </thead>
-            <tbody>
-                {milestones.map((stage) => <StageRow key={stage.id} 
-                                                        name={stage.name} 
-                                                        start={stage.startdate} 
-                                                        end={stage.enddate}
-                                                        previous={stage.previous}
-                                                        nexts={stage.nexts} />)} 
-            </tbody>
-        </table>
-    )
+
+    if (milestones.length > 0) {
+        return (
+            <table className="table table-hover table-light">
+           
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Previous</th>
+                        <th>Next</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {milestones.map((stage) => <StageRow key={stage.id} 
+                                                            name={stage.name} 
+                                                            start={stage.startdate} 
+                                                            end={stage.enddate}
+                                                            previous={stage.previous}
+                                                            nexts={stage.nexts} />)} 
+                </tbody>
+            </table>
+        )
+    }
+    else {
+        return (
+            <div>
+                <p>
+                    <b>Stages:</b> Project has no asigned stages
+                </p>
+            </div>
+        )
+   }
 } 
 
 export const StageRow = ({name, start, end, previous, nexts}) => {
