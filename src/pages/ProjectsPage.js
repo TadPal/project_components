@@ -1,9 +1,6 @@
 import { ProjectsTable } from '../components/ProjectsTable';
 import Card from "react-bootstrap/Card";
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { ProjectsFetchAsync } from '../actions/ProjectAsyncLoader';
 import { ProjectCard } from '../components/ProjectCard';
 import { ProjectInsertButton } from '../components/ProjectAddModal';
 
@@ -16,14 +13,6 @@ export const ProjectsPage = () => {
     // Extract the projects state from Redux store using the useSelector hook
     const projects = useSelector((state) => state.projects)
     const projectDetail = useSelector((state) => state.display.projectDetail)
-    const dispatch = useDispatch();
-    
-    useEffect(
-        () => {
-        dispatch(ProjectsFetchAsync())
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, []
-    )
 
     if (projectDetail.display) {
         return(
