@@ -26,7 +26,7 @@ export const FinancesTable = (props) => {
                 <tbody>
                 {filteredFinances.map((finance) => <FinanceRow key={finance.id} index={finance.id}
                                                             name={finance.name}
-                                                            change={finance.lastchange}
+                                                            change={finance.lastchange.substring(0, 10)}
                                                             amount={finance.amount}                                                      
                                                             type={finance.financeType.name}  />)} 
                 </tbody>
@@ -35,7 +35,7 @@ export const FinancesTable = (props) => {
     }
     else {
         return (
-            <div>
+            <div style={{textAlign: "left"}}>
                 <p>
                     <b>Finances:</b> Project has no asigned finances
                 </p>

@@ -1,5 +1,4 @@
 import { ProjectsPage } from "./ProjectsPage"
-import { FinancesPage } from "./FinancesPage"
 import { useEffect } from 'react';
 import { FinancesFetchAsync } from '../actions/FinanceAsyncLoader';
 import { ProjectsFetchAsync } from '../actions/ProjectAsyncLoader';
@@ -17,9 +16,6 @@ export const PagesDisplayAll = () => {
     )
 
     return (
-        <>
             <ProjectsPage />
-            <FinancesPage />
-        </>
     )
 }

@@ -20,8 +20,8 @@ export const StagesEditTable = ({milestones, project}) => {
             <tbody>
                 {milestones.map((stage) => <StageRow key={stage.id} 
                                                         name={stage.name} 
-                                                        start={stage.startdate} 
-                                                        end={stage.enddate}
+                                                        start={stage.startdate.substring(0, 10)} 
+                                                        end={stage.enddate.substring(0, 10)}
                                                         previous={stage.previous}
                                                         nexts={stage.nexts}
                                                         id={stage.id} />)} 
