@@ -47,8 +47,8 @@ const ProjectRow = ({project}) => {
             <tr style={rowColor}>
                 <td>{project.name}</td>
                 <td>{project.projectType.name}</td>
-                <td>{project.startdate}</td>
-                <td>{project.enddate}</td>
+                <td>{project.startdate.substring(0,10)}</td>
+                <td>{project.enddate.substring(0,10)}</td>
                 <td><button className="btn btn-sm btn-success mx-1" onClick={() => {dispatch(changeProjectDetailDisplay(project.id))}}><CardText /> Details</button></td>
             </tr>
         )
