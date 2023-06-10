@@ -15,7 +15,8 @@ export const projectsSlice = createSlice({
 
         updateProject: (state, action) => {
             const updatedProject = action.payload
-
+            console.log(updatedProject)
+            
             state = state.map(project => project.id === updatedProject.id ? {...project, ...updatedProject} : project)
             return state
         },

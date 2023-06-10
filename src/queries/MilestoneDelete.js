@@ -8,7 +8,6 @@ const MilestoneDeleteJSON = (id) => ({
           { 
             id
             msg
-            milestone {
               project {
                 id
                 milestones {
@@ -22,8 +21,7 @@ const MilestoneDeleteJSON = (id) => ({
                 }
               }
             }
-          }
-        }`,
+          }`,
 })
 
 /**

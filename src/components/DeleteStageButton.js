@@ -1,9 +1,11 @@
 import { Trash } from "react-bootstrap-icons"
 import { useState } from "react"
 import { MilestoneDeleteAsync }   from "../actions/MilestoneAsyncDeleter"
+import { useDispatch } from "react-redux"
 
 export const DeleteStageButton = ({ stageId }) => {
     const [deleteVisibility, setDeleteVisibility] = useState(false)
+    const dispatch = useDispatch();
 
     if(deleteVisibility === false)
     {
@@ -16,7 +18,7 @@ export const DeleteStageButton = ({ stageId }) => {
         return(
             <div className="container">
                 <button className="btn btn-outline-danger btn-sm m-1" onClick={() => {setDeleteVisibility(!deleteVisibility)}}>Cancel</button>
-                <button className="btn btn-danger btn-sm m-1" onClick={() => {MilestoneDeleteAsync(stageId)}}>Delete</button>
+                <button className="btn btn-danger btn-sm m-1" onClick={() => {dispatch(MilestoneDeleteAsync(stageId))}}>Delete</button>
             </div>   
         )
     }
