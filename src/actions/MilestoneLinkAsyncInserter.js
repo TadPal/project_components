@@ -10,7 +10,7 @@ export const MilestoneAsyncInsert = ({nextId, previousId}) => (dispatch, getStat
       .then(response => response.json())
       .then(json => {
         const message = json.data?.milestoneLinkAdd.msg
-        const project = json.data?.milestoneInsert.milestone.project;
+        const project = json.data?.milestoneLinkAdd.milestone.project;
         if (message === 'ok') {
           dispatch(updateProject(project))
         }
