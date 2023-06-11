@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { FinancesFetchAsync } from '../actions/FinanceAsyncLoader';
 import { ProjectsFetchAsync } from '../actions/ProjectAsyncLoader';
 import { useDispatch } from "react-redux";
+import { FinancesPage } from "./FinancesPage";
 
 export const PagesDisplayAll = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,9 @@ export const PagesDisplayAll = () => {
     )
 
     return (
+        <>
             <ProjectsPage />
+            <FinancesPage />
+        </>
     )
 }
