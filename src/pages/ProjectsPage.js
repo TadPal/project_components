@@ -11,7 +11,6 @@ import { ProjectGanttChart } from '../components/ProjectGanttChart';
  * @returns {JSX.Element} The JSX element that represents the ProjectsPage component.
  */
 export const ProjectsPage = () => {
-    // Extract the projects state from Redux store using the useSelector hook
     const projects = useSelector((state) => state.projects)
     const projectDetail = useSelector((state) => state.display.projectDetail)
 
@@ -33,7 +32,6 @@ export const ProjectsPage = () => {
                         <ProjectsTable projects={projects}/>
                     </Card.Body>
                 </Card>
-                {/* Render the ShowAddProjectFormButton component */}
                 <ProjectInsertButton />
             </div>
         )
