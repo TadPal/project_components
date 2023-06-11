@@ -9,7 +9,7 @@ export const FinancesTable = (props) => {
   };
 
   // Filter the finances based on the selected type
-  const filteredFinances = selectedType ? props.finances.filter((finance) => finance.financeType.id === selectedType) : props.finances;
+  const filteredFinances = selectedType ? props.finances.filter((finance) => finance.financeType.name === selectedType) : props.finances;
 
     if(props.finances.length > 0)
     {
@@ -20,7 +20,7 @@ export const FinancesTable = (props) => {
                         <th>Finance Name</th>
                         <th>Last change</th>
                         <th>Amount</th>
-                        <th><FinanceSelect onChange={handleTypeChange}/></th>
+                        <th><FinanceSelect financeTypes={["Investments", "Rewards", "Grants", "osobní náklady"]} onChange={handleTypeChange}/></th>
                     </tr>
                 </thead>
                 <tbody>
