@@ -15,6 +15,7 @@ export const ProjectsTable = ({projects}) => {
             <thead className="table-success">
                 <tr>
                     <th>Project Name</th>
+                    <th>Team</th>
                     <th>Project Type</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -46,6 +47,7 @@ const ProjectRow = ({project}) => {
             // A table row element that displays the project data and sets the text color based on the submission date.
             <tr style={rowColor}>
                 <td>{project.name}</td>
+                <td>{project.team.name}</td>
                 <td>{project.projectType.name}</td>
                 <td>{project.startdate.substring(0,10)}</td>
                 <td>{project.enddate.substring(0,10)}</td>
