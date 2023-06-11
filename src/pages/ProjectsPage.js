@@ -12,7 +12,7 @@ import { ProjectGanttChart } from '../components/ProjectGanttChart';
  */
 export const ProjectsPage = () => {
     const projects = useSelector((state) => state.projects)
-    const projectDetail = useSelector((state) => state.display.projectDetail)
+    const projectDetail = useSelector((state) => state.display)
 
     if (projectDetail.display) {
         return(
