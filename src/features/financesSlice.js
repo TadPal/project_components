@@ -12,27 +12,6 @@ export const financesSlice = createSlice({
     name: "finances",
     initialState: initialStateValue,
     reducers: {
-        // A reducer that 
-        splitFinance: (state, action) => {
-            const newFinance = action.payload
-    
-            state.push(newFinance)
-            return state
-        },
-        
-        deleteFinance: (state, action) => {
-            const financeId = action.payload;
-            
-            state = state.filter(finance => finance.id !== financeId)
-            return state
-        },
-
-        selectFinance: (state, action) => {
-
-           // const financeTypes = action.payload;
-            
-            return state
-        },
 
         loadFinances: (state, action) => {
             const finances = action.payload
@@ -57,11 +36,18 @@ export const financesSlice = createSlice({
             state = [...state, ...newFinances]
             return state
         },
+
+        updateFinance: (state, action) => {
+            const updatedFinance = action.payload
+            
+            state = state.map(finance => finance.id === updatedFinance.id ? {...finance, ...updatedFinance} : finance)
+            return state
+        },
     },
 })
 
 // Export the changeFormState action creator from the financesSlice
-export const { selectFinance, splitFinance, deleteFinance, loadFinances  } = financesSlice.actions
+export const { loadFinances, updateFinance } = financesSlice.actions
 
 // Export the financesSlice reducer
 export default financesSlice.reducer
