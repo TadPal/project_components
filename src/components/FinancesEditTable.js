@@ -1,6 +1,3 @@
-
-import { useState } from "react";
-
 export const FinancesEditTable = (props) => {
 
     if(props.finances.length > 0)

@@ -1,22 +1,24 @@
 import { FinanceSelect } from "./FinanceTypeSelect";
 import { FinanceProjectSelect } from "./FinanceProjectSelect";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export const FinancesTableMain = (props) => {
   const [selectedType, setSelectedType] = useState(""); // State for storing the selected type
   const [selectedProject, setSelectedProject] = useState({});
+  const projects = useSelector((state) => state.projects);
 
   const handleTypeChange = (selectedType) => {
     setSelectedType(selectedType); // Update the selected type when it changes
   };
 
   const handleProjectChange = (selectedProject) => {
-    setSelectedProject(selectedProject); // Update the selected type when it changes
+    setSelectedProject(selectedProject); // Update the selected project when it changes
   };
 
   // Filter the finances based on the selected type
   let filteredFinances = selectedType ? props.finances.filter((finance) => finance.financeType.id === selectedType) : props.finances;
-  filteredFinances =  selectedProject ? filteredFinances.filter((finance) => finance.project.id === selectedProject.id) : filteredFinances;
+  filteredFinances =  selectedProject ? filteredFinances.filter((finance) => finance.project.id === selectedProject) : filteredFinances;
 
     if(props.finances.length > 0)
     {
@@ -25,7 +27,7 @@ export const FinancesTableMain = (props) => {
                 <thead className="table-primary">
                     <tr>
                         <th>Finance Name</th>
-                        <th><FinanceProjectSelect onChange={handleProjectChange}/></th>
+                        <th><FinanceProjectSelect projects={projects}  onChange={handleProjectChange}/></th>
                         <th>Last change</th>
                         <th>Amount</th>
                         <th><FinanceSelect onChange={handleTypeChange}/></th>
