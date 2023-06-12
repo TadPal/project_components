@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { ProjectTypesQuery } from '../queries/ProjectTypesQuery';
-import { GroupsQuery } from '../queries/GroupsQuery';
 import { StagesEditTable } from './StagesEditTable';
 import { ProjectUpdaterAsync } from '../actions/ProjectAsyncUpdater';
+import { ProjectTypesFetchAsync } from '../actions/ProjectTypesAsyncLoader';
+import { GroupsFetchAsync } from '../actions/GroupsAsyncLoader';
+import { FinancesEditTable } from './FinancesEditTable';
 
 /**
  * A React component that represents a button for inserting a new project.
  * @returns {JSX.Element} The JSX element representing the project insert button.
  */
-export const ProjectUpdateButton = ({project}) => {
+export const ProjectUpdateButton = ({project, finances}) => {
   const dispatch = useDispatch();
 
   // showing modal if button pressed
@@ -36,48 +37,17 @@ export const ProjectUpdateButton = ({project}) => {
       lastchange: project.lastchange,
     }
 
-    /**
-    * Asynchronous action creator that fetches project types.
-    * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
-    */
-    const ProjectTypesFetchAsync = () => (dispatch, getState) => {
-    // Call the ProjectsQuery function to fetch projects
-        ProjectTypesQuery()
-        .then(response => response.json())
-        .then(json => {
-            // Extract the projectTypes data from the JSON response
-            const projectTypes = json.data?.projectTypePage
-            if (projectTypes) {
-            setProjectTypes(projectTypes)
-            }
-            return json
-        })
+    const handleTypesRequest = (projectTypes) => {
+      setProjectTypes(projectTypes)
     }
 
-  /**
-  * Asynchronous action creator that fetches project types.
-  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
-  */
-  const GroupsFetchAsync = () => (dispatch, getState) => {
-    // Call the ProjectsQuery function to fetch projects
-    GroupsQuery()
-      .then(response => response.json())
-      .then(json => {
-        // Extract the groups data from the JSON response
-        const groups = json.data?.groupPage
-        if (groups) {
-          setTeams(groups)
-        }
-        else {
-          console.log("No teams found")
-        }
-        return json
-      })
-  }
+    const handleGroupRequest = (groups) => {
+      setTeams(groups)
+    }
 
   return (
     <>
-      <button className="btn btn-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync()); dispatch(GroupsFetchAsync())}}>
+      <button className="btn btn-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync({setProjectTypes: handleTypesRequest})); dispatch(GroupsFetchAsync({setTeams: handleGroupRequest}))}}>
         Edit
       </button>
 
@@ -119,6 +89,9 @@ export const ProjectUpdateButton = ({project}) => {
           </Form.Group>
           <Form.Group className='my-2'>
             <StagesEditTable milestones={project.milestones} project={project.id}/>
+          </Form.Group>
+          <Form.Group className='my-2'>
+            <FinancesEditTable finances={finances} />
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>

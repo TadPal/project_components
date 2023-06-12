@@ -1,9 +1,7 @@
 import { ProjectsTable } from '../components/ProjectsTable';
 import Card from "react-bootstrap/Card";
 import { useSelector } from 'react-redux';
-import { ProjectCard } from '../components/ProjectCard';
 import { ProjectInsertButton } from '../components/ProjectAddModal';
-import { ProjectGanttChart } from '../components/ProjectGanttChart';
 
 /**
  * A page component that renders the ProjectsTable and ShowAddProjectFormButton components.
@@ -12,17 +10,8 @@ import { ProjectGanttChart } from '../components/ProjectGanttChart';
  */
 export const ProjectsPage = () => {
     const projects = useSelector((state) => state.projects)
-    const projectDetail = useSelector((state) => state.display)
 
-    if (projectDetail.display) {
-        return(
-            <div>
-                <ProjectCard projectId={projectDetail.projectId} projects={projects}/>
-                <ProjectGanttChart projectId={projectDetail.projectId} projects={projects}/>
-            </div>
-        )
-    }
-    else {
+    if (projects.length > 0) {
         return(
             <div className='container my-2'>
                 <Card>
@@ -33,6 +22,13 @@ export const ProjectsPage = () => {
                     </Card.Body>
                 </Card>
                 <ProjectInsertButton />
+            </div>
+        )
+    }
+    else {
+        return(
+            <div className='container my-5'>
+                <b>Loading projects...</b>
             </div>
         )
     }

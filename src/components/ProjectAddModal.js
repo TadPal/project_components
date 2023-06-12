@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ProjectTypesQuery } from '../queries/ProjectTypesQuery';
-import { GroupsQuery } from '../queries/GroupsQuery';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { ProjectAsyncInsert } from '../actions/ProjectAsyncInserter';
+import { ProjectTypesFetchAsync } from '../actions/ProjectTypesAsyncLoader';
+import { GroupsFetchAsync } from '../actions/GroupsAsyncLoader';
 
 /**
  * A React component that represents a button for inserting a new project.
@@ -42,51 +42,18 @@ export const ProjectInsertButton = () => {
     setEndDate("2025-12-31T23:59:59")
    }
 
-  /**
-  * Asynchronous action creator that fetches project types.
-  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
-  */
-  const ProjectTypesFetchAsync = () => (dispatch, getState) => {
-    // Call the ProjectsQuery function to fetch projects
-    ProjectTypesQuery()
-      .then(response => response.json())
-      .then(json => {
-        // Extract the projectTypes data from the JSON response
-        const projectTypes = json.data?.projectTypePage
-        if (projectTypes) {
-          setProjectTypes(projectTypes)
-        }
-        else {
-          console.log("No groups found")
-        }
-        return json
-      })
+   
+   const handleTypesRequest = (projectTypes) => {
+    setProjectTypes(projectTypes)
   }
 
-  /**
-  * Asynchronous action creator that fetches project types.
-  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
-  */
-  const GroupsFetchAsync = () => (dispatch, getState) => {
-    // Call the ProjectsQuery function to fetch projects
-    GroupsQuery()
-      .then(response => response.json())
-      .then(json => {
-        // Extract the groups data from the JSON response
-        const groups = json.data?.groupPage
-        if (groups) {
-          setTeams(groups)
-        }
-        else {
-          console.log("No teams found")
-        }
-        return json
-      })
+  const handleGroupRequest = (groups) => {
+    setTeams(groups)
   }
 
   return (
     <>
-      <button className="btn btn-outline-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync()); dispatch(GroupsFetchAsync())}}>
+      <button className="btn btn-outline-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync({setProjectTypes: handleTypesRequest})); dispatch(GroupsFetchAsync({setTeams: handleGroupRequest}))}}>
         New project
       </button>
 

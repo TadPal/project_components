@@ -16,7 +16,7 @@ export const ProjectCard = ({projectId, projects}) => {
         <div className='container my-3'>
             <div className="row h-100 justify-content-center align-items-center">
                 <Card className="p-0" style={{ width: '40rem' }}>
-                    <Card.Header className='h3 text-start'>{project.name}<span style={{float: "right"}}><ProjectUpdateButton project={project}/></span></Card.Header>
+                    <Card.Header className='h3 text-start'>{project.name}<span style={{float: "right"}}><ProjectUpdateButton project={project} finances={finances}/></span></Card.Header>
                     <Card.Body>
                     <div style={{textAlign: "left"}}>
                         <Card.Text><b>Start date: </b>{project.startdate.substring(0, 10)}</Card.Text>
