@@ -10,7 +10,7 @@ export const FinancesTable = (props) => {
 
   // Filter the finances based on the selected type
   const filteredFinances = selectedType ? props.finances.filter((finance) => finance.financeType.id === selectedType) : props.finances;
-
+  
     if(props.finances.length > 0)
     {
         return (

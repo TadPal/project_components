@@ -20,7 +20,7 @@ export const FinancesTableMain = (props) => {
   let filteredFinances = selectedType ? props.finances.filter((finance) => finance.financeType.id === selectedType) : props.finances;
   filteredFinances =  selectedProject ? filteredFinances.filter((finance) => finance.project.id === selectedProject) : filteredFinances;
 
-    if(props.finances.length > 0)
+    if(filteredFinances.length > 0)
     {
         return (
             <table className="table table-hover table-light">
@@ -46,11 +46,23 @@ export const FinancesTableMain = (props) => {
     }
     else {
         return (
-            <div style={{textAlign: "left"}}>
-                <p>
-                    <b>Finances:</b> Project has no asigned finances
-                </p>
-            </div>
+            <>
+                <table className="table table-hover table-light">
+                    <thead className="table-primary">
+                        <tr>
+                            <th>Finance Name</th>
+                            <th><FinanceProjectSelect projects={projects}  onChange={handleProjectChange}/></th>
+                            <th>Last change</th>
+                            <th>Amount</th>
+                            <th><FinanceSelect onChange={handleTypeChange}/></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div>
+                    <b>No finances found</b>
+                </div>
+            </>
         )
     }
 }

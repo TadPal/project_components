@@ -1,6 +1,7 @@
-export const FinancesEditTable = (props) => {
+import { FinanceSplitButton } from "./FinanceSplitModal"
 
-    if(props.finances.length > 0)
+export const FinancesEditTable = (props) => {
+    if(props.finances?.length > 0)
     {
         return (
             <table className="table table-hover table-light">
@@ -18,7 +19,8 @@ export const FinancesEditTable = (props) => {
                                                             name={finance.name}
                                                             change={finance.lastchange.substring(0, 10)}
                                                             amount={finance.amount}                                                      
-                                                            type={finance.financeType.name}  />)} 
+                                                            type={finance.financeType.name}
+                                                            finance={finance} />)} 
                 </tbody>
             </table>
         )
@@ -34,7 +36,7 @@ export const FinancesEditTable = (props) => {
     }
 }
 
-const FinanceRow = ({ name, change, amount, type,}) =>{
+const FinanceRow = ({ name, change, amount, type, finance}) =>{
 
     return (
     <tr>
@@ -42,7 +44,7 @@ const FinanceRow = ({ name, change, amount, type,}) =>{
         <td>{change}</td>
         <td>{amount} CZK</td>
         <td>{type} </td>
-        <td>{/*sem dám button na split*/}</td>
+        <td><FinanceSplitButton finance={finance} /></td>
     </tr>
     
     )

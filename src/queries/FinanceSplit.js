@@ -23,7 +23,7 @@ const FinanceSplitJSON = (projectId, newFinanceName, newFinanceTypeId, newFinanc
               }
             }
 
-            updatedFinance: financeUpdate(finance: {id: "${oldFinanceId}", lastchange: "${oldFinanceLastChange}", amount: ${oldFinanceAmount}, financetypeId: "${oldFinanceTypeId}, name: "${oldFinanceName}}) {
+            updatedFinance: financeUpdate(finance: {id: "${oldFinanceId}", lastchange: "${oldFinanceLastChange}", amount: ${oldFinanceAmount}, financetypeId: "${oldFinanceTypeId}", name: "${oldFinanceName}"}) {
                 id
                 msg
                 finance {

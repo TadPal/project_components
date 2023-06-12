@@ -1,12 +1,12 @@
-import { FinanceSplit } from "../queries/FinanceUpdate";
-import { updateFinance, loadFinances } from "../features/financesSlice";
+import { FinanceSplit } from "../queries/FinanceSplit";
+import { updateFinance, addFinance } from "../features/financesSlice";
 
 /**
  * An asynchronous action creator that fetches finances and dispatches the 'loadFinances' action.
  *
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const FinancesSplitAsync = ({projectId, newFinanceName, newFinanceTypeId, newFinanceAmount, oldFinanceAmount, oldFinanceId, oldFinanceLastChange, oldFinanceTypeId, oldFinanceName}) => (dispatch, getState) => {
+export const FinanceSplitAsync = ({projectId, newFinanceName, newFinanceTypeId, newFinanceAmount, oldFinanceAmount, oldFinanceId, oldFinanceLastChange, oldFinanceTypeId, oldFinanceName}) => (dispatch, getState) => {
   // Call the FinancesQuery function to fetch projects
   FinanceSplit({projectId: projectId, 
                 newFinanceName: newFinanceName, 
@@ -24,7 +24,7 @@ export const FinancesSplitAsync = ({projectId, newFinanceName, newFinanceTypeId,
       const updatedFinance = json.data?.updatedFinance.finance
       if (newFinance && updateFinance) {
         // Dispatch the 'loadFinances' and 'updateFinance' action with the fetched projects
-        dispatch(loadFinances(newFinance))
+        dispatch(addFinance(newFinance))
         dispatch(updateFinance(updatedFinance))
       }
       return json
