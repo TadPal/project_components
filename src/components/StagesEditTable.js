@@ -1,15 +1,14 @@
 import { MilestoneInsertButton } from "./MilestoneAddModal";
 import { PencilSquare } from "react-bootstrap-icons";
 import { DeleteStageButton } from "./DeleteStageButton";
-import { ShareFill } from "react-bootstrap-icons";
+import { MilestoneLinkButton } from "./MilestoneLinkModal";
 
 export const StagesEditTable = ({milestones, project}) => {
 
     if (milestones.length > 0) {
         return (
             <table className="table table-hover table-light">
-           
-                <thead>
+                <thead className="table-success">
                     <tr>
                         <th>Stage</th>
                         <th>Start Date</th>
@@ -24,9 +23,8 @@ export const StagesEditTable = ({milestones, project}) => {
                                                             name={stage.name} 
                                                             start={stage.startdate.substring(0, 10)} 
                                                             end={stage.enddate.substring(0, 10)}
-                                                            previous={stage.previous}
-                                                            nexts={stage.nexts}
-                                                            id={stage.id} />)} 
+                                                            milestone={stage}
+                                                            milestones={milestones} />)} 
                 </tbody>
             </table>
         )
@@ -41,15 +39,15 @@ export const StagesEditTable = ({milestones, project}) => {
     
 } 
 
-export const StageRow = ({name, start, end, previous, nexts, id}) => {
+export const StageRow = ({name, start, end, milestone, milestones}) => {
     return (
     <tr>
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
-        <td><button className="btn btn-outline-success btn-sm"><ShareFill /></button></td>
+        <td><MilestoneLinkButton milestones={milestones} milestone={milestone}/></td>
         <td><button className="btn btn-outline-success btn-sm"><PencilSquare /></button></td>
-        <td><DeleteStageButton stageId={id}/></td>
+        <td><DeleteStageButton stageId={milestone.id}/></td>
     </tr>
     )
 }
