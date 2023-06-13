@@ -5,12 +5,12 @@ import { updateProject } from '../features/projectsSlice';
  * Asynchronous action creator that fetches projects.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const MilestoneAsyncRemove = ({nextId, previousId}) => (dispatch, getState) => {
+export const MilestoneLinkAsyncRemove = ({nextId, previousId}) => (dispatch, getState) => {
   MilestoneLinkRemove({next: nextId, previous: previousId})
       .then(response => response.json())
       .then(json => {
-        const message = json.data?.milestoneLinkRemove.msg
-        const project = json.data?.milestoneLinkRemove.milestone.project;
+        const message = json.data?.milestonesLinkRemove.msg
+        const project = json.data?.milestonesLinkRemove.milestone.project;
         if (message === 'ok') {
           dispatch(updateProject(project))
         }
