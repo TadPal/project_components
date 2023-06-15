@@ -6,6 +6,13 @@ import { changeProjectDetailDisplay } from "../features/displaySlice";
 import { ProjectUpdateButton } from "./ProjectUpdateModal";
 import { useSelector } from "react-redux";
 
+/**
+ * A React component that represents a project card.
+ * @param {Object} props - The component props.
+ * @param {string} props.projectId - The ID of the project.
+ * @param {Array} props.projects - The array of all projects.
+ * @returns {JSX.Element} The JSX element representing the project card.
+ */
 export const ProjectCard = ({projectId, projects}) => {
     
     const dispatch = useDispatch()

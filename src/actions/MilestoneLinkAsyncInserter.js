@@ -2,7 +2,10 @@ import { MilestoneLinkInsert }  from '../queries/MilestoneLinkInsert';
 import { updateProject } from '../features/projectsSlice';
 
 /**
- * Asynchronous action creator that fetches projects.
+ * Asynchronous action creator that sends a new link creation request to a server.
+ * 
+ * @param {string} nextId - ID of the next milestone
+ * @param {string} previousId - ID of the previous milestone
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
 export const MilestoneLinkAsyncInsert = ({nextId, previousId}) => (dispatch, getState) => {

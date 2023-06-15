@@ -2,7 +2,9 @@ import { ProjectInsert } from "../queries/ProjectInsert";
 import { addProject } from "../features/projectsSlice";
 
 /**
- * Asynchronous action creator that fetches projects.
+ * Asynchronous action creator that sends a project insert request to a server.
+ * 
+ * @param {Object} newProject - Milestone object to be added
  * @returns {Function} A promise representing the asynchronous operation.
  */
 export const ProjectAsyncInsert = (newProject) => (dispatch, getState) => {

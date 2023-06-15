@@ -3,8 +3,18 @@ import { authorizedFetch } from './authorizedFetch'
 
 const FinanceSplitJSON = (projectId, newFinanceName, newFinanceTypeId, newFinanceAmount, oldFinanceAmount, oldFinanceId, oldFinanceLastChange, oldFinanceTypeId, oldFinanceName) => ({
     "query":
-        `mutation {
-            newFinance: financeInsert(finance: {name: "${newFinanceName}", financetypeId: "${newFinanceTypeId}", projectId: "${projectId}", amount: ${newFinanceAmount}}) {
+        `mutation (
+          $newName: String!
+          $newTypeId: ID!
+          $projectId: ID!
+          $newAmount: Float
+          $oldName: String
+          $oldTypeId: ID
+          $oldAmount: Float
+          $oldLastChange: DateTime!
+          $oldId: ID!
+        ){
+            newFinance: financeInsert(finance: {name: $newName, financetypeId: $newTypeId, projectId: $projectId, amount: $newAmount}) {
               id
               msg
               finance {
@@ -23,7 +33,7 @@ const FinanceSplitJSON = (projectId, newFinanceName, newFinanceTypeId, newFinanc
               }
             }
 
-            updatedFinance: financeUpdate(finance: {id: "${oldFinanceId}", lastchange: "${oldFinanceLastChange}", amount: ${oldFinanceAmount}, financetypeId: "${oldFinanceTypeId}", name: "${oldFinanceName}"}) {
+            updatedFinance: financeUpdate(finance: {id: $oldId, lastchange: $oldLastChange, amount: $oldAmount, financetypeId: $oldTypeId, name: $oldName}) {
                 id
                 msg
                 finance {
@@ -42,6 +52,17 @@ const FinanceSplitJSON = (projectId, newFinanceName, newFinanceTypeId, newFinanc
                 }
               }
             }`,
+            variables: {
+              newName: newFinanceName,
+              newTypeId: newFinanceTypeId,
+              projectId: projectId,
+              newAmount: newFinanceAmount,
+              oldName: oldFinanceName,
+              oldTypeId: oldFinanceTypeId,
+              oldAmount: oldFinanceAmount,
+              oldLastChange: oldFinanceLastChange,
+              oldId: oldFinanceId
+            }
 })
 
 /**

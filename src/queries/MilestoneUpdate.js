@@ -3,9 +3,15 @@ import { authorizedFetch } from './authorizedFetch'
 
 const MilestoneUpdateJSON = (lastchange, id, name, startdate, enddate) => ({
     "query":
-        `mutation {
+        `mutation (
+          $lastchange: DateTime!
+          $id: ID!
+          $name: String
+          $startdate: DateTime
+          $enddate: DateTime
+        ){
             milestoneUpdate(
-              milestone: {id: "${id}", lastchange: "${lastchange}", name: "${name}", startdate: "${startdate}", enddate: "${enddate}"}
+              milestone: {id: $id, lastchange: $lastchange, name: $name, startdate: $startdate, enddate: $enddate}
             ) {
               id
               msg
@@ -25,6 +31,13 @@ const MilestoneUpdateJSON = (lastchange, id, name, startdate, enddate) => ({
               }
             }
           }`,
+          variables: {
+            lastchange: lastchange,
+            id: id,
+            name: name,
+            startdate: startdate,
+            enddate: enddate,
+          }
 })
 
 /**

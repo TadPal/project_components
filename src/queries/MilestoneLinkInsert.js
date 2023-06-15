@@ -2,9 +2,12 @@ import { authorizedFetch } from './authorizedFetch'
 
 const MilestoneLinkInsertJSON = (next, previous) => ({
     "query":
-        `mutation {
+        `mutation (
+          $nextId: ID!
+          $previousId: ID!
+        ){
             milestonesLinkAdd(
-              link: {previousId: "${previous}", nextId: "${next}"}
+              link: {previousId: $previous, nextId: $next}
             ) {
               id
               msg
@@ -30,6 +33,10 @@ const MilestoneLinkInsertJSON = (next, previous) => ({
               }
             }
           }`,
+          variables: {
+            nextId: next,
+            previousId: previous
+          }
 })
 
 /**

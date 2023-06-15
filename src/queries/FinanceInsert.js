@@ -3,8 +3,13 @@ import { authorizedFetch } from './authorizedFetch'
 
 const FinanceInsertJSON = (projectId, name, typeId, amount) => ({
     "query":
-        `mutation {
-            financeInsert(finance: {name: "${name}", typeId: "${typeId}", projectId: "${projectId}", amount: ${amount}}) {
+        `mutation (
+          $name: String!
+          $typeId: ID!
+          $projectId: ID!
+          $amount: Float
+        ){
+            financeInsert(finance: {name: $name, financetypeId: $typeId, projectId: $projectId, amount: $amount}) {
               id
               msg
               finance {
@@ -23,6 +28,12 @@ const FinanceInsertJSON = (projectId, name, typeId, amount) => ({
               }
             }
           }`,
+          variables: {
+            name: name,
+            typeId: typeId,
+            projectId: projectId,
+            amount: amount
+          }
 })
 
 /**

@@ -3,9 +3,15 @@ import { authorizedFetch } from './authorizedFetch'
 
 const ProjectMutationJSON = (projecttypeId, name, startdate, enddate, groupId) => ({
     "query":
-        `mutation {
+        `mutation (
+          $projecttypeId: ID!
+          $name: String
+          $startdate: DateTime
+          $enddate: DateTime
+          $groupId: ID
+        ){
             projectInsert(
-              project: {projecttypeId: "${projecttypeId}", name: "${name}", startdate: "${startdate}", enddate: "${enddate}", groupId: "${groupId}"}
+              project: {projecttypeId: $projecttypeId, name: $name, startdate: $startdate, enddate: $enddate, groupId: $groupId}
             ) {
               id
               msg
@@ -34,6 +40,13 @@ const ProjectMutationJSON = (projecttypeId, name, startdate, enddate, groupId) =
               }
             }
           }`,
+          variables: {
+            projecttypeId: projecttypeId,
+            name: name,
+            startdate: startdate,
+            enddate: enddate,
+            groupId: groupId
+          }
 })
 
 /**

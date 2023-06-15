@@ -2,7 +2,9 @@ import { MilestoneInsert }  from '../queries/MilestoneInsert';
 import { updateProject } from '../features/projectsSlice';
 
 /**
- * Asynchronous action creator that fetches projects.
+ * Asynchronous action creator that sends an insert request for milestone to a server.
+ * 
+ * @param {Object} milestone- Milestone object to be added
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
 export const MilestoneAsyncInsert = (milestone) => (dispatch, getState) => {

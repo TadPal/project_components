@@ -1,8 +1,10 @@
-import { MilestoneDelete }  from '../queries/MilestoneDelete';
+import { MilestoneDelete } from '../queries/MilestoneDelete';
 import { updateProject } from '../features/projectsSlice';
 
 /**
- * Asynchronous action creator that fetches projects.
+ * An asynchronous action creator that sends a milestone delete request to a server.
+ * 
+ * @param {string} id - ID of the milestone to delete.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
 export const MilestoneDeleteAsync = (id) => (dispatch, getState) => {
@@ -12,8 +14,8 @@ export const MilestoneDeleteAsync = (id) => (dispatch, getState) => {
         const message = json.data?.milestoneDelete.msg
         const project = json.data?.milestoneDelete.project
         if (message === 'ok') {
-        dispatch(updateProject(project))
+          dispatch(updateProject(project))
         }
         return json
       })
-  }
+};

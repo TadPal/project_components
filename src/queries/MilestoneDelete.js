@@ -3,8 +3,10 @@ import { authorizedFetch } from './authorizedFetch'
 
 const MilestoneDeleteJSON = (id) => ({
     "query":
-        `mutation {
-            milestoneDelete(id: "${id}") 
+        `mutation (
+          $id: ID!
+        ){
+            milestoneDelete(id: $id) 
           { 
             id
             msg
@@ -22,6 +24,9 @@ const MilestoneDeleteJSON = (id) => ({
               }
             }
           }`,
+          variables: {
+            id: id
+          }
 })
 
 /**

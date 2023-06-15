@@ -1,40 +1,64 @@
 import { LinkAddButton } from "./LinkAddButton";
 import { LinkRemoveButton } from "./LinkRemoveButton";
 
-export const MilestoneLinkTable = ({milestone, milestones}) => {
+/**
+ * A React component that represents a table of milestone links.
+ * @param {Object} props - The component props.
+ * @param {Object} props.milestone - The milestone object.
+ * @param {Object[]} props.milestones - The array of milestones.
+ * @returns {JSX.Element} The JSX element representing the milestone link table.
+ */
+export const MilestoneLinkTable = ({ milestone, milestones }) => {
+  const filteredMilestones = milestones.filter((stage) => stage.id !== milestone.id);
 
- const filteredMilestones = milestones.filter((stage) => stage.id !== milestone.id)
- console.log(filteredMilestones)
-
- if (filteredMilestones?.length > 0) {
-        return (
-            <table className="table table-hover table-light">
-                <thead>
-                    <tr>
-                        <th>Stage</th>
-                        <th>Add link</th>
-                        <th>Remove link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredMilestones.map((stage) => <StageRow key={stage.id} milestoneName={stage.name} previousMilestone={milestone.id} nextMilestone={stage.id} previous={stage.previous}/>)} 
-                </tbody>
-            </table>
-        )
-    }
-}
-
-const StageRow = ({previousMilestone, nextMilestone, milestoneName, previous}) => {
-
-    const prev = previous.find((milestone) => milestone.id === previousMilestone);
-    const disabledButton = prev ? true : false;
-    console.log(disabledButton);  
-
+  if (filteredMilestones?.length > 0) {
     return (
+      <table className="table table-hover table-light">
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>Add link</th>
+            <th>Remove link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredMilestones.map((stage) => (
+            <StageRow
+              key={stage.id}
+              milestoneName={stage.name}
+              previousMilestone={milestone.id}
+              nextMilestone={stage.id}
+              previousMilestones={stage.previous}
+            />
+          ))}
+        </tbody>
+      </table>
+    );
+  }
+};
+
+/**
+ * A React component that represents a row in the milestone link table.
+ * @param {Object} props - The component props.
+ * @param {string} props.previousMilestone - The ID of the previous milestone.
+ * @param {string} props.nextMilestone - The ID of the next milestone.
+ * @param {string} props.milestoneName - The name of the milestone.
+ * @param {Object[]} props.previousMilestones - The array of previous milestones.
+ * @returns {JSX.Element} The JSX element representing the milestone link table row.
+ */
+const StageRow = ({ previousMilestone, nextMilestone, milestoneName, previousMilestones }) => {
+  const prevMilestone = previousMilestones.find((milestone) => milestone.id === previousMilestone);
+  const isAddButtonDisabled = prevMilestone ? true : false;
+
+  return (
     <tr>
-        <td>{milestoneName}</td>
-        <td><LinkAddButton disabled={disabledButton} previous={previousMilestone} next={nextMilestone} /></td>
-        <td><LinkRemoveButton disabled={!disabledButton} previous={previousMilestone} next={nextMilestone} /></td>
+      <td>{milestoneName}</td>
+      <td>
+        <LinkAddButton disabled={isAddButtonDisabled} previous={previousMilestone} next={nextMilestone} />
+      </td>
+      <td>
+        <LinkRemoveButton disabled={!isAddButtonDisabled} previous={previousMilestone} next={nextMilestone} />
+      </td>
     </tr>
-    )
-}
+  );
+};

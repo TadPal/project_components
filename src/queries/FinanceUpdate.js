@@ -3,8 +3,14 @@ import { authorizedFetch } from './authorizedFetch'
 
 const FinanceUpdateJSON = (id, lastchange, name, typeId, amount) => ({
     "query":
-        `mutation {
-            financeUpdate(finance: {id: "${id}", lastchange: "${lastchange}", name: "${name}", typeId: "${typeId}", amount: ${amount}}) {
+        `mutation (
+          $id: ID!
+          $name: String
+          $typeId: ID
+          $amount: Float
+          $lastchange: DateTime!
+        ){
+            financeUpdate(finance: {id: $id, lastchange: $lastchange, name: $name, financetypeId: $typeId, amount: $amount}) {
               id
               msg
               finance {
@@ -23,6 +29,13 @@ const FinanceUpdateJSON = (id, lastchange, name, typeId, amount) => ({
               }
             }
           }`,
+          variables: {
+            id: id,
+            lastchange: lastchange,
+            name: name,
+            typeId: typeId,
+            amount: amount
+          }
 })
 
 /**

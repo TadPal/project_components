@@ -2,7 +2,7 @@ import { FinancesQuery } from "../queries/FinancesQuery";
 import { loadFinances } from "../features/financesSlice";
 
 /**
- * An asynchronous action creator that fetches finances and dispatches the 'loadFinances' action.
+ * An asynchronous action creator that fetches finances from server and dispatches the 'loadFinances' action.
  *
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */

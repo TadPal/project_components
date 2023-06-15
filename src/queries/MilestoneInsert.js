@@ -3,9 +3,14 @@ import { authorizedFetch } from './authorizedFetch'
 
 const MilestoneInsertJSON = (projectId, name, startdate, enddate) => ({
     "query":
-        `mutation {
+        `mutation (
+          $projectId: ID!
+          $name: String!
+          $startdate: DateTime
+          $enddate: DateTime
+        ){
             milestoneInsert(
-              milestone: {name: "${name}", projectId: "${projectId}", startdate: "${startdate}", enddate: "${enddate}"}
+              milestone: {name: $name, projectId: $projectId, startdate: $startdate, enddate: $enddate}
             ) {
               id
               msg
@@ -25,6 +30,12 @@ const MilestoneInsertJSON = (projectId, name, startdate, enddate) => ({
               }
             }
           }`,
+          variables: {
+            projectId: projectId,
+            name: name,
+            startdate: startdate,
+            enddate: enddate
+          }
 })
 
 /**

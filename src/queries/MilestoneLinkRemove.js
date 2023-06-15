@@ -2,9 +2,12 @@ import { authorizedFetch } from './authorizedFetch'
 
 const MilestoneLinkRemoveJSON = (next, previous) => ({
     "query":
-        `mutation {
+        `mutation (
+          $nextId: ID!
+          $previousId: ID!
+        ){
             milestonesLinkRemove(
-              link: {previousId: "${previous}", nextId: "${next}"}
+              link: {previousId: $previous, nextId: $next}
             ) {
               id
               msg
@@ -30,6 +33,10 @@ const MilestoneLinkRemoveJSON = (next, previous) => ({
               }
             }
           }`,
+          variables: {
+            nextId: next,
+            previousId: previous
+          }
 })
 
 /**

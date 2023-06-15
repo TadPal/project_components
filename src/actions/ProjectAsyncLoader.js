@@ -20,16 +20,3 @@ export const ProjectsFetchAsync = () => (dispatch, getState) => {
       return json
     })
 }
-
-//   useEffect(
-//     () => {
-//       ProjectsQuery()
-//       .then(response => response.json())
-//       .then(json => {
-//         const projects = json.data?.projectPage
-//         if (projects) {
-//          //cokoliv 
-//         }
-//       })  
-//     }, []
-//   )
