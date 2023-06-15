@@ -7,7 +7,7 @@ const MilestoneLinkRemoveJSON = (next, previous) => ({
           $previousId: ID!
         ){
             milestonesLinkRemove(
-              link: {previousId: $previous, nextId: $next}
+              link: {previousId: $previousId, nextId: $nextId}
             ) {
               id
               msg
@@ -35,7 +35,7 @@ const MilestoneLinkRemoveJSON = (next, previous) => ({
           }`,
           variables: {
             nextId: next,
-            previousId: previous
+            previousId: previous,
           }
 })
 

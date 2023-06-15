@@ -34,7 +34,7 @@ const MilestoneInsertJSON = (projectId, name, startdate, enddate) => ({
             projectId: projectId,
             name: name,
             startdate: startdate,
-            enddate: enddate
+            enddate: enddate,
           }
 })
 

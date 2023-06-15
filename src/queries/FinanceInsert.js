@@ -32,7 +32,7 @@ const FinanceInsertJSON = (projectId, name, typeId, amount) => ({
             name: name,
             typeId: typeId,
             projectId: projectId,
-            amount: amount
+            amount: amount,
           }
 })
 

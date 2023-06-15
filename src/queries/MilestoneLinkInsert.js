@@ -7,7 +7,7 @@ const MilestoneLinkInsertJSON = (next, previous) => ({
           $previousId: ID!
         ){
             milestonesLinkAdd(
-              link: {previousId: $previous, nextId: $next}
+              link: {previousId: $previousId, nextId: $nextId}
             ) {
               id
               msg
@@ -35,7 +35,7 @@ const MilestoneLinkInsertJSON = (next, previous) => ({
           }`,
           variables: {
             nextId: next,
-            previousId: previous
+            previousId: previous,
           }
 })
 

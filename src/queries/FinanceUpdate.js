@@ -34,7 +34,7 @@ const FinanceUpdateJSON = (id, lastchange, name, typeId, amount) => ({
             lastchange: lastchange,
             name: name,
             typeId: typeId,
-            amount: amount
+            amount: amount,
           }
 })
 

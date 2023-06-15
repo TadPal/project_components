@@ -13,7 +13,7 @@ const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projectty
           $groupId: ID
         ){
           projectUpdate(
-            project: {lastchange: "${lastchange}", id: "${id}", name: "${name}", startdate: "${startdate}", enddate: "${enddate}", projecttypeId: "${projecttypeId}", groupId: "${groupId}"}
+            project: {lastchange: $lastchange, id: $id, name: $name, startdate: $startdate, enddate: $enddate, projecttypeId: $projecttypeId, groupId: $groupId}
           ) {
             msg
             project {
@@ -40,7 +40,7 @@ const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projectty
           startdate: startdate,
           enddate: enddate,
           projecttypeId: projecttypeId,
-          groupId: groupId
+          groupId: groupId,
         }
 })
 

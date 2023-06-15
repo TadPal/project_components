@@ -45,7 +45,7 @@ const ProjectMutationJSON = (projecttypeId, name, startdate, enddate, groupId) =
             name: name,
             startdate: startdate,
             enddate: enddate,
-            groupId: groupId
+            groupId: groupId,
           }
 })
 
