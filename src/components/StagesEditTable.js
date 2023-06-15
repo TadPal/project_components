@@ -1,7 +1,7 @@
 import { MilestoneInsertButton } from "./MilestoneAddModal";
-import { PencilSquare } from "react-bootstrap-icons";
 import { DeleteStageButton } from "./DeleteStageButton";
 import { MilestoneLinkButton } from "./MilestoneLinkModal";
+import { MilestoneUpdateButton } from "./MilestoneUpdateModal";
 
 export const StagesEditTable = ({milestones, project}) => {
 
@@ -46,7 +46,7 @@ export const StageRow = ({name, start, end, milestone, milestones}) => {
         <td>{start}</td>
         <td>{end}</td>
         <td><MilestoneLinkButton milestones={milestones} milestone={milestone}/></td>
-        <td><button className="btn btn-outline-success btn-sm"><PencilSquare /></button></td>
+        <td><MilestoneUpdateButton milestone={milestone}/></td>
         <td><DeleteStageButton stageId={milestone.id}/></td>
     </tr>
     )
