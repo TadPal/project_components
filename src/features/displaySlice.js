@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // The initial state value for the projectsAddFormSlice
 const initialStateValue = {projectId: "", display: false};
 
-// A Redux slice for managing the state of the project add form
+// A Redux slice for managing the state of the display
 export const displaySlice = createSlice({
     name: "display",
     initialState: initialStateValue,
