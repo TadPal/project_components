@@ -40,6 +40,7 @@ export const FinanceSplitAsync = ({
     .then((response) => response.json())
     .then((json) => {
       // Extract the finances data from the JSON response
+      console.log(json)
       const newFinance = json.data?.newFinance.finance;
       const updatedFinance = json.data?.updatedFinance.finance;
       // Send the updated data to the store
