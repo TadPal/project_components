@@ -1,15 +1,12 @@
 import { FinancesTableMain } from '../components/FinancesTableMain';
 import Card from "react-bootstrap/Card";
-import { useSelector } from 'react-redux';
 
 /**
  * A React component that displays the finances page.
  * It retrieves the finances from the Redux store and renders the FinancesTableMain component.
  * @returns {JSX.Element} The JSX element representing the finances page.
  */
-export const FinancesPage = () => {
-  // Get the finances from the Redux store using the useSelector hook
-  const finances = useSelector((state) => state.finances);
+export const FinancesPage = ({finances, projects}) => {
 
   if (finances.length > 0) {
     // If there are finances, render the FinancesTableMain component
@@ -18,7 +15,7 @@ export const FinancesPage = () => {
         <Card>
           <Card.Title className='p-3 text-start'>Finances</Card.Title>
           <Card.Body>
-            <FinancesTableMain finances={finances} />
+            <FinancesTableMain projects={projects} finances={finances} />
           </Card.Body>
         </Card>
       </div>

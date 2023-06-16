@@ -1,4 +1,4 @@
-import { FinanceSplitButton } from "./FinanceSplitModal";
+import { FinanceSplitModalButton } from "./FinanceSplitModal";
 
 /**
  * A React component that renders a table to edit finances.
@@ -62,7 +62,7 @@ const FinanceRow = ({ name, change, amount, type, finance }) => {
       <td>{amount} CZK</td>
       <td>{type}</td>
       <td>
-        <FinanceSplitButton finance={finance} />
+        <FinanceSplitModalButton finance={finance} />
       </td>
     </tr>
   );

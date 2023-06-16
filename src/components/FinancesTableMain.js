@@ -1,7 +1,6 @@
 import { FinanceSelect } from "./FinanceTypeSelect";
 import { FinanceProjectSelect } from "./FinanceProjectSelect";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 
 /**
  * A React component that displays a table of finances with filtering options.
@@ -12,7 +11,6 @@ import { useSelector } from "react-redux";
 export const FinancesTableMain = (props) => {
   const [selectedType, setSelectedType] = useState(""); // State for storing the selected type
   const [selectedProject, setSelectedProject] = useState({});
-  const projects = useSelector((state) => state.projects);
 
   /**
    * Handles the change event of the finance type select.
@@ -40,7 +38,7 @@ export const FinancesTableMain = (props) => {
         <thead className="table-primary">
           <tr>
             <th>Finance Name</th>
-            <th><FinanceProjectSelect projects={projects} onChange={handleProjectChange} /></th>
+            <th><FinanceProjectSelect projects={props.projects} onChange={handleProjectChange} /></th>
             <th>Last change</th>
             <th>Amount</th>
             <th><FinanceSelect onChange={handleTypeChange} /></th>
@@ -63,7 +61,7 @@ export const FinancesTableMain = (props) => {
           <thead className="table-primary">
             <tr>
               <th>Finance Name</th>
-              <th><FinanceProjectSelect projects={projects} onChange={handleProjectChange} /></th>
+              <th><FinanceProjectSelect projects={props.projects} onChange={handleProjectChange} /></th>
               <th>Last change</th>
               <th>Amount</th>
               <th><FinanceSelect onChange={handleTypeChange} /></th>

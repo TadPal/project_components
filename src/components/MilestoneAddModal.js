@@ -9,7 +9,7 @@ import { MilestoneAsyncInsert } from '../actions/MilestoneAsyncInsert';
  * @param {string} props.projectId - The ID of the project associated with the milestone.
  * @returns {JSX.Element} The JSX element representing the milestone insert button.
  */
-export const MilestoneInsertButton = ({ projectId }) => {
+export const MilestoneInsertModalButton = ({ projectId }) => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);

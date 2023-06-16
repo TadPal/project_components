@@ -1,11 +1,11 @@
 import { ProjectsPage } from "./ProjectsPage"
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import { FinancesFetchAsync } from '../actions/FinanceAsyncLoader';
 import { ProjectsFetchAsync } from '../actions/ProjectAsyncLoader';
 import { useDispatch } from "react-redux";
 import { FinancesPage } from "./FinancesPage";
-import { useSelector } from "react-redux";
 import { ProjectDetailPage } from "./ProjectsDetailPage";
+import { useSelector } from "react-redux";
 
 /**
  * A React component that displays multiple pages based on the application state.
@@ -14,7 +14,9 @@ import { ProjectDetailPage } from "./ProjectsDetailPage";
  */
 export const PagesDisplayAll = () => {
   const dispatch = useDispatch();
-  const projectDetail = useSelector((state) => state.display);
+  const [projectDetail, setProjectDetail] = useState()
+  const finances = useSelector((state) => state.finances)
+  const projects = useSelector((state) => state.projects)
   
   useEffect(() => {
     // Fetch finances and projects when the component mounts
@@ -22,16 +24,20 @@ export const PagesDisplayAll = () => {
     dispatch(ProjectsFetchAsync());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleProjectDetail = (projectId) => {
+    setProjectDetail(projectId);
+  };
   
-  if (projectDetail.display) {
+  if (projectDetail) {
     // If there is a project detail to display, render the ProjectDetailPage component
-    return <ProjectDetailPage projectDetail={projectDetail} />;
+    return <ProjectDetailPage setProject={handleProjectDetail} projectDetail={projectDetail} projects={projects} finances={finances}/>;
   } else {
     // If there is no project detail to display, render the ProjectsPage and FinancesPage components
     return (
       <>
-        <ProjectsPage />
-        <FinancesPage />
+        <ProjectsPage projects={projects} setProject={handleProjectDetail}/>
+        <FinancesPage projects={projects} finances={finances}/>
       </>
     );
   }

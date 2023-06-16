@@ -14,7 +14,7 @@ import { FinancesEditTable } from './FinancesEditTable';
  * @param {Array} props.finances - The array of financial data for the project.
  * @returns {JSX.Element} The JSX element representing the project update button.
  */
-export const ProjectUpdateButton = ({ project, finances }) => {
+export const ProjectUpdateModalButton = ({ project, finances }) => {
   const dispatch = useDispatch();
 
   // Showing modal if button pressed

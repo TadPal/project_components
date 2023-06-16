@@ -8,7 +8,7 @@ import { MilestoneAsyncUpdate } from "../actions/MilestoneAsyncUpdater";
  * A React component that represents a button for inserting a new project.
  * @returns {JSX.Element} The JSX element representing the project insert button.
  */
-export const MilestoneUpdateButton = ({milestone}) => {
+export const MilestoneUpdateModalButton = ({milestone}) => {
   const dispatch = useDispatch();
 
   // showing modal if button pressed

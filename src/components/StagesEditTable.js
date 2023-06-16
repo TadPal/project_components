@@ -1,7 +1,7 @@
-import { MilestoneInsertButton } from "./MilestoneAddModal";
+import { MilestoneInsertModalButton } from "./MilestoneAddModal";
 import { DeleteStageButton } from "./DeleteStageButton";
-import { MilestoneLinkButton } from "./MilestoneLinkModal";
-import { MilestoneUpdateButton } from "./MilestoneUpdateModal";
+import { MilestoneLinkModalButton } from "./MilestoneLinkModal";
+import { MilestoneUpdateModalButton } from "./MilestoneUpdateModal";
 
 /**
  * A React component that represents a table for editing stages.
@@ -22,7 +22,7 @@ export const StagesEditTable = ({ milestones, project }) => {
             <th>Links</th>
             <th>Edit</th>
             <th>
-              <MilestoneInsertButton projectId={project} />
+              <MilestoneInsertModalButton projectId={project} />
             </th>
           </tr>
         </thead>
@@ -47,7 +47,7 @@ export const StagesEditTable = ({ milestones, project }) => {
           <b>Stages:</b> Press to add stage
         </span>
         <span className="float-end">
-          <MilestoneInsertButton projectId={project} />
+          <MilestoneInsertModalButton projectId={project} />
         </span>
       </div>
     );
@@ -70,8 +70,8 @@ export const StageRow = ({ name, start, end, milestone, milestones }) => {
         <td>{name}</td>
         <td>{start}</td>
         <td>{end}</td>
-        <td><MilestoneLinkButton milestones={milestones} milestone={milestone}/></td>
-        <td><MilestoneUpdateButton milestone={milestone}/></td>
+        <td><MilestoneLinkModalButton milestones={milestones} milestone={milestone}/></td>
+        <td><MilestoneUpdateModalButton milestone={milestone}/></td>
         <td><DeleteStageButton stageId={milestone.id}/></td>
     </tr>
   );

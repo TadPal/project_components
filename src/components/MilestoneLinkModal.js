@@ -10,7 +10,7 @@ import { ShareFill } from 'react-bootstrap-icons';
  * @param {Object[]} props.milestones - The array of milestones.
  * @returns {JSX.Element} The JSX element representing the milestone link button.
  */
-export const MilestoneLinkButton = ({ milestone, milestones }) => {
+export const MilestoneLinkModalButton = ({ milestone, milestones }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (

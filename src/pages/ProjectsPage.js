@@ -1,6 +1,5 @@
 import { ProjectsTable } from '../components/ProjectsTable';
 import Card from "react-bootstrap/Card";
-import { useSelector } from 'react-redux';
 import { ProjectInsertButton } from '../components/ProjectAddModal';
 
 /**
@@ -8,8 +7,7 @@ import { ProjectInsertButton } from '../components/ProjectAddModal';
  * 
  * @returns {JSX.Element} The JSX element that represents the ProjectsPage component.
  */
-export const ProjectsPage = () => {
-    const projects = useSelector((state) => state.projects)
+export const ProjectsPage = ({setProject, projects}) => {
 
     if (projects.length > 0) {
         return(
@@ -18,7 +16,7 @@ export const ProjectsPage = () => {
                     <Card.Title className='p-3 text-start'>Projects</Card.Title>
                     <Card.Body>
                         {/* Pass the projects state as props to the ProjectsTable component */}
-                        <ProjectsTable projects={projects}/>
+                        <ProjectsTable projects={projects} setProject={setProject}/>
                     </Card.Body>
                 </Card>
                 <ProjectInsertButton />

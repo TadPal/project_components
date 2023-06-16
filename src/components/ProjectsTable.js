@@ -1,7 +1,5 @@
 import { CheckDate } from "../utilities/CheckDate";
 import { CardText } from "react-bootstrap-icons";
-import { useDispatch } from "react-redux";
-import { changeProjectDetailDisplay } from "../features/displaySlice";
 
 /**
  * A table component used to visualize a list of projects.
@@ -9,7 +7,7 @@ import { changeProjectDetailDisplay } from "../features/displaySlice";
  * 
  * @returns {JSX.Element} - Table component
  */
-export const ProjectsTable = ({projects}) => {
+export const ProjectsTable = ({projects, setProject}) => {
     return (
         <table className="table table-hover table-light">
             <thead className="table-success">
@@ -24,7 +22,7 @@ export const ProjectsTable = ({projects}) => {
             </thead>
             <tbody>
                 {/* Render a ProjectRow component for each project object in the projects array */}
-                {projects.map((project) => <ProjectRow key={project.id} project={project}/>)}
+                {projects.map((project) => <ProjectRow key={project.id} project={project} setProject={setProject}/>)}
             </tbody>
         </table>
     )
@@ -36,12 +34,10 @@ export const ProjectsTable = ({projects}) => {
  * 
  * @returns {JSX.Element} - Table row component
  */
-const ProjectRow = ({project}) => {
+const ProjectRow = ({project, setProject}) => {
     // Determine the text color of the row based on whether the submission date is past or not
     const endDate = new Date(project.enddate)
     const rowColor = CheckDate() > endDate ? {color: "#D3D3D3"} : {color: "#000000"};
-
-    const dispatch = useDispatch()
   
         return (
             // A table row element that displays the project data and sets the text color based on the submission date.
@@ -51,7 +47,7 @@ const ProjectRow = ({project}) => {
                 <td>{project.projectType.name}</td>
                 <td>{project.startdate.substring(0,10)}</td>
                 <td>{project.enddate.substring(0,10)}</td>
-                <td><button className="btn btn-sm btn-success mx-1" onClick={() => {dispatch(changeProjectDetailDisplay(project.id))}}><CardText /> Details</button></td>
+                <td><button className="btn btn-sm btn-success mx-1" onClick={() => {setProject(project.id)}}><CardText /> Details</button></td>
             </tr>
         )
 }

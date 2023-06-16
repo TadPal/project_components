@@ -10,7 +10,7 @@ import { CurrencyExchange } from "react-bootstrap-icons";
  * @param {Object} finance - The finance object to be split.
  * @returns {JSX.Element} The JSX element representing the finance split button.
  */
-export const FinanceSplitButton = ({ finance }) => {
+export const FinanceSplitModalButton = ({ finance }) => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
