@@ -5,9 +5,8 @@ import { ShareFill } from 'react-bootstrap-icons';
 
 /**
  * A React component that represents a button for inserting a new milestone link.
- * @param {Object} props - The component props.
- * @param {Object} props.milestone - The milestone object.
- * @param {Object[]} props.milestones - The array of milestones.
+ * @param {Object} milestone - The milestone object.
+ * @param {Object[]} milestones - The array of milestones.
  * @returns {JSX.Element} The JSX element representing the milestone link button.
  */
 export const MilestoneLinkModalButton = ({ milestone, milestones }) => {

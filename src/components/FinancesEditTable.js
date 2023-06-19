@@ -2,12 +2,11 @@ import { FinanceSplitModalButton } from "./FinanceSplitModal";
 
 /**
  * A React component that renders a table to edit finances.
- * @param {Object} props - Component props.
- * @param {Object[]} props.finances - An array of finance objects.
+ * @param {Array} finances - An array of finance objects.
  * @returns {JSX.Element} Finances table JSX element.
  */
-export const FinancesEditTable = (props) => {
-  if (props.finances?.length > 0) {
+export const FinancesEditTable = ({finances}) => {
+  if (finances?.length > 0) {
     return (
       <table className="table table-hover table-light">
         <thead className="table-primary">
@@ -20,7 +19,7 @@ export const FinancesEditTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.finances.map((finance) => (
+          {finances.map((finance) => (
             <FinanceRow
               key={finance.id}
               name={finance.name}

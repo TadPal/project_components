@@ -4,11 +4,11 @@ import { useState } from "react";
 
 /**
  * A React component that displays a table of finances with filtering options.
- * @param {Object} props - The component props.
- * @param {Array} props.finances - The array of finances to be displayed.
+ * @param {Array} finances - The array of finances to be displayed.
+ * @param {Array]} projects - An array of project objects.
  * @returns {JSX.Element} The JSX element representing the main finances table.
  */
-export const FinancesTableMain = (props) => {
+export const FinancesTableMain = ({finances, projects}) => {
   const [selectedType, setSelectedType] = useState(""); // State for storing the selected type
   const [selectedProject, setSelectedProject] = useState({});
 
@@ -29,7 +29,7 @@ export const FinancesTableMain = (props) => {
   };
 
   // Filter the finances based on the selected type and project
-  let filteredFinances = selectedType ? props.finances.filter((finance) => finance.financeType.id === selectedType) : props.finances;
+  let filteredFinances = selectedType ? finances.filter((finance) => finance.financeType.id === selectedType) : finances;
   filteredFinances = selectedProject ? filteredFinances.filter((finance) => finance.project.id === selectedProject) : filteredFinances;
 
   if (filteredFinances.length > 0) {
@@ -38,7 +38,7 @@ export const FinancesTableMain = (props) => {
         <thead className="table-primary">
           <tr>
             <th>Finance Name</th>
-            <th><FinanceProjectSelect projects={props.projects} onChange={handleProjectChange} /></th>
+            <th><FinanceProjectSelect projects={projects} onChange={handleProjectChange} /></th>
             <th>Last change</th>
             <th>Amount</th>
             <th><FinanceSelect onChange={handleTypeChange} /></th>
@@ -61,7 +61,7 @@ export const FinancesTableMain = (props) => {
           <thead className="table-primary">
             <tr>
               <th>Finance Name</th>
-              <th><FinanceProjectSelect projects={props.projects} onChange={handleProjectChange} /></th>
+              <th><FinanceProjectSelect projects={projects} onChange={handleProjectChange} /></th>
               <th>Last change</th>
               <th>Amount</th>
               <th><FinanceSelect onChange={handleTypeChange} /></th>
@@ -79,12 +79,11 @@ export const FinancesTableMain = (props) => {
 
 /**
  * A React component that represents a row in the finances table.
- * @param {Object} props - The component props.
- * @param {string} props.name - The finance name.
- * @param {string} props.change - The date of the last change.
- * @param {number} props.amount - The finance amount.
- * @param {string} props.type - The finance type.
- * @param {string} props.project - The finance project.
+ * @param {string} name - The finance name.
+ * @param {string} change - The date of the last change.
+ * @param {number} amount - The finance amount.
+ * @param {string} type - The finance type.
+ * @param {string} project - The finance project.
  * @returns {JSX.Element} The JSX element representing the finance row.
  */
 const FinanceRow = ({ name, change, amount, type, project }) => {

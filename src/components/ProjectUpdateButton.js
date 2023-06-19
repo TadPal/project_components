@@ -1,12 +1,18 @@
 import { useDispatch } from 'react-redux';
-import { ProjectUpdateAsync } from "../actions/ProjectAsyncUpdater"
+import { ProjectUpdateAsync } from '../actions/ProjectAsyncUpdater';
 
-export const ProjectUpdateButton = ({project, onClick}) => {
-    const dispatch = useDispatch()
+/**
+ * Renders a button component for updating a project.
+ * @param {Object} project - The project object to be updated.
+ * @param {Function} onClick - The click event handler.
+ * @returns {JSX.Element} The rendered component.
+ */
+export const ProjectUpdateButton = ({ project, onClick }) => {
+  const dispatch = useDispatch();
 
-    return (
-        <button className="btn btn-success" onClick={() => { dispatch(ProjectUpdateAsync(project={project})); onClick()}}>
-        Update
-        </button>
-    )
-}
+  return (
+    <button className="btn btn-success" onClick={() => { dispatch(ProjectUpdateAsync(project)); onClick(); }}>
+      Update
+    </button>
+  );
+};

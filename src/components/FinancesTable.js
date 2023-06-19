@@ -3,11 +3,10 @@ import { useState } from "react";
 
 /**
  * A React component that displays a table of finances.
- * @param {Object} props - The component props.
- * @param {Array} props.finances - The array of finances to be displayed.
+ * @param {Array} finances - The array of finances to be displayed.
  * @returns {JSX.Element} The JSX element representing the finances table.
  */
-export const FinancesTable = (props) => {
+export const FinancesTable = ({finances}) => {
   const [selectedType, setSelectedType] = useState(""); // State for storing the selected type
 
   /**
@@ -19,9 +18,9 @@ export const FinancesTable = (props) => {
   };
 
   // Filter the finances based on the selected type
-  const filteredFinances = selectedType ? props.finances.filter((finance) => finance.financeType.id === selectedType) : props.finances;
+  const filteredFinances = selectedType ? finances.filter((finance) => finance.financeType.id === selectedType) : finances;
 
-  if (props.finances.length > 0) {
+  if (finances.length > 0) {
     return (
       <table className="table table-hover table-light">
         <thead className="table-primary">
@@ -54,11 +53,10 @@ export const FinancesTable = (props) => {
 
 /**
  * A React component that represents a row in the finances table.
- * @param {Object} props - The component props.
- * @param {string} props.name - The finance name.
- * @param {string} props.change - The date of the last change.
- * @param {number} props.amount - The finance amount.
- * @param {string} props.type - The finance type.
+ * @param {string} name - The finance name.
+ * @param {string} change - The date of the last change.
+ * @param {number} amount - The finance amount.
+ * @param {string} type - The finance type.
  * @returns {JSX.Element} The JSX element representing the finance row.
  */
 const FinanceRow = ({ name, change, amount, type }) => {

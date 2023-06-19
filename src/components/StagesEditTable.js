@@ -5,9 +5,8 @@ import { MilestoneUpdateModalButton } from "./MilestoneUpdateModal";
 
 /**
  * A React component that represents a table for editing stages.
- * @param {Object} props - The component props.
- * @param {Array} props.milestones - The array of milestones/stages.
- * @param {string} props.project - The project ID.
+ * @param {Array} milestones - The array of milestones/stages.
+ * @param {string} project - The project ID.
  * @returns {JSX.Element} The JSX element representing the stages edit table.
  */
 export const StagesEditTable = ({ milestones, project }) => {
@@ -56,15 +55,14 @@ export const StagesEditTable = ({ milestones, project }) => {
 
 /**
  * A React component that represents a row in the stages edit table.
- * @param {Object} props - The component props.
- * @param {string} props.name - The name of the stage.
- * @param {string} props.start - The start date of the stage.
- * @param {string} props.end - The end date of the stage.
- * @param {Object} props.milestone - The milestone object.
- * @param {Array} props.milestones - The array of milestones.
+ * @param {string} name - The name of the stage.
+ * @param {string} start - The start date of the stage.
+ * @param {string} end - The end date of the stage.
+ * @param {Object} milestone - The milestone object.
+ * @param {Array} milestones - The array of milestones.
  * @returns {JSX.Element} The JSX element representing a stage row.
  */
-export const StageRow = ({ name, start, end, milestone, milestones }) => {
+const StageRow = ({ name, start, end, milestone, milestones }) => {
   return (
     <tr>
         <td>{name}</td>

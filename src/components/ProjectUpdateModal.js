@@ -9,9 +9,8 @@ import { FinancesEditTable } from './FinancesEditTable';
 
 /**
  * A React component that represents a button for updating a project.
- * @param {Object} props - The component props.
- * @param {Object} props.project - The project object to be updated.
- * @param {Array} props.finances - The array of financial data for the project.
+ * @param {Object} project - The project object to be updated.
+ * @param {Array} finances - The array of financial data for the project.
  * @returns {JSX.Element} The JSX element representing the project update button.
  */
 export const ProjectUpdateModalButton = ({ project, finances }) => {

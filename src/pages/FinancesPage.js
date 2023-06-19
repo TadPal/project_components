@@ -3,7 +3,8 @@ import Card from "react-bootstrap/Card";
 
 /**
  * A React component that displays the finances page.
- * It retrieves the finances from the Redux store and renders the FinancesTableMain component.
+ * @param {Object[]} finances - The array of finances.
+ * @param {Object[]} projects - The array of projects.
  * @returns {JSX.Element} The JSX element representing the finances page.
  */
 export const FinancesPage = ({finances, projects}) => {

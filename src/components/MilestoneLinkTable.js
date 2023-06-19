@@ -3,9 +3,8 @@ import { LinkRemoveButton } from "./LinkRemoveButton";
 
 /**
  * A React component that represents a table of milestone links.
- * @param {Object} props - The component props.
- * @param {Object} props.milestone - The milestone object.
- * @param {Object[]} props.milestones - The array of milestones.
+ * @param {Object} milestone - The milestone object.
+ * @param {Object[]} milestones - The array of milestones.
  * @returns {JSX.Element} The JSX element representing the milestone link table.
  */
 export const MilestoneLinkTable = ({ milestone, milestones }) => {
@@ -39,11 +38,10 @@ export const MilestoneLinkTable = ({ milestone, milestones }) => {
 
 /**
  * A React component that represents a row in the milestone link table.
- * @param {Object} props - The component props.
- * @param {string} props.previousMilestone - The ID of the previous milestone.
- * @param {string} props.nextMilestone - The ID of the next milestone.
- * @param {string} props.milestoneName - The name of the milestone.
- * @param {Object[]} props.previousMilestones - The array of previous milestones.
+ * @param {string} previousMilestone - The ID of the previous milestone.
+ * @param {string} nextMilestone - The ID of the next milestone.
+ * @param {string} milestoneName - The name of the milestone.
+ * @param {Object[]} previousMilestones - The array of previous milestones.
  * @returns {JSX.Element} The JSX element representing the milestone link table row.
  */
 const StageRow = ({ previousMilestone, nextMilestone, milestoneName, previousMilestones }) => {

@@ -4,8 +4,7 @@ import { MilestoneAddButton } from './MilestoneAddButton';
 
 /**
  * A React component that represents a button for inserting a new milestone.
- * @param {Object} props - The component props.
- * @param {string} props.projectId - The ID of the project associated with the milestone.
+ * @param {string} projectId - The ID of the project associated with the milestone.
  * @returns {JSX.Element} The JSX element representing the milestone insert button.
  */
 export const MilestoneInsertModalButton = ({ projectId }) => {

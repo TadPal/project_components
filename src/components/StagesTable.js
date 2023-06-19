@@ -2,8 +2,7 @@ import { v1 as uuid } from 'uuid';
 
 /**
  * A React component that represents a table of stages.
- * @param {Object} props - The component props.
- * @param {Array} props.milestones - The array of milestones/stages.
+ * @param {Array} milestones - The array of milestones/stages.
  * @returns {JSX.Element} The JSX element representing the stages edit table.
  */
 export const StagesTable = ({ milestones }) => {
@@ -44,7 +43,15 @@ export const StagesTable = ({ milestones }) => {
   }
 };
 
-export const StageRow = ({ name, start, end, nexts }) => {
+/**
+ * A React component that represents a row in the stages edit table.
+ * @param {string} name - The name of the stage.
+ * @param {string} start - The start date of the stage.
+ * @param {string} end - The end date of the stage.
+ * @param {Array} nexts - The array of linked milestones
+ * @returns {JSX.Element} The JSX element representing a stage row.
+ */
+const StageRow = ({ name, start, end, nexts }) => {
   // If nexts is undefined or empty, create a default nexts array with a single item
   if (!nexts || nexts.length === 0) {
     nexts = [{ name: "X", id: uuid().toString() }];

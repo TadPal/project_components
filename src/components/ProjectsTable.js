@@ -31,7 +31,7 @@ export const ProjectsTable = ({projects, setProject}) => {
 /**
  * A custom table row component used in the ProjectsTable component.
  * @param {Object} project - The project object to be displayed in the table row.
- * 
+ * @param {Function} setProject - The function that takes project ID
  * @returns {JSX.Element} - Table row component
  */
 const ProjectRow = ({project, setProject}) => {
