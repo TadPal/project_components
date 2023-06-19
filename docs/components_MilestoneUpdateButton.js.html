@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/FinancesEditTable.js</title>
+    <title>JSDoc: Source: components/MilestoneUpdateButton.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/FinancesEditTable.js</h1>
+    <h1 class="page-title">Source: components/MilestoneUpdateButton.js</h1>
 
     
 
@@ -26,72 +26,22 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { FinanceSplitModalButton } from "./FinanceSplitModal";
+            <pre class="prettyprint source linenums"><code>import { useDispatch } from 'react-redux';
+import { MilestoneAsyncUpdate } from '../actions/MilestoneAsyncUpdater';
 
 /**
- * A React component that renders a table to edit finances.
- * @param {Array} finances - An array of finance objects.
- * @returns {JSX.Element} Finances table JSX element.
+ * Renders a button component for updating a milestone.
+ * @param {Object} milestone - The milestone object to be updated.
+ * @param {Function} onClick - The click event handler.
+ * @returns {JSX.Element} The rendered component.
  */
-export const FinancesEditTable = ({finances}) => {
-  if (finances?.length > 0) {
-    return (
-      &lt;table className="table table-hover table-light">
-        &lt;thead className="table-primary">
-          &lt;tr>
-            &lt;th>Finance Name&lt;/th>
-            &lt;th>Last change&lt;/th>
-            &lt;th>Amount&lt;/th>
-            &lt;th>Type&lt;/th>
-            &lt;th>Split&lt;/th>
-          &lt;/tr>
-        &lt;/thead>
-        &lt;tbody>
-          {finances.map((finance) => (
-            &lt;FinanceRow
-              key={finance.id}
-              name={finance.name}
-              change={finance.lastchange.substring(0, 10)}
-              amount={finance.amount}
-              type={finance.financeType.name}
-              finance={finance}
-            />
-          ))}
-        &lt;/tbody>
-      &lt;/table>
-    );
-  } else {
-    return (
-      &lt;div style={{ textAlign: "left" }}>
-        &lt;p>
-          &lt;b>Finances:&lt;/b> Project has no assigned finances
-        &lt;/p>
-      &lt;/div>
-    );
-  }
-};
+export const MilestoneUpdateButton = ({ milestone, onClick }) => {
+  const dispatch = useDispatch();
 
-/**
- * A React component that represents a row in the finance table.
- * @param {Object} props - Component props.
- * @param {string} props.name - Name of the finance.
- * @param {string} props.change - Last change date of the finance.
- * @param {number} props.amount - Amount of the finance.
- * @param {string} props.type - Type of the finance.
- * @param {Object} props.finance - Finance object.
- * @returns {JSX.Element} Finance row JSX element.
- */
-const FinanceRow = ({ name, change, amount, type, finance }) => {
   return (
-    &lt;tr>
-      &lt;td>{name}&lt;/td>
-      &lt;td>{change}&lt;/td>
-      &lt;td>{amount} CZK&lt;/td>
-      &lt;td>{type}&lt;/td>
-      &lt;td>
-        &lt;FinanceSplitModalButton finance={finance} />
-      &lt;/td>
-    &lt;/tr>
+    &lt;button className="btn btn-success" onClick={() => { dispatch(MilestoneAsyncUpdate(milestone)); onClick(); }}>
+      Update
+    &lt;/button>
   );
 };
 </code></pre>

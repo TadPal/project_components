@@ -5,7 +5,7 @@ import { useState } from "react";
 /**
  * A React component that displays a table of finances with filtering options.
  * @param {Array} finances - The array of finances to be displayed.
- * @param {Array]} projects - An array of project objects.
+ * @param {Array} projects - An array of project objects.
  * @returns {JSX.Element} The JSX element representing the main finances table.
  */
 export const FinancesTableMain = ({finances, projects}) => {
