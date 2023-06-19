@@ -2,7 +2,7 @@ import { authorizedFetch } from './authorizedFetch'
 
 /**
  * Funkce, ktera id namapuje na json predstavujici "velky" (podrobny) dotaz na server
- * @returns 
+ * @returns {json}
  */
 const FinancesQueryJSON = () => ({
     "query":
@@ -26,7 +26,7 @@ const FinancesQueryJSON = () => ({
 
 /**
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns 
+ * @returns {promise}
  */
 export const FinancesQuery = () =>
     authorizedFetch('/gql', {

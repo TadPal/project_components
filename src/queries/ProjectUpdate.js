@@ -46,7 +46,7 @@ const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projectty
 
 /**
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns 
+ * @returns {promise}
  */
 export const ProjectUpdate = (projectId, name, lastchange, startdate, enddate, projecttypeId, groupId) =>
     authorizedFetch('/gql', {

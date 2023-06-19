@@ -1,5 +1,6 @@
 import { authorizedFetch } from './authorizedFetch'
 
+
 const MilestoneLinkInsertJSON = (next, previous) => ({
     "query":
         `mutation (
@@ -41,7 +42,7 @@ const MilestoneLinkInsertJSON = (next, previous) => ({
 
 /**
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns 
+ * @returns {promise}
  */
 export const MilestoneLinkInsert = ({next, previous}) =>
     authorizedFetch('/gql', {

@@ -41,7 +41,7 @@ const MilestoneLinkRemoveJSON = (next, previous) => ({
 
 /**
  * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns 
+ * @returns {promise}
  */
 export const MilestoneLinkRemove = ({next, previous}) =>
     authorizedFetch('/gql', {

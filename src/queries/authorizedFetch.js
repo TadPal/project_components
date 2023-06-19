@@ -11,7 +11,7 @@ const globalFetchParams = {
  * Zapouzdrujici funkce pro fetch, vytvari mezi vrstvu pro komunikace ze serverem
  * @param {*} path 
  * @param {*} params 
- * @returns 
+ * @returns {promise}
  */
 export const authorizedFetch = (path, params) => {
     const newParams = {...globalFetchParams, ...params} // allow owerwrite default parameters (globalFetchParams)

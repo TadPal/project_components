@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/FinanceSplitModal.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/FinanceSplitModal.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+import { Modal, Form } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { FinanceSplitAsync } from '../actions/FinanceAsyncSpliter';
+import { FinanceTypesFetchAsync } from '../actions/FinanceTypesAsyncLoader';
+import { CurrencyExchange } from "react-bootstrap-icons";
+
+/**
+ * A React component that represents a button for inserting a new finance.
+ * @param {Object} finance - The finance object to be split.
+ * @returns {JSX.Element} The JSX element representing the finance split button.
+ */
+export const FinanceSplitModalButton = ({ finance }) => {
+  const dispatch = useDispatch();
+
+  const [showModal, setShowModal] = useState(false);
+  const [newName, setNewName] = useState("Splited Finance");
+  const [financeType, setFinanceType] = useState(finance.financeType.id);
+  const [newAmount, setNewAmount] = useState(0);
+
+  const [financeTypes, setFinanceTypes] = useState([]);
+
+  /**
+   * Handles the response from fetching finance types.
+   * @param {Array} financeTypes - The fetched finance types.
+   */
+  const handleTypesRequest = (financeTypes) => {
+    setFinanceTypes(financeTypes);
+  }
+
+  /**
+   * Handles the finance split operation.
+   */
+  const handleFinanceSplit = () => {
+    if (newFinance.amount &lt;= finance.amount) {
+      dispatch(FinanceSplitAsync({
+        projectId: finance.project.id,
+        newFinanceName: newFinance.name,
+        newFinanceTypeId: newFinance.type,
+        newFinanceAmount: newFinance.amount,
+        oldFinanceAmount: (finance.amount - newFinance.amount),
+        oldFinanceId: finance.id,
+        oldFinanceLastChange: finance.lastchange,
+        oldFinanceName: finance.name,
+        oldFinanceTypeId: finance.financeType.id
+      }));
+
+      setShowModal(false);
+    } else {
+      alert("Amount too large!");
+    }
+  }
+
+  const newFinance = {
+    name: newName,
+    type: financeType,
+    amount: newAmount,
+  };
+
+  return (
+    &lt;>
+      &lt;button className="btn btn-outline-success btn-sm" onClick={() => { dispatch(FinanceTypesFetchAsync({ setFinanceTypes: handleTypesRequest })); setShowModal(true) }}>
+        &lt;CurrencyExchange />
+      &lt;/button>
+
+      &lt;Modal className="modal-lg" show={showModal} onHide={() => { setShowModal(false) }}>
+        &lt;Modal.Header closeButton>
+          &lt;Modal.Title>Split finance&lt;/Modal.Title>
+        &lt;/Modal.Header>
+        &lt;Modal.Body>
+          &lt;Form.Group>
+            &lt;Form.Label className='mt-2'>&lt;b>Finance to be split: &lt;/b>{finance.name}&lt;/Form.Label>
+          &lt;/Form.Group>
+          &lt;Form.Group>
+            &lt;Form.Label className='mt-2'>&lt;b>Amount available: &lt;/b>{finance.amount}&lt;/Form.Label>
+          &lt;/Form.Group>
+          &lt;Form.Group>
+            &lt;Form.Label className='mt-2'>&lt;b>New finance name:&lt;/b>&lt;/Form.Label>
+            &lt;Form.Control type="text" placeholder={"Splited finance"} onChange={(e) => { setNewName(e.target.value) }} />
+          &lt;/Form.Group>
+          &lt;Form.Group>
+            &lt;Form.Label className='mt-2'>&lt;b>New finance type:&lt;/b>&lt;/Form.Label>
+            &lt;Form.Select value={finance.financeType.id} onChange={(e) => { setFinanceType(e.target.value) }}>
+              {financeTypes.map((type) => &lt;option key={type.id} value={type.id}>{type.name}&lt;/option>)}
+            &lt;/Form.Select>
+          &lt;/Form.Group>
+          &lt;Form.Group>
+            &lt;Form.Label className='mt-2'>&lt;b>Amount to be transferred:&lt;/b>&lt;/Form.Label>
+            &lt;Form.Control type="number" placeholder={0} onChange={(e) => { setNewAmount(e.target.value) }} />
+          &lt;/Form.Group>
+        &lt;/Modal.Body>
+        &lt;Modal.Footer>
+          &lt;button className='btn btn-outline-success' onClick={() => { setShowModal(false) }}>
+            Close
+          &lt;/button>
+          &lt;button className="btn btn-success" onClick={() => { handleFinanceSplit(); }}>
+            Split
+          &lt;/button>
+        &lt;/Modal.Footer>
+      &lt;/Modal>
+    &lt;/>
+  );
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CheckDate">CheckDate</a></li><li><a href="global.html#DeleteStageButton">DeleteStageButton</a></li><li><a href="global.html#FinanceInsert">FinanceInsert</a></li><li><a href="global.html#FinanceProjectSelect">FinanceProjectSelect</a></li><li><a href="global.html#FinanceRow">FinanceRow</a></li><li><a href="global.html#FinanceSelect">FinanceSelect</a></li><li><a href="global.html#FinanceSplit">FinanceSplit</a></li><li><a href="global.html#FinanceSplitAsync">FinanceSplitAsync</a></li><li><a href="global.html#FinanceSplitModalButton">FinanceSplitModalButton</a></li><li><a href="global.html#FinanceTypesFetchAsync">FinanceTypesFetchAsync</a></li><li><a href="global.html#FinanceTypesQuery">FinanceTypesQuery</a></li><li><a href="global.html#FinanceTypesQueryJSON">FinanceTypesQueryJSON</a></li><li><a href="global.html#FinanceUpdate">FinanceUpdate</a></li><li><a href="global.html#FinancesEditTable">FinancesEditTable</a></li><li><a href="global.html#FinancesFetchAsync">FinancesFetchAsync</a></li><li><a href="global.html#FinancesPage">FinancesPage</a></li><li><a href="global.html#FinancesQuery">FinancesQuery</a></li><li><a href="global.html#FinancesQueryJSON">FinancesQueryJSON</a></li><li><a href="global.html#FinancesTable">FinancesTable</a></li><li><a href="global.html#FinancesTableMain">FinancesTableMain</a></li><li><a href="global.html#GroupsFetchAsync">GroupsFetchAsync</a></li><li><a href="global.html#GroupsQuery">GroupsQuery</a></li><li><a href="global.html#GroupsQueryJSON">GroupsQueryJSON</a></li><li><a href="global.html#LinkAddButton">LinkAddButton</a></li><li><a href="global.html#LinkRemoveButton">LinkRemoveButton</a></li><li><a href="global.html#MilestoneAsyncInsert">MilestoneAsyncInsert</a></li><li><a href="global.html#MilestoneAsyncUpdate">MilestoneAsyncUpdate</a></li><li><a href="global.html#MilestoneDelete">MilestoneDelete</a></li><li><a href="global.html#MilestoneDeleteAsync">MilestoneDeleteAsync</a></li><li><a href="global.html#MilestoneInsert">MilestoneInsert</a></li><li><a href="global.html#MilestoneInsertModalButton">MilestoneInsertModalButton</a></li><li><a href="global.html#MilestoneLinkAsyncInsert">MilestoneLinkAsyncInsert</a></li><li><a href="global.html#MilestoneLinkAsyncRemove">MilestoneLinkAsyncRemove</a></li><li><a href="global.html#MilestoneLinkInsert">MilestoneLinkInsert</a></li><li><a href="global.html#MilestoneLinkModalButton">MilestoneLinkModalButton</a></li><li><a href="global.html#MilestoneLinkRemove">MilestoneLinkRemove</a></li><li><a href="global.html#MilestoneLinkTable">MilestoneLinkTable</a></li><li><a href="global.html#MilestoneUpdate">MilestoneUpdate</a></li><li><a href="global.html#MilestoneUpdateModalButton">MilestoneUpdateModalButton</a></li><li><a href="global.html#PagesDisplayAll">PagesDisplayAll</a></li><li><a href="global.html#ProjectAsyncInsert">ProjectAsyncInsert</a></li><li><a href="global.html#ProjectCard">ProjectCard</a></li><li><a href="global.html#ProjectDetailPage">ProjectDetailPage</a></li><li><a href="global.html#ProjectGanttChart">ProjectGanttChart</a></li><li><a href="global.html#ProjectInsert">ProjectInsert</a></li><li><a href="global.html#ProjectInsertButton">ProjectInsertButton</a></li><li><a href="global.html#ProjectRow">ProjectRow</a></li><li><a href="global.html#ProjectTypesFetchAsync">ProjectTypesFetchAsync</a></li><li><a href="global.html#ProjectTypesQuery">ProjectTypesQuery</a></li><li><a href="global.html#ProjectTypesQueryJSON">ProjectTypesQueryJSON</a></li><li><a href="global.html#ProjectUpdate">ProjectUpdate</a></li><li><a href="global.html#ProjectUpdateModalButton">ProjectUpdateModalButton</a></li><li><a href="global.html#ProjectUpdaterAsync">ProjectUpdaterAsync</a></li><li><a href="global.html#ProjectsFetchAsync">ProjectsFetchAsync</a></li><li><a href="global.html#ProjectsPage">ProjectsPage</a></li><li><a href="global.html#ProjectsQuery">ProjectsQuery</a></li><li><a href="global.html#ProjectsQueryJSON">ProjectsQueryJSON</a></li><li><a href="global.html#ProjectsTable">ProjectsTable</a></li><li><a href="global.html#StageRow">StageRow</a></li><li><a href="global.html#StagesEditTable">StagesEditTable</a></li><li><a href="global.html#StagesTable">StagesTable</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 19 2023 09:51:30 GMT+0200 (středoevropský letní čas)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

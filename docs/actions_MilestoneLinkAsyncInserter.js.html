@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: actions/MilestoneLinkAsyncInserter.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: actions/MilestoneLinkAsyncInserter.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { MilestoneLinkInsert }  from '../queries/MilestoneLinkInsert';
+import { updateProject } from '../features/projectsSlice';
+
+/**
+ * Asynchronous action creator that sends a new link creation request to a server.
+ * 
+ * @param {string} nextId - ID of the next milestone
+ * @param {string} previousId - ID of the previous milestone
+ * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
+ */
+export const MilestoneLinkAsyncInsert = ({nextId, previousId}) => (dispatch, getState) => (
+  MilestoneLinkInsert({next: nextId, previous: previousId})
+      .then(response => response.json())
+      .then(json => {
+        const message = json.data?.milestonesLinkAdd.msg
+        const project = json.data?.milestonesLinkAdd.milestone.project;
+        if (message === 'ok') {
+          dispatch(updateProject(project))
+        }
+        return json
+      })
+)</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CheckDate">CheckDate</a></li><li><a href="global.html#DeleteStageButton">DeleteStageButton</a></li><li><a href="global.html#FinanceInsert">FinanceInsert</a></li><li><a href="global.html#FinanceProjectSelect">FinanceProjectSelect</a></li><li><a href="global.html#FinanceRow">FinanceRow</a></li><li><a href="global.html#FinanceSelect">FinanceSelect</a></li><li><a href="global.html#FinanceSplit">FinanceSplit</a></li><li><a href="global.html#FinanceSplitAsync">FinanceSplitAsync</a></li><li><a href="global.html#FinanceSplitModalButton">FinanceSplitModalButton</a></li><li><a href="global.html#FinanceTypesFetchAsync">FinanceTypesFetchAsync</a></li><li><a href="global.html#FinanceTypesQuery">FinanceTypesQuery</a></li><li><a href="global.html#FinanceTypesQueryJSON">FinanceTypesQueryJSON</a></li><li><a href="global.html#FinanceUpdate">FinanceUpdate</a></li><li><a href="global.html#FinancesEditTable">FinancesEditTable</a></li><li><a href="global.html#FinancesFetchAsync">FinancesFetchAsync</a></li><li><a href="global.html#FinancesPage">FinancesPage</a></li><li><a href="global.html#FinancesQuery">FinancesQuery</a></li><li><a href="global.html#FinancesQueryJSON">FinancesQueryJSON</a></li><li><a href="global.html#FinancesTable">FinancesTable</a></li><li><a href="global.html#FinancesTableMain">FinancesTableMain</a></li><li><a href="global.html#GroupsFetchAsync">GroupsFetchAsync</a></li><li><a href="global.html#GroupsQuery">GroupsQuery</a></li><li><a href="global.html#GroupsQueryJSON">GroupsQueryJSON</a></li><li><a href="global.html#LinkAddButton">LinkAddButton</a></li><li><a href="global.html#LinkRemoveButton">LinkRemoveButton</a></li><li><a href="global.html#MilestoneAsyncInsert">MilestoneAsyncInsert</a></li><li><a href="global.html#MilestoneAsyncUpdate">MilestoneAsyncUpdate</a></li><li><a href="global.html#MilestoneDelete">MilestoneDelete</a></li><li><a href="global.html#MilestoneDeleteAsync">MilestoneDeleteAsync</a></li><li><a href="global.html#MilestoneInsert">MilestoneInsert</a></li><li><a href="global.html#MilestoneInsertModalButton">MilestoneInsertModalButton</a></li><li><a href="global.html#MilestoneLinkAsyncInsert">MilestoneLinkAsyncInsert</a></li><li><a href="global.html#MilestoneLinkAsyncRemove">MilestoneLinkAsyncRemove</a></li><li><a href="global.html#MilestoneLinkInsert">MilestoneLinkInsert</a></li><li><a href="global.html#MilestoneLinkModalButton">MilestoneLinkModalButton</a></li><li><a href="global.html#MilestoneLinkRemove">MilestoneLinkRemove</a></li><li><a href="global.html#MilestoneLinkTable">MilestoneLinkTable</a></li><li><a href="global.html#MilestoneUpdate">MilestoneUpdate</a></li><li><a href="global.html#MilestoneUpdateModalButton">MilestoneUpdateModalButton</a></li><li><a href="global.html#PagesDisplayAll">PagesDisplayAll</a></li><li><a href="global.html#ProjectAsyncInsert">ProjectAsyncInsert</a></li><li><a href="global.html#ProjectCard">ProjectCard</a></li><li><a href="global.html#ProjectDetailPage">ProjectDetailPage</a></li><li><a href="global.html#ProjectGanttChart">ProjectGanttChart</a></li><li><a href="global.html#ProjectInsert">ProjectInsert</a></li><li><a href="global.html#ProjectInsertButton">ProjectInsertButton</a></li><li><a href="global.html#ProjectRow">ProjectRow</a></li><li><a href="global.html#ProjectTypesFetchAsync">ProjectTypesFetchAsync</a></li><li><a href="global.html#ProjectTypesQuery">ProjectTypesQuery</a></li><li><a href="global.html#ProjectTypesQueryJSON">ProjectTypesQueryJSON</a></li><li><a href="global.html#ProjectUpdate">ProjectUpdate</a></li><li><a href="global.html#ProjectUpdateModalButton">ProjectUpdateModalButton</a></li><li><a href="global.html#ProjectUpdaterAsync">ProjectUpdaterAsync</a></li><li><a href="global.html#ProjectsFetchAsync">ProjectsFetchAsync</a></li><li><a href="global.html#ProjectsPage">ProjectsPage</a></li><li><a href="global.html#ProjectsQuery">ProjectsQuery</a></li><li><a href="global.html#ProjectsQueryJSON">ProjectsQueryJSON</a></li><li><a href="global.html#ProjectsTable">ProjectsTable</a></li><li><a href="global.html#StageRow">StageRow</a></li><li><a href="global.html#StagesEditTable">StagesEditTable</a></li><li><a href="global.html#StagesTable">StagesTable</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 19 2023 09:51:30 GMT+0200 (středoevropský letní čas)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
