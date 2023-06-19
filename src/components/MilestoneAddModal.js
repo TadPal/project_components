@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { MilestoneAsyncInsert } from '../actions/MilestoneAsyncInsert';
+import { MilestoneAddButton } from './MilestoneAddButton';
 
 /**
  * A React component that represents a button for inserting a new milestone.
@@ -10,7 +9,6 @@ import { MilestoneAsyncInsert } from '../actions/MilestoneAsyncInsert';
  * @returns {JSX.Element} The JSX element representing the milestone insert button.
  */
 export const MilestoneInsertModalButton = ({ projectId }) => {
-  const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("Name");
@@ -29,6 +27,10 @@ export const MilestoneInsertModalButton = ({ projectId }) => {
     setStartDate("2023-01-01T00:00:00");
     setEndDate("2025-12-31T23:59:59");
   };
+
+  const handleModalShow = () => {
+    setShowModal(!showModal);
+  }
 
   return (
     <>
@@ -58,9 +60,7 @@ export const MilestoneInsertModalButton = ({ projectId }) => {
           <button className='btn btn-outline-success' onClick={() => { setShowModal(false) }}>
             Close
           </button>
-          <button className="btn btn-success" onClick={() => { dispatch(MilestoneAsyncInsert(milestone)); setShowModal(false) }}>
-            Save
-          </button>
+          <MilestoneAddButton milestone={milestone} onClick={handleModalShow}/>
         </Modal.Footer>
       </Modal>
     </>

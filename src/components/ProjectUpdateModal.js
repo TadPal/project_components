@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { StagesEditTable } from './StagesEditTable';
-import { ProjectUpdaterAsync } from '../actions/ProjectAsyncUpdater';
+import { ProjectUpdateButton } from './ProjectUpdateButton';
 import { ProjectTypesFetchAsync } from '../actions/ProjectTypesAsyncLoader';
 import { GroupsFetchAsync } from '../actions/GroupsAsyncLoader';
 import { FinancesEditTable } from './FinancesEditTable';
@@ -46,6 +46,10 @@ export const ProjectUpdateModalButton = ({ project, finances }) => {
 
   const handleGroupRequest = (groups) => {
     setTeams(groups);
+  };
+
+  const handleShowModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
@@ -137,28 +141,10 @@ export const ProjectUpdateModalButton = ({ project, finances }) => {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-outline-success" onClick={() => setShowModal(false)}>
+          <button className="btn btn-outline-success" onClick={() => handleShowModal()}>
             Close
           </button>
-          <button
-            className="btn btn-success"
-            onClick={() => {
-              dispatch(
-                ProjectUpdaterAsync(
-                  newProject.id,
-                  newProject.name,
-                  newProject.lastchange,
-                  newProject.startdate,
-                  newProject.enddate,
-                  newProject.projectType,
-                  newProject.team
-                )
-              );
-              setShowModal(false);
-            }}
-          >
-            Save
-          </button>
+          <ProjectUpdateButton onClick={handleShowModal} project={newProject}/>
         </Modal.Footer>
       </Modal>
     </>

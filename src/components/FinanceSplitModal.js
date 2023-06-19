@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { FinanceSplitAsync } from '../actions/FinanceAsyncSpliter';
 import { FinanceTypesFetchAsync } from '../actions/FinanceTypesAsyncLoader';
 import { CurrencyExchange } from "react-bootstrap-icons";
+import { FinanceSplitButton } from './FinanceSplitButton';
 
 /**
  * A React component that represents a button for inserting a new finance.
@@ -28,27 +28,8 @@ export const FinanceSplitModalButton = ({ finance }) => {
     setFinanceTypes(financeTypes);
   }
 
-  /**
-   * Handles the finance split operation.
-   */
-  const handleFinanceSplit = () => {
-    if (newFinance.amount <= finance.amount) {
-      dispatch(FinanceSplitAsync({
-        projectId: finance.project.id,
-        newFinanceName: newFinance.name,
-        newFinanceTypeId: newFinance.type,
-        newFinanceAmount: newFinance.amount,
-        oldFinanceAmount: (finance.amount - newFinance.amount),
-        oldFinanceId: finance.id,
-        oldFinanceLastChange: finance.lastchange,
-        oldFinanceName: finance.name,
-        oldFinanceTypeId: finance.financeType.id
-      }));
-
-      setShowModal(false);
-    } else {
-      alert("Amount too large!");
-    }
+  const handleModalShow = () => {
+    setShowModal(!showModal);
   }
 
   const newFinance = {
@@ -93,9 +74,7 @@ export const FinanceSplitModalButton = ({ finance }) => {
           <button className='btn btn-outline-success' onClick={() => { setShowModal(false) }}>
             Close
           </button>
-          <button className="btn btn-success" onClick={() => { handleFinanceSplit(); }}>
-            Split
-          </button>
+          <FinanceSplitButton finance={finance} newFinance={newFinance} onClick={handleModalShow} />
         </Modal.Footer>
       </Modal>
     </>

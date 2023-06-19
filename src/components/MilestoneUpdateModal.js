@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
 import { PencilSquare } from "react-bootstrap-icons";
-import { MilestoneAsyncUpdate } from "../actions/MilestoneAsyncUpdater";
+import { MilestoneUpdateButton } from './MilestoneUpdateButton';
 
 /**
  * A React component that represents a button for inserting a new project.
  * @returns {JSX.Element} The JSX element representing the project insert button.
  */
 export const MilestoneUpdateModalButton = ({milestone}) => {
-  const dispatch = useDispatch();
-
   // showing modal if button pressed
   const [showModal, setShowModal] = useState(false);
 
@@ -24,6 +21,10 @@ export const MilestoneUpdateModalButton = ({milestone}) => {
     name: name, 
     startdate: startDate,
     enddate: endDate,
+  }
+
+  const handleModalShow = () => {
+    setShowModal(!showModal)
   }
 
   return (
@@ -57,9 +58,7 @@ export const MilestoneUpdateModalButton = ({milestone}) => {
           <button className='btn btn-outline-success' onClick={() => {setShowModal(false)}}>
             Close
           </button>
-          <button className="btn btn-success" onClick={() => {dispatch(MilestoneAsyncUpdate(updatedMilestone)); setShowModal(false);}}>
-            Save
-          </button>
+          <MilestoneUpdateButton milestone={updatedMilestone} onClick={handleModalShow}/>
         </Modal.Footer>
       </Modal>
     </>

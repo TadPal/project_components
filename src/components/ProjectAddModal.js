@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { ProjectAsyncInsert } from '../actions/ProjectAsyncInserter';
 import { ProjectTypesFetchAsync } from '../actions/ProjectTypesAsyncLoader';
 import { GroupsFetchAsync } from '../actions/GroupsAsyncLoader';
+import { ProjectAddButton } from './ProjectAddButton';
 
 /**
  * A React component that represents a button for inserting a new project.
@@ -51,6 +51,10 @@ export const ProjectInsertButton = () => {
     setTeams(groups)
   }
 
+  const handleShowModal = () => {
+    setShowModal(!showModal)
+  }
+
   return (
     <>
       <button className="btn btn-outline-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync({setProjectTypes: handleTypesRequest})); dispatch(GroupsFetchAsync({setTeams: handleGroupRequest}))}}>
@@ -58,7 +62,7 @@ export const ProjectInsertButton = () => {
       </button>
 
       {/* modal bottstrap setting */}
-      <Modal show={showModal} onHide={() => {setShowModal(false); resetProject()}}>
+      <Modal show={showModal} onHide={() => {handleShowModal(); resetProject()}}>
         <Modal.Header closeButton>
           <Modal.Title>New project</Modal.Title>
         </Modal.Header>
@@ -95,13 +99,11 @@ export const ProjectInsertButton = () => {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <button className='btn btn-outline-success' onClick={() => {setShowModal(false)}}>
+          <button className='btn btn-outline-success' onClick={() => {handleShowModal()}}>
             Close
           </button>
-          <button className="btn btn-success" onClick={() => {setShowModal(false); dispatch(ProjectAsyncInsert(newProject))}}>
-            Save
-          </button>
-        </Modal.Footer>
+          <ProjectAddButton onClick={handleShowModal} project={newProject}/>
+        </Modal.Footer> 
       </Modal>
     </>
   );
