@@ -21,7 +21,7 @@ export const ProjectUpdaterAsync = (
   enddate,
   projecttypeId,
   groupId
-) => (dispatch, getState) => {
+) => (dispatch, getState) => (
   ProjectUpdate(projectId, name, lastchange, startdate, enddate, projecttypeId, groupId)
     .then(response => response.json())
     .then(json => {
@@ -32,4 +32,4 @@ export const ProjectUpdaterAsync = (
       }
       return json
     })
-};
+)

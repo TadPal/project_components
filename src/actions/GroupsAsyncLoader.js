@@ -6,7 +6,7 @@ import { GroupsQuery } from '../queries/GroupsQuery';
  * @param {Function} setTeams - A function to set the fetched teams/groups.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const GroupsFetchAsync = ({ setTeams }) => (dispatch, getState) => {
+export const GroupsFetchAsync = ({ setTeams }) => (dispatch, getState) => (
     GroupsQuery()
     .then(response => response.json())
     .then(json => {
@@ -19,4 +19,4 @@ export const GroupsFetchAsync = ({ setTeams }) => (dispatch, getState) => {
         }
         return json
     })
-};
+)

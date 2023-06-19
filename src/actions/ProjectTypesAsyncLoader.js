@@ -6,7 +6,7 @@ import { ProjectTypesQuery } from '../queries/ProjectTypesQuery';
  * @param {Function} setProjectTypes - A function to set the fetched project types.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const ProjectTypesFetchAsync = ({ setProjectTypes }) => (dispatch, getState) => {
+export const ProjectTypesFetchAsync = ({ setProjectTypes }) => (dispatch, getState) => (
   // Call the ProjectTypesQuery function to fetch project types
   ProjectTypesQuery()
     .then(response => response.json())
@@ -18,4 +18,4 @@ export const ProjectTypesFetchAsync = ({ setProjectTypes }) => (dispatch, getSta
       }
       return json
     })
-};
+)

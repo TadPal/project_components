@@ -24,7 +24,7 @@ export const FinanceSplitAsync = ({
   oldFinanceLastChange,
   oldFinanceTypeId,
   oldFinanceName,
-}) => (dispatch, getState) => {
+}) => (dispatch, getState) => (
   // Call the FinancesQuery function to fetch projects
   FinanceSplit({
     projectId: projectId,
@@ -49,5 +49,5 @@ export const FinanceSplitAsync = ({
         dispatch(updateFinance(updatedFinance));
       }
       return json;
-    });
-};
+    })
+)

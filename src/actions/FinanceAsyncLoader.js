@@ -6,7 +6,7 @@ import { loadFinances } from "../features/financesSlice";
  *
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const FinancesFetchAsync = () => (dispatch, getState) => {
+export const FinancesFetchAsync = () => (dispatch, getState) => (
   // Call the FinancesQuery function to fetch projects
   FinancesQuery()
     .then(response => response.json())
@@ -19,4 +19,4 @@ export const FinancesFetchAsync = () => (dispatch, getState) => {
       }
       return json
     })
-}
+)

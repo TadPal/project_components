@@ -6,7 +6,7 @@ import { FinanceTypesQuery } from "../queries/FinanceTypesQuery"
  * @param {Function} setFinanceTypes - A function to set the fetched finance types.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const FinanceTypesFetchAsync = ({ setFinanceTypes }) => (dispatch, getState) => {
+export const FinanceTypesFetchAsync = ({ setFinanceTypes }) => (dispatch, getState) => (
     FinanceTypesQuery()
     .then(response => response.json())
     .then(json => {
@@ -16,4 +16,4 @@ export const FinanceTypesFetchAsync = ({ setFinanceTypes }) => (dispatch, getSta
         }
         return json
     })
-};
+)

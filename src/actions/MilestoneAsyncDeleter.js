@@ -7,7 +7,7 @@ import { updateProject } from '../features/projectsSlice';
  * @param {string} id - ID of the milestone to delete.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const MilestoneDeleteAsync = (id) => (dispatch, getState) => {
+export const MilestoneDeleteAsync = (id) => (dispatch, getState) => (
     MilestoneDelete(id)
       .then(response => response.json())
       .then(json => {
@@ -18,4 +18,4 @@ export const MilestoneDeleteAsync = (id) => (dispatch, getState) => {
         }
         return json
       })
-};
+)

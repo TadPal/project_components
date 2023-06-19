@@ -7,7 +7,7 @@ import { addProject } from "../features/projectsSlice";
  * @param {Object} newProject - Milestone object to be added
  * @returns {Function} A promise representing the asynchronous operation.
  */
-export const ProjectAsyncInsert = (newProject) => (dispatch, getState) => {
+export const ProjectAsyncInsert = (newProject) => (dispatch, getState) => (
 ProjectInsert(newProject.projectType, newProject.name, newProject.startdate, newProject.enddate, newProject.team)
     .then(response => response.json())
     .then(json => {
@@ -21,4 +21,4 @@ ProjectInsert(newProject.projectType, newProject.name, newProject.startdate, new
         }
         return json
         })
-}
+)

@@ -7,7 +7,7 @@ import { updateProject } from '../features/projectsSlice';
  * @param {Object} milestone- Milestone object to be added
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const MilestoneAsyncInsert = (milestone) => (dispatch, getState) => {
+export const MilestoneAsyncInsert = (milestone) => (dispatch, getState) => (
   MilestoneInsert(milestone.project, milestone.name, milestone.startdate, milestone.enddate)
       .then(response => response.json())
       .then(json => {
@@ -18,4 +18,4 @@ export const MilestoneAsyncInsert = (milestone) => (dispatch, getState) => {
         }
         return json
       })
-  }
+)

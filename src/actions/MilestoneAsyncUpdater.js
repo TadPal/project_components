@@ -6,7 +6,7 @@ import { updateProject } from '../features/projectsSlice';
  * @param {Object} milestone - The milestone object to update.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const MilestoneAsyncUpdate = (milestone) => (dispatch, getState) => {
+export const MilestoneAsyncUpdate = (milestone) => (dispatch, getState) => (
   // Invoke the MilestoneUpdate function to update the milestone
   MilestoneUpdate(milestone.lastchange, milestone.id, milestone.name, milestone.startdate, milestone.enddate)
     .then(response => response.json())
@@ -18,5 +18,5 @@ export const MilestoneAsyncUpdate = (milestone) => (dispatch, getState) => {
         dispatch(updateProject(project));
       }
       return json;
-    });
-};
+    })
+)

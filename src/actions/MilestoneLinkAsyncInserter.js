@@ -8,7 +8,7 @@ import { updateProject } from '../features/projectsSlice';
  * @param {string} previousId - ID of the previous milestone
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const MilestoneLinkAsyncInsert = ({nextId, previousId}) => (dispatch, getState) => {
+export const MilestoneLinkAsyncInsert = ({nextId, previousId}) => (dispatch, getState) => (
   MilestoneLinkInsert({next: nextId, previous: previousId})
       .then(response => response.json())
       .then(json => {
@@ -19,4 +19,4 @@ export const MilestoneLinkAsyncInsert = ({nextId, previousId}) => (dispatch, get
         }
         return json
       })
-  }
+)

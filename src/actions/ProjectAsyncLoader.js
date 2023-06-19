@@ -6,7 +6,7 @@ import { loadProjects } from '../features/projectsSlice';
  *
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const ProjectsFetchAsync = () => (dispatch, getState) => {
+export const ProjectsFetchAsync = () => (dispatch, getState) => (
   // Call the ProjectsQuery function to fetch projects
   ProjectsQuery()
     .then(response => response.json())
@@ -19,4 +19,4 @@ export const ProjectsFetchAsync = () => (dispatch, getState) => {
       }
       return json
     })
-}
+)
