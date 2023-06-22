@@ -40,8 +40,12 @@ const MilestoneLinkRemoveJSON = (next, previous) => ({
 })
 
 /**
- * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns {promise}
+ * Performs a milestone link remove request to the server using authorizedFetch.
+ *
+ * @param {Object} props - The props for milestone link remove.
+ * @param {string} props.next - The ID of the next milestone.
+ * @param {string} props.previous - The ID of the previous milestone.
+ * @returns {Promise<Response>} A promise representing the milestone link remove request.
  */
 export const MilestoneLinkRemove = ({next, previous}) =>
     authorizedFetch('/gql', {

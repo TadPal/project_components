@@ -5,10 +5,10 @@ import { ProjectUpdateModalButton } from "./ProjectUpdateModal";
 
 /**
  * A React component that represents a project card.
- * @param {string} projectId - The ID of the project.
- * @param {Object} projects - The object containing all projects.
- * @param {Function} setProject - The function to update the current project.
- * @param {Array} finances - The array of all finances.
+ * @param {string} props.projectId - The ID of the project.
+ * @param {Object} props.projects - The object containing all projects.
+ * @param {Function} props.setProject - The function to update the current project.
+ * @param {Array} props.finances - The array of all finances.
  * @returns {JSX.Element} The JSX element representing the project card.
  */
 export const ProjectCard = ({projectId, projects, setProject, finances}) => {

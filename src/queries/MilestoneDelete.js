@@ -30,14 +30,10 @@ const MilestoneDeleteJSON = (id) => ({
 })
 
 /**
- * Performs a milestone update request to the server using authorizedFetch.
+ * Performs a milestone delete request to the server using authorizedFetch.
  *
- * @param {string} lastchange - The last change timestamp of the milestone.
- * @param {string} id - The ID of the milestone.
- * @param {string} name - The name of the milestone.
- * @param {string} startdate - The start date of the milestone.
- * @param {string} enddate - The end date of the milestone.
- * @returns {Promise<Response>} A promise representing the milestone update request.
+ * @param {string} id - The ID of the milestone to delete.
+ * @returns {Promise<Response>} A promise representing the milestone delete request.
  */
 export const MilestoneDelete = (id) =>
   authorizedFetch('/gql', {

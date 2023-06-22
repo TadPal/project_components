@@ -3,8 +3,8 @@ import { LinkRemoveButton } from "./LinkRemoveButton";
 
 /**
  * A React component that represents a table of milestone links.
- * @param {Object} milestone - The milestone object.
- * @param {Object[]} milestones - The array of milestones.
+ * @param {Object} props.milestone - The milestone object.
+ * @param {Object[]} props.milestones - The array of milestones.
  * @returns {JSX.Element} The JSX element representing the milestone link table.
  */
 export const MilestoneLinkTable = ({ milestone, milestones }) => {

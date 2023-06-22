@@ -13,7 +13,9 @@ import { updateProject } from '../features/projectsSlice';
  * @param {string} groupId - ID of the group associated with the project.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
-export const ProjectUpdateAsync = ({project}) => (dispatch, getState) => (
+export const ProjectUpdateAsync = ({project}) => (dispatch, getState) => {
+  console.log(project);
+  return (
   ProjectUpdate(project.id, project.name, project.lastchange, project.startdate, project.enddate, project.projectType, project.groupId)
     .then(response => response.json())
     .then(json => {
@@ -24,4 +26,4 @@ export const ProjectUpdateAsync = ({project}) => (dispatch, getState) => (
       }
       return json
     })
-)
+)}

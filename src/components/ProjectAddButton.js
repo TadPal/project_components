@@ -3,15 +3,20 @@ import { ProjectAsyncInsert } from '../actions/ProjectAsyncInserter';
 
 /**
  * Renders a button component for adding a project.
- * @param {Object} project - The project object to be added.
- * @param {Function} onClick - The click event handler.
+ * @param {Object} props.project - The project object to be added.
+ * @param {Function} props.onClick - The click event handler.
  * @returns {JSX.Element} The rendered component.
  */
 export const ProjectAddButton = ({ project, onClick }) => {
   const dispatch = useDispatch();
 
+  const handleOnClick = () => {
+    dispatch(ProjectAsyncInsert(project)); 
+    if (onClick) onClick(); 
+  }
+
   return (
-    <button className="btn btn-success" onClick={() => { dispatch(ProjectAsyncInsert(project)); onClick(); }}>
+    <button className="btn btn-success" onClick={handleOnClick}>
       Add
     </button>
   );

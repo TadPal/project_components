@@ -2,7 +2,7 @@ import { FinanceSplitModalButton } from "./FinanceSplitModal";
 
 /**
  * A React component that renders a table to edit finances.
- * @param {Array} finances - An array of finance objects.
+ * @param {Array} props.finances - An array of finance objects.
  * @returns {JSX.Element} Finances table JSX element.
  */
 export const FinancesEditTable = ({finances}) => {

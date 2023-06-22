@@ -10,8 +10,14 @@ import { ProjectUpdateAsync } from '../actions/ProjectAsyncUpdater';
 export const ProjectUpdateButton = ({ project, onClick }) => {
   const dispatch = useDispatch();
 
+  const handleOnClick = () => {
+    dispatch(ProjectUpdateAsync({project}));
+
+    if (onClick) onClick();
+  }
+
   return (
-    <button className="btn btn-success" onClick={() => { dispatch(ProjectUpdateAsync(project)); onClick(); }}>
+    <button className="btn btn-success" onClick={handleOnClick}>
       Update
     </button>
   );

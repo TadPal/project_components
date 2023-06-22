@@ -2,7 +2,7 @@ import { v1 as uuid } from 'uuid';
 
 /**
  * A React component that represents a table of stages.
- * @param {Array} milestones - The array of milestones/stages.
+ * @param {Array} props.milestones - The array of milestones/stages.
  * @returns {JSX.Element} The JSX element representing the stages edit table.
  */
 export const StagesTable = ({ milestones }) => {
@@ -45,10 +45,10 @@ export const StagesTable = ({ milestones }) => {
 
 /**
  * A React component that represents a row in the stages edit table.
- * @param {string} name - The name of the stage.
- * @param {string} start - The start date of the stage.
- * @param {string} end - The end date of the stage.
- * @param {Array} nexts - The array of linked milestones
+ * @param {string} props.name - The name of the stage.
+ * @param {string} props.start - The start date of the stage.
+ * @param {string} props.end - The end date of the stage.
+ * @param {Array} props.nexts - The array of linked milestones
  * @returns {JSX.Element} The JSX element representing a stage row.
  */
 const StageRow = ({ name, start, end, nexts }) => {

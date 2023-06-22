@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 
 /**
  * Renders a button component for finance split operation.
- * @param {Object} newFinance - The new finance object.
- * @param {Object} finance - The existing finance object.
- * @param {Function} onClick - The click event handler.
+ * @param {Object} props.newFinance - The new finance object.
+ * @param {Object} props.finance - The existing finance object.
+ * @param {Function} props.onClick - The click event handler.
  * @returns {JSX.Element} The rendered component.
  */
 export const FinanceSplitButton = ({ newFinance, finance, onClick }) => {
@@ -26,13 +26,14 @@ export const FinanceSplitButton = ({ newFinance, finance, onClick }) => {
           oldFinanceTypeId: finance.financeType.id,
         })
       );
+      if (onClick) onClick();
     } else {
       alert('Amount too large!');
     }
   };
 
   return (
-    <button className="btn btn-success" onClick={() => { handleFinanceSplit(); onClick(); }}>
+    <button className="btn btn-success" onClick={handleFinanceSplit}>
       Split
     </button>
   );

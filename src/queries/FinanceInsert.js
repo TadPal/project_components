@@ -38,9 +38,10 @@ const FinanceInsertJSON = (projectId, name, typeId, amount) => ({
 
 /**
  * Performs a finance insert request to the server using authorizedFetch.
- *
- * @param {string} projectId - The ID of the project to insert the finance into.
- * @param {string} name - The name of the finance.
+ * @param {strings} props.amount - The amount of a newFinance
+ * @param {string} props.typeId - The ID of a project type
+ * @param {string} props.projectId - The ID of the project to insert the finance into.
+ * @param {string} props.name - The name of the finance.
  * @returns {Promise<Response>} A promise representing the finance insert request.
  */
 export const FinanceInsert = ({projectId, name, typeId, amount}) =>

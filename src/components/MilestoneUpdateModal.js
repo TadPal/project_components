@@ -5,7 +5,7 @@ import { MilestoneUpdateButton } from './MilestoneUpdateButton';
 
 /**
  * A React component that represents a button for inserting a new project.
- * @param {Object} milestone - The milestone object to be updated
+ * @param {Object} props.milestone - The milestone object to be updated
  * @returns {JSX.Element} The JSX element representing the project insert button.
  */
 export const MilestoneUpdateModalButton = ({milestone}) => {

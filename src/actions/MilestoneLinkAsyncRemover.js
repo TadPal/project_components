@@ -4,8 +4,8 @@ import { updateProject } from '../features/projectsSlice';
 /**
  * Asynchronous action creator that sends a link removal request to a server.
  * 
- * @param {string} nextId - ID of the next milestone
- * @param {string} previousId - ID of the previous milestone
+ * @param {string} props.nextId - ID of the next milestone
+ * @param {string} props.previousId - ID of the previous milestone
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
 export const MilestoneLinkAsyncRemove = ({nextId, previousId}) => (dispatch, getState) => (

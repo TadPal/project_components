@@ -3,7 +3,7 @@ import { GroupsQuery } from '../queries/GroupsQuery';
 /**
  * An asynchronous action creator that fetches groups from a server.
  * 
- * @param {Function} setTeams - A function to set the fetched teams/groups.
+ * @param {Function} props.setTeams - A function to set the fetched teams/groups.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
 export const GroupsFetchAsync = ({ setTeams }) => (dispatch, getState) => (

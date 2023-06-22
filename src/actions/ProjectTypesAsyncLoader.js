@@ -3,7 +3,7 @@ import { ProjectTypesQuery } from '../queries/ProjectTypesQuery';
 /**
  * An asynchronous action creator that fetches project types.
  * 
- * @param {Function} setProjectTypes - A function to set the fetched project types.
+ * @param {Function} props.setProjectTypes - A function to set the fetched project types.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
 export const ProjectTypesFetchAsync = ({ setProjectTypes }) => (dispatch, getState) => (

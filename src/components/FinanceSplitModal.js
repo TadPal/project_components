@@ -7,7 +7,7 @@ import { FinanceSplitButton } from './FinanceSplitButton';
 
 /**
  * A React component that represents a button for inserting a new finance.
- * @param {Object} finance - The finance object to be split.
+ * @param {Object} props.finance - The finance object to be split.
  * @returns {JSX.Element} The JSX element representing the finance split button.
  */
 export const FinanceSplitModalButton = ({ finance }) => {

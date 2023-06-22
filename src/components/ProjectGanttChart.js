@@ -5,8 +5,8 @@ import "gantt-task-react/dist/index.css";
 
 /**
  * A React component that represents a Gantt chart for a project.
- * @param {Array} projects - The array of all projects.
- * @param {string} projectId - The ID of the project.
+ * @param {Array} props.projects - The array of all projects.
+ * @param {string} props.projectId - The ID of the project.
  * @returns {JSX.Element} The JSX element representing the Gantt chart.
  */
 export const ProjectGanttChart = ({ projects, projectId }) => {

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 /**
  * A React component that renders a dropdown select menu for selecting a finance project.
- * @param {Object[]} projects - An array of project objects.
- * @param {Function} onChange - A function to be called when the selected project changes.
+ * @param {Object[]} props.projects - An array of project objects.
+ * @param {Function} props.onChange - A function to be called when the selected project changes.
  */
 export const FinanceProjectSelect = ({ projects, onChange }) => {
   const [selectedProject, setSelectedProject] = useState("");

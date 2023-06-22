@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 
 /**
  * A React component that represents a button for adding a milestone link.
- * @param {boolean} disabled - Indicates whether the button is disabled.
- * @param {string} previous - The ID of the previous milestone.
- * @param {string} next - The ID of the next milestone.
+ * @param {boolean} props.disabled - Indicates whether the button is disabled.
+ * @param {string} props.previous - The ID of the previous milestone.
+ * @param {string} props.next - The ID of the next milestone.
  * @returns {JSX.Element} The JSX element representing the link add button.
  */
 export const LinkAddButton = ({ disabled, previous, next }) => {

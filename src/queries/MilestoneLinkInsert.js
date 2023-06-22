@@ -41,8 +41,12 @@ const MilestoneLinkInsertJSON = (next, previous) => ({
 })
 
 /**
- * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
- * @returns {promise}
+ * Performs a milestone link insert request to the server using authorizedFetch.
+ *
+ * @param {Object} props - The props for milestone link insertion.
+ * @param {string} props.next - The ID of the next milestone.
+ * @param {string} props.previous - The ID of the previous milestone.
+ * @returns {Promise<Response>} A promise representing the milestone link insert request.
  */
 export const MilestoneLinkInsert = ({next, previous}) =>
     authorizedFetch('/gql', {

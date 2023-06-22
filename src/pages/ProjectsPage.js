@@ -4,8 +4,8 @@ import { ProjectInsertButton } from '../components/ProjectAddModal';
 
 /**
  * A page component that renders the ProjectsTable and ShowAddProjectFormButton components.
- * @param {Function} setProject - The function to update the current project.
- * @param {Object[]} projects - The array of projects.
+ * @param {Function} props.setProject - The function to update the current project.
+ * @param {Object[]} props.projects - The array of projects.
  * @returns {JSX.Element} The JSX element that represents the ProjectsPage component.
  */
 export const ProjectsPage = ({setProject, projects}) => {

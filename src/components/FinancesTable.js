@@ -3,7 +3,7 @@ import { useState } from "react";
 
 /**
  * A React component that displays a table of finances.
- * @param {Array} finances - The array of finances to be displayed.
+ * @param {Array} props.finances - The array of finances to be displayed.
  * @returns {JSX.Element} The JSX element representing the finances table.
  */
 export const FinancesTable = ({finances}) => {
