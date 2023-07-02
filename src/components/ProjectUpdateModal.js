@@ -6,6 +6,8 @@ import { ProjectUpdateButton } from './ProjectUpdateButton';
 import { ProjectTypesFetchAsync } from '../actions/ProjectTypesAsyncLoader';
 import { GroupsFetchAsync } from '../actions/GroupsAsyncLoader';
 import { FinancesEditTable } from './FinancesEditTable';
+import ProjectNameInput from './ProjectNameInput';
+import ProjectTypeSelect from './ProjectTypeSelect';
 
 /**
  * A React component that represents a button for updating a project.
@@ -51,6 +53,14 @@ export const ProjectUpdateModalButton = ({ project, finances }) => {
     setShowModal(!showModal);
   };
 
+  const handleSetName = (name) => {
+    setName(name)
+  };
+
+  const handleTypeChange = (type) => {
+    setProjectType(type);
+  }
+
   return (
     <>
       <button
@@ -74,33 +84,16 @@ export const ProjectUpdateModalButton = ({ project, finances }) => {
         <Modal.Body>
           <Form.Group>
             <Form.Label>Project name:</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder={newProject.name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            />
+            <ProjectNameInput placeholder={name} onChange={handleSetName}/>
           </Form.Group>
           <Form.Group>
             <Form.Label>Type:</Form.Label>
-            <Form.Select
-              value={newProject.projectType}
-              onChange={(e) => {
-                setProjectType(e.target.value);
-              }}
-            >
-              {projectTypes.map((type) => (
-                <option key={type.id} value={type.id}>
-                  {type.name}
-                </option>
-              ))}
-            </Form.Select>
+            <ProjectTypeSelect onChange={handleTypeChange} value ={projectType} types={projectTypes}/>
           </Form.Group>
           <Form.Group>
             <Form.Label>Team:</Form.Label>
             <Form.Select
-              value={newProject.team}
+              value={team}
               onChange={(e) => {
                 setTeam(e.target.value);
               }}

@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
  * @param {string} props.next - The ID of the next milestone.
  * @returns {JSX.Element} The JSX element representing the link add button.
  */
-export const LinkAddButton = ({ disabled, previous, next }) => {
+const LinkAddButton = ({ disabled, previous, next }) => {
   const dispatch = useDispatch();
 
   return (
@@ -23,3 +23,5 @@ export const LinkAddButton = ({ disabled, previous, next }) => {
     </button>
   );
 };
+
+export default LinkAddButton;

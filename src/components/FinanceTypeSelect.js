@@ -1,4 +1,4 @@
-import { FinanceTypesQuery } from "../queries/FinanceTypesQuery";
+import { FinanceTypesFetchAsync } from "../actions/FinanceTypesAsyncLoader";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
  * @param {function} props.onChange - The function called when the selected type changes.
  * @returns {JSX.Element} The JSX element representing the finance type select.
  */
-export const FinanceSelect = ({ onChange }) => {
+const FinanceSelect = ({ onChange }) => {
   const dispatch = useDispatch();
   const [selectedType, setSelectedType] = useState("");
   const [financeTypes, setFinanceTypes] = useState([]);
@@ -21,31 +21,18 @@ export const FinanceSelect = ({ onChange }) => {
     setSelectedType(selectedType);
   };
 
+  const handleTypesFetch = (types) => {
+    setFinanceTypes(types);
+  }
+
   useEffect(() => {
     // Call the onChange function with the selected type whenever it changes
     onChange(selectedType);
   }, [selectedType, onChange]);
 
   useEffect(() => {
-    dispatch(FinanceTypesQueryAsync());
-  }, [dispatch]);
-
-  /**
-   * Asynchronous action creator for fetching finance types.
-   */
-  const FinanceTypesQueryAsync = () => (dispatch, getState) => {
-    // Call the FinanceTypesQuery function to fetch finance types
-    FinanceTypesQuery()
-      .then((response) => response.json())
-      .then((json) => {
-        // Extract the financeTypes data from the JSON response
-        const financeTypes = json.data?.financeTypePage;
-        if (financeTypes) {
-          setFinanceTypes(financeTypes);
-        }
-        return json;
-      });
-  };
+    dispatch(FinanceTypesFetchAsync(handleTypesFetch));
+  },);
 
   return (
     <select className="form-select form-select-sm" value={selectedType} onChange={handleTypeChange}>
@@ -58,3 +45,5 @@ export const FinanceSelect = ({ onChange }) => {
     </select>
   );
 };
+
+export default FinanceSelect;

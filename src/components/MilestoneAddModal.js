@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Form } from 'react-bootstrap';
-import { MilestoneAddButton } from './MilestoneAddButton';
+import MilestoneAddButton from './MilestoneAddButton';
 
 /**
  * A React component that represents a button for inserting a new milestone.

@@ -7,7 +7,7 @@ import { MilestoneAsyncInsert } from '../actions/MilestoneAsyncInsert';
  * @param {Function} props.onClick - The click event handler.
  * @returns {JSX.Element} The rendered component.
  */
-export const MilestoneAddButton = ({ milestone, onClick }) => {
+const MilestoneAddButton = ({ milestone, onClick }) => {
   const dispatch = useDispatch();
 
   const handleOnClick = () => {
@@ -21,3 +21,5 @@ export const MilestoneAddButton = ({ milestone, onClick }) => {
     </button>
   );
 };
+
+export default MilestoneAddButton;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/ProjectGanttChart.js</title>
+    <title>JSDoc: Source: components/FinanceAmountInput.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/ProjectGanttChart.js</h1>
+    <h1 class="page-title">Source: components/FinanceAmountInput.js</h1>
 
     
 
@@ -26,54 +26,21 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { Gantt } from 'gantt-task-react';
-import Card from "react-bootstrap/Card";
-import "gantt-task-react/dist/index.css";
-// Using MaTeMaTuK library https://github.com/MaTeMaTuK/gantt-task-react
+            <pre class="prettyprint source linenums"><code>import { Form } from 'react-bootstrap';
 
 /**
- * A React component that represents a Gantt chart for a project.
- * @param {Array} props.projects - The array of all projects.
- * @param {string} props.projectId - The ID of the project.
- * @returns {JSX.Element} The JSX element representing the Gantt chart.
+ * A reusable input component for entering finance amounts.
+ * @param {Object} props - The component props.
+ * @param {function} props.onChange - The callback function to handle input change.
+ * @returns {JSX.Element} The JSX element representing the finance amount input.
  */
-export const ProjectGanttChart = ({ projects, projectId }) => {
-  // Find the project with the matching projectId from the projects array
-  const project = projects.find((p) => p.id === projectId);
-
-  // Create the tasks array for the Gantt chart
-  const mainProject = {
-    start: new Date(project.startdate),
-    end: new Date(project.enddate),
-    name: project.name,
-    id: project.id,
-    type: 'project',
-    progress: 0,
-  };
-
-  let tasks = project.milestones.map((milestone) => ({
-    start: new Date(milestone.startdate),
-    end: new Date(milestone.enddate),
-    name: milestone.name,
-    id: milestone.id,
-    type: 'task',
-    progress: 0,
-    dependencies: milestone.previous.map((previous) => previous.id),
-  }));
-  
-  tasks = [mainProject, ...tasks];
-
+const FinanceAmountInput = ({ onChange }) => {
   return (
-    &lt;div className='container my-5'>
-      &lt;Card>
-        &lt;Card.Header className='h3 text-start'>
-          Gantt Chart
-        &lt;/Card.Header>
-        &lt;Gantt tasks={tasks} viewMode={"Week"} />
-      &lt;/Card>
-    &lt;/div>
+    &lt;Form.Control type="number" placeholder={0} onChange={(e) => { onChange(e.target.value) }} />
   );
-}
+};
+
+export default FinanceAmountInput;
 </code></pre>
         </article>
     </section>

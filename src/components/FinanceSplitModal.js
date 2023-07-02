@@ -3,7 +3,9 @@ import { Modal, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { FinanceTypesFetchAsync } from '../actions/FinanceTypesAsyncLoader';
 import { CurrencyExchange } from "react-bootstrap-icons";
-import { FinanceSplitButton } from './FinanceSplitButton';
+import FinanceSplitButton from './FinanceSplitButton';
+import FinanceNameInput from './FinanceNameInput';
+import FinanceAmountInput from './FinanceAmountInput';
 
 /**
  * A React component that represents a button for inserting a new finance.
@@ -32,6 +34,14 @@ export const FinanceSplitModalButton = ({ finance }) => {
     setShowModal(!showModal);
   }
 
+  const handleSetName = (name) => {
+    setNewName(name);
+  }
+
+  const handleAmountChange = (amount) => {
+    setNewAmount(amount);
+  }
+
   const newFinance = {
     name: newName,
     type: financeType,
@@ -40,7 +50,7 @@ export const FinanceSplitModalButton = ({ finance }) => {
 
   return (
     <>
-      <button className="btn btn-outline-success btn-sm" onClick={() => { dispatch(FinanceTypesFetchAsync({ setFinanceTypes: handleTypesRequest })); setShowModal(true) }}>
+      <button className="btn btn-outline-success btn-sm" onClick={() => { dispatch(FinanceTypesFetchAsync(handleTypesRequest)); setShowModal(true) }}>
         <CurrencyExchange />
       </button>
 
@@ -57,7 +67,7 @@ export const FinanceSplitModalButton = ({ finance }) => {
           </Form.Group>
           <Form.Group>
             <Form.Label className='mt-2'><b>New finance name:</b></Form.Label>
-            <Form.Control type="text" placeholder={"Splited finance"} onChange={(e) => { setNewName(e.target.value) }} />
+            <FinanceNameInput placeholder={"New finance name"} onChange={handleSetName}/>
           </Form.Group>
           <Form.Group>
             <Form.Label className='mt-2'><b>New finance type:</b></Form.Label>
@@ -67,7 +77,7 @@ export const FinanceSplitModalButton = ({ finance }) => {
           </Form.Group>
           <Form.Group>
             <Form.Label className='mt-2'><b>Amount to be transferred:</b></Form.Label>
-            <Form.Control type="number" placeholder={0} onChange={(e) => { setNewAmount(e.target.value) }} />
+            <FinanceAmountInput onChange={handleAmountChange}/>
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>

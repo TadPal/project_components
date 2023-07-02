@@ -1,7 +1,7 @@
 import { authorizedFetch } from './authorizedFetch'
 
 
-const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projecttypeId, groupId) => ({
+const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projecttypeId, team) => ({
     "query":
         `mutation (
           $lastchange: DateTime!
@@ -40,7 +40,7 @@ const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projectty
           startdate: startdate,
           enddate: enddate,
           projecttypeId: projecttypeId,
-          groupId: groupId,
+          groupId: team,
         }
 })
 
@@ -53,10 +53,10 @@ const ProjectMutationJSON = (id, name, lastchange, startdate, enddate, projectty
  * @param {string} startdate - The updated start date of the project.
  * @param {string} enddate - The updated end date of the project.
  * @param {string} projecttypeId - The ID of the updated project type.
- * @param {string} groupId - The ID of the updated group.
+ * @param {string} team - The ID of the updated group.
  * @returns {Promise<Response>} A promise representing the project update request.
  */
-export const ProjectUpdate = (projectId, name, lastchange, startdate, enddate, projecttypeId, groupId) =>
+export const ProjectUpdate = (projectId, name, lastchange, startdate, enddate, projecttypeId, team) =>
     authorizedFetch('/gql', {
-        body: JSON.stringify(ProjectMutationJSON(projectId, name, lastchange, startdate, enddate, projecttypeId, groupId)),
+        body: JSON.stringify(ProjectMutationJSON(projectId, name, lastchange, startdate, enddate, projecttypeId, team)),
     })

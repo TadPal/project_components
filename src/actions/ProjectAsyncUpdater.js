@@ -10,13 +10,13 @@ import { updateProject } from '../features/projectsSlice';
  * @param {string} startdate - Start date of the project.
  * @param {string} enddate - End date of the project.
  * @param {string} projecttypeId - ID of the project type.
- * @param {string} groupId - ID of the group associated with the project.
+ * @param {string} team - ID of the group associated with the project.
  * @returns {Function} A function that accepts the 'dispatch' and 'getState' functions from Redux.
  */
 export const ProjectUpdateAsync = ({project}) => (dispatch, getState) => {
   console.log(project);
   return (
-  ProjectUpdate(project.id, project.name, project.lastchange, project.startdate, project.enddate, project.projectType, project.groupId)
+  ProjectUpdate(project.id, project.name, project.lastchange, project.startdate, project.enddate, project.projectType, project.team)
     .then(response => response.json())
     .then(json => {
       const message = json.data?.projectUpdate.msg

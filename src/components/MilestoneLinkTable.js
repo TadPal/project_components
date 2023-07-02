@@ -1,5 +1,5 @@
-import { LinkAddButton } from "./LinkAddButton";
-import { LinkRemoveButton } from "./LinkRemoveButton";
+import LinkAddButton from "./LinkAddButton";
+import LinkRemoveButton from "./LinkRemoveButton";
 
 /**
  * A React component that represents a table of milestone links.

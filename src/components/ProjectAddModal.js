@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { ProjectTypesFetchAsync } from '../actions/ProjectTypesAsyncLoader';
 import { GroupsFetchAsync } from '../actions/GroupsAsyncLoader';
 import { ProjectAddButton } from './ProjectAddButton';
+import ProjectNameInput from './ProjectNameInput';
+import ProjectTypeSelect from './ProjectTypeSelect';
 
 /**
  * A React component that represents a button for inserting a new project.
@@ -55,6 +57,14 @@ export const ProjectInsertButton = () => {
     setShowModal(!showModal)
   }
 
+  const handleSetName = (name) => {
+    setName(name)
+  }
+
+  const handleTypeChange = (type) => {
+    setProjectType(type);
+  }
+
   return (
     <>
       <button className="btn btn-outline-success btn-sm my-2" onClick={() => {setShowModal(true); dispatch(ProjectTypesFetchAsync({setProjectTypes: handleTypesRequest})); dispatch(GroupsFetchAsync({setTeams: handleGroupRequest}))}}>
@@ -69,13 +79,11 @@ export const ProjectInsertButton = () => {
         <Modal.Body>
           <Form.Group>
             <Form.Label>Project name:</Form.Label>
-            <Form.Control type="text" placeholder="Enter project name" onChange={(e) => {setName(e.target.value)}} />
+            <ProjectNameInput placeholder={"Enter project name"} onChange={handleSetName}/>
           </Form.Group>
           <Form.Group>
             <Form.Label>Type:</Form.Label>
-            <Form.Select onChange={(e) => {setProjectType(e.target.value)}}>
-              {projectTypes.map((type) => <option key={type.id} value={type.id}>{type.name}</option>)}
-            </Form.Select>
+            <ProjectTypeSelect onChange={handleTypeChange} value ={projectType} types={projectTypes}/>
           </Form.Group>
           <Form.Group>
             <Form.Label>

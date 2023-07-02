@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
  * @param {Function} props.onClick - The click event handler.
  * @returns {JSX.Element} The rendered component.
  */
-export const FinanceSplitButton = ({ newFinance, finance, onClick }) => {
+const FinanceSplitButton = ({ newFinance, finance, onClick }) => {
   const dispatch = useDispatch();
 
   const handleFinanceSplit = () => {
@@ -38,3 +38,5 @@ export const FinanceSplitButton = ({ newFinance, finance, onClick }) => {
     </button>
   );
 };
+
+export default FinanceSplitButton;

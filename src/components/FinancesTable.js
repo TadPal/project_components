@@ -1,4 +1,4 @@
-import { FinanceSelect } from "./FinanceTypeSelect";
+import FinanceSelect from "./FinanceTypeSelect";
 import { useState } from "react";
 
 /**

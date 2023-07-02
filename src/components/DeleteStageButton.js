@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
  * @param {string} props.stageId - ID of the stage to be deleted.
  * @returns {JSX.Element} - The rendered component
  */
-export const DeleteStageButton = ({ stageId }) => {
+const DeleteStageButton = ({ stageId }) => {
   const [deleteVisibility, setDeleteVisibility] = useState(false);
   const dispatch = useDispatch();
 
@@ -25,3 +25,5 @@ export const DeleteStageButton = ({ stageId }) => {
     );
   }
 };
+
+export default DeleteStageButton;

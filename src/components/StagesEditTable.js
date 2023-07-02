@@ -1,5 +1,5 @@
 import { MilestoneInsertModalButton } from "./MilestoneAddModal";
-import { DeleteStageButton } from "./DeleteStageButton";
+import DeleteStageButton from "./DeleteStageButton";
 import { MilestoneLinkModalButton } from "./MilestoneLinkModal";
 import { MilestoneUpdateModalButton } from "./MilestoneUpdateModal";
 
