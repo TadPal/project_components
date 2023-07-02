@@ -1,6 +1,7 @@
 import { Gantt } from 'gantt-task-react';
 import Card from "react-bootstrap/Card";
 import "gantt-task-react/dist/index.css";
+import React from "react";
 // Using MaTeMaTuK library https://github.com/MaTeMaTuK/gantt-task-react
 
 /**

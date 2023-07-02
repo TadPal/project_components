@@ -1,6 +1,6 @@
 import FinanceSelect from "./FinanceTypeSelect";
 import { FinanceProjectSelect } from "./FinanceProjectSelect";
-import { useState } from "react";
+import React, { useState } from "react";
 
 /**
  * A React component that displays a table of finances with filtering options.

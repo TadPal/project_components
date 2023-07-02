@@ -1,5 +1,6 @@
 import { ProjectCard } from '../components/ProjectCard';
 import { ProjectGanttChart } from '../components/ProjectGanttChart';
+import React from "react";
 
 /**
  * A page component that displays the details of a specific project.

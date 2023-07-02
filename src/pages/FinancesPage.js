@@ -1,5 +1,6 @@
 import { FinancesTableMain } from '../components/FinancesTableMain';
 import Card from "react-bootstrap/Card";
+import React from "react";
 
 /**
  * A React component that displays the finances page.

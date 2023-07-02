@@ -1,5 +1,6 @@
 import FinanceSelect from "./FinanceTypeSelect";
 import { useState } from "react";
+import React from "react";
 
 /**
  * A React component that displays a table of finances.

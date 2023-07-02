@@ -2,6 +2,7 @@ import Card from "react-bootstrap/Card";
 import { StagesTable } from "./StagesTable";
 import { FinancesTable } from "./FinancesTable";
 import { ProjectUpdateModalButton } from "./ProjectUpdateModal";
+import React from "react";
 
 /**
  * A React component that represents a project card.

@@ -1,6 +1,7 @@
 import { ProjectsTable } from '../components/ProjectsTable';
 import Card from "react-bootstrap/Card";
 import { ProjectInsertButton } from '../components/ProjectAddModal';
+import React from "react";
 
 /**
  * A page component that renders the ProjectsTable and ShowAddProjectFormButton components.
@@ -10,7 +11,7 @@ import { ProjectInsertButton } from '../components/ProjectAddModal';
  */
 export const ProjectsPage = ({setProject, projects}) => {
 
-    if (projects.length > 0) {
+    if (projects?.length > 0) {
         return(
             <div className='container my-2'>
                 <Card>

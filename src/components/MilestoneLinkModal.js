@@ -2,6 +2,7 @@ import { Modal } from 'react-bootstrap';
 import { useState } from "react";
 import { MilestoneLinkTable } from './MilestoneLinkTable';
 import { ShareFill } from 'react-bootstrap-icons';
+import React from "react";
 
 /**
  * A React component that represents a button for inserting a new milestone link.

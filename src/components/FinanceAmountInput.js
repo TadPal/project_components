@@ -1,4 +1,5 @@
 import { Form } from 'react-bootstrap';
+import React from "react";
 
 /**
  * A reusable input component for entering finance amounts.

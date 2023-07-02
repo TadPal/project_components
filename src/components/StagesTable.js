@@ -1,4 +1,5 @@
 import { v1 as uuid } from 'uuid';
+import React from "react";
 
 /**
  * A React component that represents a table of stages.

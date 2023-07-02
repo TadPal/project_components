@@ -1,5 +1,6 @@
 import { MilestoneLinkAsyncInsert } from "../actions/MilestoneLinkAsyncInserter";
 import { useDispatch } from "react-redux";
+import React from "react";
 
 /**
  * A React component that represents a button for adding a milestone link.

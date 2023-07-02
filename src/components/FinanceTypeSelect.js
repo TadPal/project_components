@@ -1,5 +1,5 @@
 import { FinanceTypesFetchAsync } from "../actions/FinanceTypesAsyncLoader";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 /**

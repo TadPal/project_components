@@ -2,6 +2,7 @@ import { MilestoneInsertModalButton } from "./MilestoneAddModal";
 import DeleteStageButton from "./DeleteStageButton";
 import { MilestoneLinkModalButton } from "./MilestoneLinkModal";
 import { MilestoneUpdateModalButton } from "./MilestoneUpdateModal";
+import React from "react";
 
 /**
  * A React component that represents a table for editing stages.

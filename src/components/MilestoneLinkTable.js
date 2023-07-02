@@ -1,5 +1,6 @@
 import LinkAddButton from "./LinkAddButton";
 import LinkRemoveButton from "./LinkRemoveButton";
+import React from "react";
 
 /**
  * A React component that represents a table of milestone links.

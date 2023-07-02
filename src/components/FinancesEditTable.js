@@ -1,4 +1,5 @@
 import { FinanceSplitModalButton } from "./FinanceSplitModal";
+import React from "react";
 
 /**
  * A React component that renders a table to edit finances.

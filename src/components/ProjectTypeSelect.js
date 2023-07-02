@@ -1,4 +1,5 @@
 import { Form } from 'react-bootstrap';
+import React from "react";
 
 /**
  * A reusable select component for choosing project types.

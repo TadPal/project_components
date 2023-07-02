@@ -1,5 +1,6 @@
 import { CheckDate } from "../utilities/CheckDate";
 import { CardText } from "react-bootstrap-icons";
+import React from "react";
 
 /**
  * A table component used to visualize a list of projects.

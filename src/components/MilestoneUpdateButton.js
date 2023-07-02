@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { MilestoneAsyncUpdate } from '../actions/MilestoneAsyncUpdater';
+import React from "react";
 
 /**
  * Renders a button component for updating a milestone.

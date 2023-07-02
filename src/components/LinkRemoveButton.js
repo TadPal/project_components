@@ -1,5 +1,6 @@
 import { MilestoneLinkAsyncRemove } from "../actions/MilestoneLinkAsyncRemover";
 import { useDispatch } from "react-redux";
+import React from "react";
 
 /**
  * A React component that represents a button for removing a milestone link.
