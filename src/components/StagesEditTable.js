@@ -3,8 +3,6 @@ import DeleteStageButton from "./DeleteStageButton";
 import { MilestoneLinkModalButton } from "./MilestoneLinkModal";
 import { MilestoneUpdateModalButton } from "./MilestoneUpdateModal";
 import React from "react";
-import { useDispatch } from "react-redux"
-import { MilestoneDeleteAsync } from "../actions/MilestoneAsyncDeleter"
 
 /**
  * A React component that represents a table for editing stages.
@@ -66,12 +64,6 @@ export const StagesEditTable = ({ milestones, project }) => {
  * @returns {JSX.Element} The JSX element representing a stage row.
  */
 const StageRow = ({ name, start, end, milestone, milestones }) => {
-
-  const dispatch = useDispatch();
-  const handleOnDelete = (stageId) => {
-    dispatch(MilestoneDeleteAsync(stageId));
-  }
-
   return (
     <tr>
         <td>{name}</td>
@@ -79,7 +71,7 @@ const StageRow = ({ name, start, end, milestone, milestones }) => {
         <td>{end}</td>
         <td><MilestoneLinkModalButton milestones={milestones} milestone={milestone}/></td>
         <td><MilestoneUpdateModalButton milestone={milestone}/></td>
-        <td><DeleteStageButton stageId={milestone.id} onDelete={handleOnDelete}/></td>
+        <td><DeleteStageButton stageId={milestone.id}/></td>
     </tr>
   );
 };

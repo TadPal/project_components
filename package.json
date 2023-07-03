@@ -1,6 +1,6 @@
 {
   "name": "uo_project_components",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "proxy": "http://localhost:31180/",
   "homepage": "/ui",
   "private": false,
@@ -36,7 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish:npm": "babel src/components -d dist/components --copy-files && babel src/actions -d dist/actions --copy-files && babel src/utilities -d dist/utilities --copy-files && babel src/features -d dist/features --copy-files && babel src/pages -d dist/pages --copy-files && babel src/queries -d dist/queries --copy-files && babel src/store -d dist/store --copy-files"
+    "publish:npm": "babel src/components -d dist/components --copy-files   && babel src/actions -d dist/actions --copy-files && babel src/utilities -d dist/utilities --copy-files && babel src/features -d dist/features --copy-files && babel src/pages -d dist/pages --copy-files && babel src/queries -d dist/queries --copy-files && babel src/store -d dist/store --copy-files"
   },
   "eslintConfig": {
     "extends": [
