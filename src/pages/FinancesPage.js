@@ -10,7 +10,7 @@ import React from "react";
  */
 export const FinancesPage = ({finances, projects}) => {
 
-  if (finances.length > 0) {
+  if (finances?.length > 0) {
     // If there are finances, render the FinancesTableMain component
     return (
       <div className='container my-5'>

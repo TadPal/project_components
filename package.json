@@ -1,6 +1,6 @@
 {
   "name": "uo_project_components",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "proxy": "http://localhost:31180/",
   "homepage": "/ui",
   "private": false,
