@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 /**
  * A React component that represents a select input for filtering finances by type.
+ * @function
  * @param {function} props.onChange - The function called when the selected type changes.
  * @returns {JSX.Element} The JSX element representing the finance type select.
  */

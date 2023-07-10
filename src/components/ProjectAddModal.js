@@ -9,6 +9,7 @@ import ProjectTypeSelect from './ProjectTypeSelect';
 
 /**
  * A React component that represents a button for inserting a new project.
+ * @function
  * @returns {JSX.Element} The JSX element representing the project insert button.
  */
 export const ProjectInsertButton = () => {

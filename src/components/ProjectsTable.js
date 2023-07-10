@@ -4,6 +4,7 @@ import React from "react";
 
 /**
  * A table component used to visualize a list of projects.
+ * @function
  * @param {Array} props.projects - An array of project objects to be displayed in the table.
  * @param {Function} props.setProject
  * @returns {JSX.Element} - Table component

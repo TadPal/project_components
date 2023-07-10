@@ -6,6 +6,7 @@ import React from "react";
 
 /**
  * A React component that represents a table for editing stages.
+ * @function
  * @param {Array} props.milestones - The array of milestones/stages.
  * @param {string} props.project - The project ID.
  * @returns {JSX.Element} The JSX element representing the stages edit table.

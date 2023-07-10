@@ -6,6 +6,7 @@ import React from "react";
 
 /**
  * A React component that represents a Gantt chart for a project.
+ * @function
  * @param {Array} props.projects - The array of all projects.
  * @param {string} props.projectId - The ID of the project.
  * @returns {JSX.Element} The JSX element representing the Gantt chart.

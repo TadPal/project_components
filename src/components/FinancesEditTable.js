@@ -3,6 +3,7 @@ import React from "react";
 
 /**
  * A React component that renders a table to edit finances.
+ * @function
  * @param {Array} props.finances - An array of finance objects.
  * @returns {JSX.Element} Finances table JSX element.
  */

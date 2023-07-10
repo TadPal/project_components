@@ -3,6 +3,7 @@ import React from "react";
 
 /**
  * A React component that renders a dropdown select menu for selecting a finance project.
+ * @function
  * @param {Object[]} props.projects - An array of project objects.
  * @param {Function} props.onChange - A function to be called when the selected project changes.
  */

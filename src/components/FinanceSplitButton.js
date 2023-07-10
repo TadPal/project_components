@@ -4,6 +4,7 @@ import React from "react";
 
 /**
  * Renders a button component for finance split operation.
+ * @function
  * @param {Object} props.newFinance - The new finance object.
  * @param {Object} props.finance - The existing finance object.
  * @param {Function} props.onClick - The click event handler.

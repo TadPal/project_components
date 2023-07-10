@@ -11,6 +11,7 @@ import ProjectTypeSelect from './ProjectTypeSelect';
 
 /**
  * A React component that represents a button for updating a project.
+ * @function
  * @param {Object} props.project - The project object to be updated.
  * @param {Array} props.finances - The array of financial data for the project.
  * @returns {JSX.Element} The JSX element representing the project update button.

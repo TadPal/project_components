@@ -9,6 +9,7 @@ import FinanceAmountInput from './FinanceAmountInput';
 
 /**
  * A React component that represents a button for inserting a new finance.
+ * @function
  * @param {Object} props.finance - The finance object to be split.
  * @returns {JSX.Element} The JSX element representing the finance split button.
  */

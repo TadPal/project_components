@@ -6,6 +6,7 @@ import React from "react";
 
 /**
  * A React component that represents a project card.
+ * @function
  * @param {string} props.projectId - The ID of the project.
  * @param {Object} props.projects - The object containing all projects.
  * @param {Function} props.setProject - The function to update the current project.

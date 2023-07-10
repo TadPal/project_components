@@ -3,6 +3,7 @@ import React from "react";
 
 /**
  * A React component that represents a table of stages.
+ * @function
  * @param {Array} props.milestones - The array of milestones/stages.
  * @returns {JSX.Element} The JSX element representing the stages edit table.
  */

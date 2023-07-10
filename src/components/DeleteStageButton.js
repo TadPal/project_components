@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 
 /**
  * A React component that renders a delete button for a stage.
+ * @function
  * @param {string} props.stageId - ID of the stage to be deleted.
  * @returns {JSX.Element} - The rendered component
  */

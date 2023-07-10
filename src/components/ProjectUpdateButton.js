@@ -4,6 +4,7 @@ import React from "react";
 
 /**
  * Renders a button component for updating a project.
+ * @function
  * @param {Object} project - The project object to be updated.
  * @param {Function} onClick - The click event handler.
  * @returns {JSX.Element} The rendered component.

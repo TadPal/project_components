@@ -3,6 +3,7 @@ import React from "react";
 
 /**
  * A reusable input component for entering finance amounts.
+ * @function
  * @param {Object} props - The component props.
  * @param {function} props.onChange - The callback function to handle input change.
  * @returns {JSX.Element} The JSX element representing the finance amount input.

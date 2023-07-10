@@ -3,6 +3,7 @@ import React from "react";
 
 /**
  * A reusable select component for choosing project types.
+ * @function
  * @param {Object} props - The component props.
  * @param {string} props.value - The currently selected value.
  * @param {function} props.onChange - The callback function to handle value change.

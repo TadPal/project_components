@@ -4,6 +4,7 @@ import React from "react";
 
 /**
  * A React component that represents a button for adding a milestone link.
+ * @function
  * @param {boolean} props.disabled - Indicates whether the button is disabled.
  * @param {string} props.previous - The ID of the previous milestone.
  * @param {string} props.next - The ID of the next milestone.

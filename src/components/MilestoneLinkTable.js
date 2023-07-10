@@ -4,6 +4,7 @@ import React from "react";
 
 /**
  * A React component that represents a table of milestone links.
+ * @function
  * @param {Object} props.milestone - The milestone object.
  * @param {Object[]} props.milestones - The array of milestones.
  * @returns {JSX.Element} The JSX element representing the milestone link table.

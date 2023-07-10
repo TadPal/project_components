@@ -4,6 +4,7 @@ import React from "react";
 
 /**
  * Renders a button component for adding a project.
+ * @function
  * @param {Object} props.project - The project object to be added.
  * @param {Function} props.onClick - The click event handler.
  * @returns {JSX.Element} The rendered component.

@@ -3,6 +3,7 @@ import React from "react";
 
 /**
  * A reusable input component for entering project names.
+ * @function
  * @param {Object} props - The component props.
  * @param {function} props.onChange - The callback function to handle input change.
  * @param {string} props.placeholder - The placeholder text for the input field.
