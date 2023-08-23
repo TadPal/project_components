@@ -33,7 +33,7 @@ const FinanceSelect = ({ onChange }) => {
 
   useEffect(() => {
     dispatch(FinanceTypesFetchAsync(handleTypesFetch));
-  },);
+  },[]);
 
   return (
     <select className="form-select form-select-sm" value={selectedType} onChange={handleTypeChange}>
